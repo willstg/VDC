@@ -1,0 +1,943 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "baseUrl": {
+      "defaultValue": "https://gallery.azure.com/artifact/20151001/cisco.cisco-adaptive-security-appliancecisco-asav-four-nic-byol.1.0.5/Artifacts",
+      "type": "string",
+      "metadata": {
+        "artifactsBaseUrl": "",
+        "description": "URL to acquire other templates"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "southcentralus",
+      "metadata": {
+        "description": "Deployment location. (example: southcentralus)"
+      }
+    },
+    "ResourceGroupName": {
+      "type": "string",
+      "defaultValue": "vdc_vnet_tx"
+    },
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "vnet_vdc_tx",
+      "metadata": {
+        "description": "AzureFoundation VNET for Virtual Data Center"
+      }
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.0/18",
+      "metadata": {
+        "description": "CIDR prefix for the VNet address space."
+      }
+    },
+    "subnet700Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.0/29",
+      "metadata": {
+        "description": "Subnet for CSR for Inside interface"
+      }
+    },
+    "subnet700Name": {
+      "type": "string",
+      "defaultValue": "CSR_In_700_VDC_prod_tx",
+      "metadata": {
+        "description": "Subnet for CSR for Inside interface"
+      }
+    },
+    "Subnet700VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.4",
+      "metadata": {
+        "description": "CSR_In subnet 700 VNA IP"
+      }
+    },
+    "Subnet700NSG": {
+      "type": "string",
+      "defaultValue": "NSG_CSR_In_700_VDC_prod_tx",
+      "metadata": {
+        "description": "700: CSR_In, Tier (0) Subnet for CSR for Inside in"
+      }
+    },
+
+
+    "subnet701Name": {
+      "type": "string",
+      "defaultValue": "CSR_Out_701_VDC_prod_tx",
+      "metadata": {
+        "description": "Subnet for CSR for Outside"
+      }
+    },
+    "Subnet701VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.12",
+      "metadata": {
+        "description": "CSR_Out subnet 701 VNA IP"
+      }
+    },
+    "subnet701NSG": {
+      "type": "string",
+      "defaultValue": "NSG_CSR_Out_701_VDC_prod_tx",
+      "metadata": {
+        "description": "701: CSR_Out, Tier (0) Subnet for CSR for Outside"
+      }
+    },
+
+    "subnet702Name": {
+      "type": "string",
+      "defaultValue": "CSR_Tunnel_702_VDC_prod_tx",
+      "metadata": {
+        "description": "Subnet for the CSR Tunnel"
+      }
+    },
+
+    "Subnet702VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.20",
+      "metadata": {
+        "description": "CSR_Tunnel subnet 702 VNA IP"
+      }
+    },
+    "subnet702NSG": {
+      "type": "string",
+      "defaultValue": "NSG_CSR_Tunnel_702_VDC_prod_tx",
+      "metadata": {
+        "description": "702: CSR_Tunnel, Tier (0) Subnet for the CSR Tunne"
+      }
+    },
+
+    "subnet703Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.24/29",
+      "metadata": {
+        "description": "Failover subnet"
+      }
+    },
+    "subnet703Name": {
+      "type": "string",
+      "defaultValue": "CSR_HA_703_VDC_prod_tx",
+      "metadata": {
+        "description": "Failover subnet"
+      }
+    },
+
+    "subnet703NSG": {
+      "type": "string",
+      "defaultValue": "NSG_CSR_HA_703_VDC_prod_tx",
+      "metadata": {
+        "description": "703: CSR_HA, Tier (0) Failover subnet"
+      }
+    },
+    "subnet704Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.32/28",
+      "metadata": {
+        "description": "ExpressRoute Termination"
+      }
+    },
+    "subnet704Name": {
+      "type": "string",
+      "defaultValue": "ER_704_VDC_Srvcs_TX",
+      "metadata": {
+        "description": "ASA trusted inside environment"
+      }
+    },
+    "subnet704NSG": {
+      "type": "string",
+      "defaultValue": "NSG_ER_704_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "704: ER, Tier (0) ExpressRoute Termination"
+      }
+    },
+    "subnet101Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.64/29",
+      "metadata": {
+        "description": "ASA "
+      }
+    },
+    "subnet101Name": {
+      "type": "string",
+      "defaultValue": "IntASA_Mgnt_101_VDC_prod_TX",
+      "metadata": {
+        "description": "ASA management interface"
+      }
+    },
+    "subnet101NSG": {
+      "type": "string",
+      "defaultValue": "NSG_IntASA_Mgnt_101_VDC_prod_TX",
+      "metadata": {
+        "description": "101: IntASA_Mgnt, Tier (0) ASA management interfac"
+      }
+    },
+    "subnet102Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.72/29",
+      "metadata": {
+        "description": "ASA Inside Interface"
+      }
+    },
+    "subnet102Name": {
+      "type": "string",
+      "defaultValue": "IntASA_In_102_VDC_prod_TX",
+      "metadata": {
+        "description": "ASA Inside Interface"
+      }
+    },
+
+    "subnet102NSG": {
+      "type": "string",
+      "defaultValue": "NSG_IntASA_In_102_VDC_prod_TX",
+      "metadata": {
+        "description": "102: IntASA_In, Tier (0) ASA Inside Interface"
+
+      }
+    },
+    "subnet103Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.80/29",
+      "metadata": {
+        "description": "ASA Outside Interface"
+
+      }
+    },
+    "subnet103Name": {
+      "type": "string",
+      "defaultValue": "IntASA_Out_103_VDC_prod_TX",
+      "metadata": {
+        "description": "ASA Outside Interface"
+
+      }
+    },
+
+    "subnet103NSG": {
+      "type": "string",
+      "defaultValue": "NSG_IntASA_Out_103_VDC_prod_TX",
+      "metadata": {
+        "description": "103: IntASA_Out, Tier (0) ASA Outside Interface"
+      }
+    },
+    "subnet104Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.80/29",
+      "metadata": {
+        "description": "ASA DMZ interface"
+      }
+    },
+    "subnet104Name": {
+      "type": "string",
+      "defaultValue": "IntASA_DMZ_104_VDC_prod_TX",
+      "metadata": {
+        "description": "ASA DMZ interface"
+      }
+    },
+    "subnet104NSG": {
+      "type": "string",
+      "defaultValue": "NSG_IntASA_DMZ_104_VDC_prod_TX",
+      "metadata": {
+        "description": "104: IntASA_Out, Tier (0) ASA Internet interface"
+      }
+    },
+
+    "subnet106Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.112/29",
+      "metadata": {
+        "description": "ASA management interface"
+      }
+    },
+    "subnet106Name": {
+      "type": "string",
+      "defaultValue": "ExtASA_Mgnt_106_VDC_prod_TX",
+      "metadata": {
+        "description": "ASA management interface"
+      }
+    },
+    "subnet107Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.120/29",
+      "metadata": {
+        "description": "ASA Inside Interface"
+      }
+    },
+    "subnet107Name": {
+      "type": "string",
+      "defaultValue": "ExtASA_In_107_VDC_prod_TX",
+      "metadata": {
+        "description": "ASA Inside Interface"
+      }
+    },
+    "subnet108Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.128/29",
+      "metadata": {
+        "description": "ASA Outside Interface"
+      }
+    },
+    "subnet108Name": {
+      "type": "string",
+      "defaultValue": "ExtASA_Out_108_VDC_prod_TX",
+      "metadata": {
+        "description": "ASA Outside Interface"
+      }
+    },
+    "subnet109Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.136/29",
+      "metadata": {
+        "description": "ASA DMZ interface"
+      }
+    },
+    "subnet109Name": {
+      "type": "string",
+      "defaultValue": "ExtASA_DMZ_109_VDC_prod_TX",
+      "metadata": {
+        "description": "ASA DMZ interface"
+      }
+    },
+    "subnet111Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.96/29",
+      "metadata": {
+        "description": "Loadbalancer"
+      }
+    },
+    "subnet111Name": {
+      "type": "string",
+      "defaultValue": "IntLB_111_VDC_prod_TX",
+      "metadata": {
+        "description": "Internal Loadbalancer Virtual Network Appliance"
+      }
+    },
+    "subnet151Name": {
+      "type": "string",
+      "defaultValue": "ExtLB_151_VDC_prod_TX",
+      "metadata": {
+        "description": "Internal Loadbalancer virtual appliance"
+      }
+    },
+    "subnet151Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.96/29",
+      "metadata": {
+        "description": "External Loadbalancer Virtual Network Appliance"
+      }
+    },
+
+    "subnet600Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.56.0/24",
+      "metadata": {
+        "description": "Used to host highly sensitive data that is also highly accessed."
+      }
+    },
+    "subnet600Name": {
+      "type": "string",
+      "defaultValue": "Services_600_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "Used to host highly sensitive data that is also highly accessed."
+      }
+    },
+    "subnet650Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.58.0/24",
+      "metadata": {
+        "description": "Used to host public facing highly accecible workloads"
+      }
+    },
+    "subnet650Name": {
+      "type": "string",
+      "defaultValue": "DMZ_650_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "Used to host public facing highly accecible workloads"
+      }
+    },
+    "subnet651Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.57.0/24",
+      "metadata": {
+        "description": "Loadbalanced Services DMZ systems"
+      }
+    },
+    "subnet651Name": {
+      "type": "string",
+      "defaultValue": "LB_DMZ_651_VDC_Srvcs_TX",
+      "metadata": {
+        "description": "Loadbalanced Services DMZ systems"
+      }
+    },
+    "subnet660Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.59.0/25",
+      "metadata": {
+        "description": "Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other."
+      }
+    },
+    "subnet660Name": {
+      "type": "string",
+      "defaultValue": "User_Tier0_660_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other."
+      }
+    },
+    "subnet661Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.59.0/25",
+      "metadata": {
+        "description": "Tier 1 administrator - manage enterprise servers, services, and applications"
+      }
+    },
+    "subnet661Name": {
+      "type": "string",
+      "defaultValue": "Users_Tier1_661_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "Tier 1 administrator - manage enterprise servers, services, and applications"
+      }
+    },
+    "subnet799Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.248/28",
+      "metadata": {
+        "description": "The Azure gateway network"
+      }
+    },
+    "subnet799Name": {
+      "type": "string",
+      "defaultValue": "GW_799_VDC_gateway_St1",
+      "metadata": {
+        "description": "The Azure gateway network"
+      }
+    },
+
+
+
+    "NSG106Name": {
+      "type": "string",
+      "defaultValue": "NSG_ExtASA_In_106_VDC_prod_tx",
+      "metadata": {
+        "description": "106: ExtASA_In, Tier (0) ASA trusted inside enviro"
+      }
+    },
+    "NSG107Name": {
+      "type": "string",
+      "defaultValue": "NSG_ExtASA_DMZ_107_VDC_prod_tx",
+      "metadata": {
+        "description": "107: ExtASA_DMZ, Tier (0) ASA DMZ Interface"
+      }
+    },
+    "NSG108Name": {
+      "type": "string",
+      "defaultValue": "NSG_ExtASA_Mgmt_108_VDC_prod_tx",
+      "metadata": {
+        "description": "108: ExtASA_Mgmt, Tier (0) ASA management interfac"
+      }
+    },
+    "NSG109Name": {
+      "type": "string",
+      "defaultValue": "NSG_ExtASA_Out_109_VDC_prod_tx",
+      "metadata": {
+        "description": "109: ExtASA_Out, Tier (0) ASA Internet interface"
+      }
+    },
+    "NSG111Name": {
+      "type": "string",
+      "defaultValue": "NSG_IntLB_111_VDC_prod_tx",
+      "metadata": {
+        "description": "111: IntLB, Tier (0) Loadbalancer"
+      }
+    },
+    "NSG151Name": {
+      "type": "string",
+      "defaultValue": "NSG_ExtLB_151_VDC_prod_tx",
+      "metadata": {
+        "description": "151: ExtLB, Tier (0) Loadbalancer"
+      }
+    },
+    "NSG600Name": {
+      "type": "string",
+      "defaultValue": "NSG_Services_600_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "600: Services, Tier (0) Used to host highly sensit"
+      }
+    },
+    "NSG611Name": {
+      "type": "string",
+      "defaultValue": "NSG_LB_Services_611_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "611: LB_Services, Tier (0) Loadbalanced Services ("
+      }
+    },
+    "NSG650Name": {
+      "type": "string",
+      "defaultValue": "NSG_DMZ_650_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "650: DMZ, Tier (0) Used to host public facing high"
+      }
+    },
+    "NSG651Name": {
+      "type": "string",
+      "defaultValue": "NSG_LB_DMZ_651_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "651: LB_DMZ, Data Tier (0) Loadbalanced Services D"
+      }
+    },
+    "NSG660Name": {
+      "type": "string",
+      "defaultValue": "NSG_User_Tier0_660_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "660: User_Tier0, Tier (0) Tier 0 - Direct Control"
+      }
+    },
+    "NSG661Name": {
+      "type": "string",
+      "defaultValue": "NSG_Users_Tier1_661_VDC_Srvcs_tx",
+      "metadata": {
+        "description": "661: Users_Tier1, Tier (1) Tier 1 administrator"
+      }
+    },
+
+
+    "Subnet703VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.28",
+      "metadata": {
+        "description": "CSR_HA subnet 703 VNA IP"
+      }
+    },
+    "Subnet101VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.68",
+      "metadata": {
+        "description": "IntASA_Mgnt subnet 101 VNA IP"
+      }
+    },
+
+    "Subnet102VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.76",
+      "metadata": {
+        "description": "IntASA_In subnet 102 VNA IP"
+      }
+    },
+    "Subnet103VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.84",
+      "metadata": {
+        "description": "IntASA_Out subnet 103 VNA IP"
+      }
+    },
+    "Subnet104VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.92",
+      "metadata": {
+        "description": "IntASA_DMZ subnet 104 VNA IP"
+
+      }
+    },
+    "Subnet111VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.100",
+      "metadata": {
+        "description": "IntLB subnet 111 VNA IP"
+
+      }
+    },
+    "Subnet106VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.116",
+      "metadata": {
+        "description": "IntASA_Mgnt subnet 106 VNA IP"
+      }
+    },
+    "Subnet107VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.124",
+      "metadata": {
+        "description": "IntASA_In subnet 107 VNA IP"
+
+      }
+    },
+    "Subnet108VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.132",
+      "metadata": {
+        "description": "IntASA_Out subnet 108 VNA IP"
+
+      }
+    },
+    "Subnet109VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.140",
+      "metadata": {
+        "description": "IntASA_DMZ subnet 109 VNA IP"
+      }
+    },
+    "Subnet151VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.148",
+      "metadata": {
+        "description": "ExtLB subnet 151 VNA IP"
+      }
+    },
+    "UDR700Name": {
+      "type": "string",
+      "defaultValue": "UDR_700_CSR_In",
+      "metadata": {
+        "description": "UDR 700: CSR_In"
+      }
+    },
+    "UDR701Name": {
+      "type": "string",
+      "defaultValue": "UDR_701_CSR_Out",
+      "metadata": {
+        "description": "UDR 701: CSR_Out"
+      }
+    },
+    "UDR702Name": {
+      "type": "string",
+      "defaultValue": "UDR_701_CSR_Out",
+      "metadata": {
+        "description": "UDR 701: CSR_Out"
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": "2015-06-15",
+    "templateBaseUrl": "https://raw.githubusercontent.com/willstg/azurefoundation/master/ARM/VNET"
+  },
+  "resources": [
+
+    {
+      "apiVersion": "2015-01-01",
+      "name": "storageTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(variables('templateBaseUrl'),'azuredeploy-storage.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parametersLink": {
+          "uri": "[concat(variables('templateBaseUrl'),'azuredeploy-storage.parameters.json')]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    },
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('vnetName')]",
+      "apiVersion": "[variables('apiVersion')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('subnet700Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet700Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet701Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet701Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet702Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet702Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet703Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet703Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet704Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet704Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet101Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet101Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet102Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet102Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet103Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet103Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet104Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet104Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet105Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet105Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet600Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet600Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet650Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet650Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet660Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet660Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet799Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet799Prefix')]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('NSG108Name')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "ExternalASA "
+      },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "HTTPS.Inbound.Allow",
+            "properties": {
+              "description": "HTTPS.Inbound.Allow",
+              "protocol": "Tcp",
+              "sourcePortRange": "443",
+              "destinationPortRange": "443",
+              "sourceAddressPrefix": "INTERNET",
+              "destinationAddressPrefix": "[parameters('subnet104Prefix')",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            }
+          },
+          {
+            "name": "RDP.Inbound.Allow",
+            "properties": {
+
+              "description": "Allow RDP",
+
+              "protocol": "Tcp",
+
+              "sourcePortRange": "*",
+
+              "destinationPortRange": "3389",
+
+              "sourceAddressPrefix": "Internet",
+
+              "destinationAddressPrefix": "[parameters('subnet660Prefix')",
+
+              "access": "Allow",
+
+              "priority": 200,
+
+              "direction": "Inbound"
+
+            }
+          },
+          {
+            "name": "HTTPS.Inbound.Allow",
+            "properties": {
+              "description": "HTTPS.Inbound.Allow",
+              "protocol": "Tcp",
+              "sourcePortRange": "443",
+              "destinationPortRange": "443",
+              "sourceAddressPrefix": "INTERNET",
+              "destinationAddressPrefix": "[parameters('subnet104Prefix')",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            }
+          }
+      },
+
+      {
+
+        "apiVersion": "2015-06-15",
+
+        "type": "Microsoft.Network/routeTables",
+
+        "name": "[parameters('UDR700Name')]",
+
+        "location": "[resourceGroup().location]",
+
+        "tags": {
+
+          "displayName": "[parameters('UDR700Name')]"
+
+        },
+
+        "properties": {
+
+          "routes": [
+
+            {
+
+              "name": "RouteToBackEnd",
+
+              "properties": {
+
+                "addressPrefix": "[parameters('backEndSubnetPrefix')]",
+
+                "nextHopType": "VirtualAppliance",
+
+                "nextHopIpAddress": "[parameters('vmaIpAddress')]"
+
+              }
+
+            }
+
+          ]
+
+        }
+
+      },
+      {
+
+        "apiVersion": "2015-06-15",
+
+        "type": "Microsoft.Network/virtualNetworks",
+
+        "name": "[parameters('vnetName')]",
+
+        "location": "[resourceGroup().location]",
+
+        "dependsOn": [
+
+          "[concat('Microsoft.Network/networkSecurityGroups/', parameters('frontEndNSGName'))]",
+
+          "[concat('Microsoft.Network/networkSecurityGroups/', parameters('backEndNSGName'))]",
+
+          "[concat('Microsoft.Network/routeTables/', parameters('frontEndRouteTableName'))]",
+
+          "[concat('Microsoft.Network/routeTables/', parameters('backEndRouteTableName'))]"
+
+        ],
+
+        "tags": {
+
+          "displayName": "VNet"
+
+        },
+
+        "properties": {
+
+          "addressSpace": {
+
+            "addressPrefixes": [
+
+              "[parameters('vnetPrefix')]"
+
+            ]
+
+          },
+
+          "subnets": [
+
+            {
+
+              "name": "[parameters('dmzSubnetName')]",
+
+              "properties": {
+
+                "addressPrefix": "[parameters('dmzSubnetPrefix')]"
+
+              }
+
+            },
+
+            {
+
+              "name": "[parameters('frontEndSubnetName')]",
+
+              "properties": {
+
+                "addressPrefix": "[parameters('frontEndSubnetPrefix')]",
+
+                "networkSecurityGroup": {
+
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('frontEndNSGName'))]"
+
+                },
+
+                "routeTable": {
+
+                  "id": "[resourceId('Microsoft.Network/routeTables', parameters('frontEndRouteTableName'))]"
+
+                }
+
+              }
+
+            },
+
+            {
+
+              "name": "[parameters('backEndSubnetName')]",
+
+              "properties": {
+
+                "addressPrefix": "[parameters('backEndSubnetPrefix')]",
+
+                "networkSecurityGroup": {
+
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('backEndNSGName'))]"
+
+                },
+
+                "routeTable": {
+
+                  "id": "[resourceId('Microsoft.Network/routeTables', parameters('backEndRouteTableName'))]"
+
+                }
+
+              }
+
+            }
+
+          ]
+
+        }
+      }
+      ]
+    }

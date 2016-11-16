@@ -1,0 +1,83 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "NSG700Name": {
+      "value": "NSG_CSR_In_700_VDC_prod_va"
+    },
+    "NSG701Name": {
+      "value": "NSG_CSR_Out_701_VDC_prod_tx"
+    },
+    "CSRIpAddress": {
+      "value": "10.190.0.10"
+    },
+    "IntASAIpAddress": {
+      "value": "10.190.0.65"
+    },
+    "ExtASAIpAddress": {
+      "value": "10.190.0.10"
+    },
+    "RouteTable700Name": {
+      "value": "UDR_CSR_In_700_VDC_prod_tx"
+    },
+    "RouteTable701Name": {
+      "value": "UDR_CSR_Out_701_VDC_prod_tx"
+    },
+    "RouteTable702Name": {
+      "value": "UDR_CSR_Tunnel_702_VDC_prod_tx"
+    },
+    "RouteTable703Name": {
+      "value": "UDR_CSR_HA_703_VDC_prod_tx"
+    },
+    "RouteTable101Name": {
+      "value": "UDR_IntASA_In_101_VDC_prod_tx"
+    },
+    "RouteTable102Name": {
+      "value": "UDR_IntASA_DMZ_102_VDC_prod_tx"
+    },
+    "RouteTable103Name": {
+      "value": "UDR_IntASA_Mgmt_103_VDC_prod_tx"
+    },
+    "RouteTable104Name": {
+      "value": "UDR_IntASA_Out_104_VDC_prod_tx"
+    },
+    "RouteTable106Name": {
+      "value": "ExtASA_In_106_VDC_prod_va"
+    },
+    "RouteTable107Name": {
+      "value": "ExtASA_DMZ_107_VDC_prod_va"
+    },
+    "RouteTable108Name": {
+      "value": "ExtASA_In_108_VDC_prod_va"
+    },
+    "RouteTable109Name": {
+      "value": "ExtASA_Out_109_VDC_prod_va"
+    },
+    "RouteTable111Name": {
+      "value": "UDR_IntLB_111_VDC_prod_tx"
+    },
+    "RouteTable151Name": {
+      "value": "NSG_ExtLB_151_VDC_prod_va"
+    },
+    "RouteTable600Name": {
+      "value": "UDR_Services_600_VDC_Srvcs_tx"
+    },
+    "RouteTable611Name": {
+      "value": "UDR_Services_600_VDC_Srvcs_tx"
+    },
+    "RouteTable650Name": {
+      "value": "UDR_DMZ_650_VDC_Srvcs_tx"
+    },
+    "RouteTable651Name": {
+      "value": "UDR_DMZ_650_VDC_Srvcs_tx"
+  },
+    "RouteTable660Name": {
+      "value": "UDR_User_Tier0_660_VDC_Srvcs_tx"
+    },
+    "RouteTable661Name": {
+      "value": "UDR_Users_Tier1_661_VDC_Srvcs_tx"
+    },
+    "RouteTable799Name": {
+      "value": "UDR_GW_799_VDC_gateway_tx"
+    }
+  }

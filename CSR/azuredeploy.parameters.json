@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_CSRa_adminPassword": {
+            "value": null
+        },
+        "virtualMachines_CSRa_name": {
+            "value": null
+        },
+        "networkInterfaces_CSRa_Nic0_name": {
+            "value": null
+        },
+        "networkInterfaces_CSRa_Nic1_name": {
+            "value": null
+        },
+        "networkInterfaces_CSRa_Nic2_name": {
+            "value": null
+        },
+        "networkInterfaces_CSRa_Nic3_name": {
+            "value": null
+        },
+        "networkSecurityGroups_CSRa_SSH_SecurityGroup_name": {
+            "value": null
+        },
+        "publicIPAddresses_CSRa_name": {
+            "value": null
+        },
+        "routeTables_subnet1_CSR_RouteTable_name": {
+            "value": null
+        },
+        "routeTables_subnet2_CSR_RouteTable_name": {
+            "value": null
+        },
+        "routeTables_subnet3_CSR_RouteTable_name": {
+            "value": null
+        },
+        "routeTables_subnet4_CSR_RouteTable_name": {
+            "value": null
+        },
+        "virtualNetworks_vnet01_name": {
+            "value": null
+        }
+    }
+}

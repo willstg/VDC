@@ -1,0 +1,246 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "Location": { "value": "southcentralus" },
+    "ResourceGroupName": {"value": "vdc_vnet_tx"},
+    "VNETStorageName": {
+      "value": "vdcvnettx1a"
+    },
+    "stdStorageType": {
+      "value": "Standard_LRS"
+    },
+    "VNETPremiumStorageName": {
+
+      "value": "vdcvnettx2a"
+    },
+    "prmStorageType": {
+      "value": "Premium_LRS"
+
+    },
+    "vnetName": {
+      "value": "vnet_vdc_tx"
+    },
+    "vnetAddressPrefix": {
+      "value": "10.190.0.0/18"
+    },
+    "subnet700Name": {
+      "value": "CSR_In_700_VDC_prod_tx"
+    },
+    "subnet700Prefix": {
+      "value": "10.190.0.0/29"
+    },
+    "subnet701Name": {
+      "value": "CSR_Out_701_VDC_prod_tx"
+    },
+    "subnet701Prefix": {
+      "value": "10.190.0.8/29"
+    },
+    "subnet702Name": {
+      "value": "CSR_Tunnel_702_VDC_prod_tx"
+    },
+    "subnet702Prefix": {
+      "value": "10.190.0.16/29"
+    },
+    "subnet703Name": {
+      "value": "CSR_HA_703_VDC_prod_tx"
+    },
+    "subnet703Prefix": {
+      "value": "10.190.0.24/29"
+    },
+    "subnet704Name": {
+      "value": "ER_704_VDC_Srvcs_tx"
+    },
+    "subnet704Prefix": {
+      "value": "10.190.0.32/28"
+    },
+    "subnet101Name": {
+      "value": "IntASA_In_101_VDC_prod_tx"
+    },
+    "subnet101Prefix": {
+      "value": "10.190.0.64/29"
+    },
+    "subnet102Name": {
+      "value": "IntASA_DMZ_102_VDC_prod_tx"
+    },
+    "subnet102Prefix": {
+      "value": "10.190.0.72/29"
+    },
+    "subnet103Name": {
+      "value": "IntASA_Mgmt_103_VDC_prod_tx"
+    },
+    "subnet103Prefix": {
+      "value": "10.190.0.80/29"
+    },
+    "subnet104Name": {
+      "value": "IntASA_Out_104_VDC_prod_tx"
+    },
+    "subnet104Prefix": {
+      "value": "10.190.0.88/29"
+    },
+    "subnet111Name": {
+      "value": "IntLB_111_VDC_prod_tx"
+    },
+    "subnet111Prefix": {
+      "value": "10.190.0.96/29"
+    },
+    "subnet106Name": {
+      "value": "ExtASA_In_106_VDC_prod_tx"
+    },
+    "subnet106Prefix": {
+      "value": "10.190.0.112/29"
+    },
+    "subnet107Name": {
+      "value": "ExtASA_DMZ_107_VDC_prod_tx"
+    },
+    "subnet107Prefix": {
+      "value": "10.190.0.120/29"
+    },
+    "subnet108Name": {
+      "value": "ExtASA_Mgmt_108_VDC_prod_tx"
+    },
+    "subnet108Prefix": {
+      "value": "10.190.0.128/29"
+    },
+    "subnet109Name": {
+      "value": "ExtASA_Out_109_VDC_prod_tx"
+    },
+    "subnet109Prefix": {
+      "value": "10.190.0.136/29"
+    },
+    "subnet151Name": {
+      "value": "IntLB_151_VDC_prod_tx"
+    },
+    "subnet151Prefix": {
+      "value": "10.190.0.144/29"
+    },
+    "subnet600Name": {
+      "value": "Services_600_VDC_Srvcs_tx"
+    },
+    "subnet600Prefix": {
+      "value": "10.190.56.0/24"
+    },
+    "subnet650Name": {
+      "value": "DMZ_650_VDC_Srvcs_tx"
+    },
+    "subnet650Prefix": {
+      "value": "10.190.58.0/24"
+    },
+    "subnet660Name": {
+      "value": "User_Tier0_660_VDC_Srvcs_tx"
+    },
+    "subnet660Prefix": {
+      "value": "10.190.59.0/25"
+    },
+    "subnet661Name": {
+      "value": "Users_Tier1_661_VDC_Srvcs_tx"
+    },
+    "subnet661Prefix": {
+      "value": "10.190.59.128/25"
+    },
+    "subnet799Name": {
+      "value": "GW_799_VDC_gateway_tx"
+    },
+    "subnet799Prefix": {
+      "value": "10.190.0.248/28"
+    },
+    "NSG101Name": { "value": "NSG_IntASA_Mgnt_101_VDC_prod_va" },
+    "NSG102Name": { "value": "NSG_IntASA_In_102_VDC_prod_va" },
+    "NSG103Name": { "value": "NSG_IntASA_Out_103_VDC_prod_va" },
+    "NSG104Name": { "value": "NSG_IntASA_DMZ_104_VDC_prod_va" },
+    "NSG106Name": { "value": "NSG_ExtASA_Mgnt_106_VDC_prod_va" },
+    "NSG107Name": { "value": "NSG_ExtASA_In_107_VDC_prod_va" },
+    "NSG108Name": { "value": "NSG_ExtASA_Out_108_VDC_prod_va" },
+    "NSG109Name": { "value": "NSG_ExtASA_DMZ_109_VDC_prod_va" },
+    "NSG111Name": { "value": "NSG_IntLB_111_VDC_prod_va" },
+    "NSG151Name": { "value": "NSG_ExtLB_151_VDC_prod_va" },
+    "NSG600Name": { "value": "NSG_Services_600_VDC_Srvcs_va" },
+    "NSG611Name": { "value": "NSG_LB_Services_611_VDC_Srvcs_va" },
+    "NSG650Name": { "value": "NSG_DMZ_650_VDC_Srvcs_va" },
+    "NSG651Name": { "value": "NSG_LB_DMZ_651_VDC_Srvcs_va" },
+    "NSG660Name": { "value": "NSG_User_Tier0_660_VDC_Srvcs_va" },
+    "NSG661Name": { "value": "NSG_Users_Tier1_661_VDC_Srvcs_va" },
+    "NSG670Name": { "value": "NSG_Future_670_VDC_Srvcs_va" },
+    "NSG699Name": { "value": "NSG_Gateway_699_VDC_Srvcs_va" },
+    "NSG700Name": { "value": "NSG_CSR_In_700_VDC_prod_va" },
+    "NSG701Name": { "value": "NSG_CSR_Out_701_VDC_prod_va" },
+    "NSG702Name": { "value": "NSG_CSR_Tunnel_702_VDC_prod_va" },
+    "NSG703Name": { "value": "NSG_CSR_HA_703_VDC_prod_va" },
+    "NSG704Name": { "value": "NSG_ER_704_VDC_Srvcs_va" },
+    "NSG799Name": { "value": "NSG_GW_799_VDC_gateway_va" },
+
+
+    "CSRIpAddress": {
+      "value": "10.190.0.10"
+    },
+    "IntASAIpAddress": {
+      "value": "10.190.0.65"
+    },
+    "ExtASAIpAddress": {
+      "value": "10.190.0.10"
+    },
+    "RouteTable700Name": {
+      "value": "UDR_CSR_In_700_VDC_prod_tx"
+    },
+    "RouteTable701Name": {
+      "value": "UDR_CSR_Out_701_VDC_prod_tx"
+    },
+    "RouteTable702Name": {
+      "value": "UDR_CSR_Tunnel_702_VDC_prod_tx"
+    },
+    "RouteTable703Name": {
+      "value": "UDR_CSR_HA_703_VDC_prod_tx"
+    },
+    "RouteTable101Name": {
+      "value": "UDR_IntASA_In_101_VDC_prod_tx"
+    },
+    "RouteTable102Name": {
+      "value": "UDR_IntASA_DMZ_102_VDC_prod_tx"
+    },
+    "RouteTable103Name": {
+      "value": "UDR_IntASA_Mgmt_103_VDC_prod_tx"
+    },
+    "RouteTable104Name": {
+      "value": "UDR_IntASA_Out_104_VDC_prod_tx"
+    },
+    "RouteTable106Name": {
+      "value": "ExtASA_In_106_VDC_prod_va"
+    },
+    "RouteTable107Name": {
+      "value": "ExtASA_DMZ_107_VDC_prod_va"
+    },
+    "RouteTable108Name": {
+      "value": "ExtASA_In_108_VDC_prod_va"
+    },
+    "RouteTable109Name": {
+      "value": "ExtASA_Out_109_VDC_prod_va"
+    },
+    "RouteTable111Name": {
+      "value": "UDR_IntLB_111_VDC_prod_tx"
+    },
+    "RouteTable151Name": {
+      "value": "NSG_ExtLB_151_VDC_prod_va"
+    },
+    "RouteTable600Name": {
+      "value": "UDR_Services_600_VDC_Srvcs_tx"
+    },
+    "RouteTable611Name": {
+      "value": "UDR_Services_600_VDC_Srvcs_tx"
+    },
+    "RouteTable650Name": {
+      "value": "UDR_DMZ_650_VDC_Srvcs_tx"
+    },
+    "RouteTable651Name": {
+      "value": "UDR_DMZ_650_VDC_Srvcs_tx"
+    },
+    "RouteTable660Name": {
+      "value": "UDR_User_Tier0_660_VDC_Srvcs_tx"
+    },
+    "RouteTable661Name": {
+      "value": "UDR_Users_Tier1_661_VDC_Srvcs_tx"
+    },
+    "RouteTable799Name": {
+      "value": "UDR_GW_799_VDC_gateway_tx"
+    }
+  }
+}

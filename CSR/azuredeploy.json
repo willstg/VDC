@@ -1,0 +1,541 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_CSRa_adminPassword": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "virtualMachines_CSRa_name": {
+            "defaultValue": "atos4mtxcscsr02a",
+            "type": "String"
+        },
+        "networkInterfaces_CSRa_Nic0_name": {
+            "defaultValue": "atos4mtxcscsr02a-Nic0",
+            "type": "String"
+        },
+        "networkInterfaces_CSRa_Nic1_name": {
+            "defaultValue": "atos4mtxcscsr02a-Nic1",
+            "type": "String"
+        },
+        "networkInterfaces_CSRa_Nic2_name": {
+            "defaultValue": "atos4mtxcscsr02a-Nic2",
+            "type": "String"
+        },
+        "networkInterfaces_CSRa_Nic3_name": {
+            "defaultValue": "atos4mtxcscsr02a-Nic3",
+            "type": "String"
+        },
+        "networkSecurityGroups_CSRa_SSH_SecurityGroup_name": {
+            "defaultValue": "atos4mtxcscsr02a-SSH-SecurityGroup",
+            "type": "String"
+        },
+        "publicIPAddresses_CSRa_name": {
+            "defaultValue": "csr02",
+            "type": "String"
+        },
+        "routeTables_subnet1_CSR_RouteTable_name": {
+            "defaultValue": "subnet1-CSR-RouteTable",
+            "type": "String"
+        },
+        "routeTables_subnet2_CSR_RouteTable_name": {
+            "defaultValue": "subnet2-CSR-RouteTable",
+            "type": "String"
+        },
+        "routeTables_subnet3_CSR_RouteTable_name": {
+            "defaultValue": "subnet3-CSR-RouteTable",
+            "type": "String"
+        },
+        "routeTables_subnet4_CSR_RouteTable_name": {
+            "defaultValue": "subnet4-CSR-RouteTable",
+            "type": "String"
+        },
+        "virtualNetworks_vnet01_name": {
+            "defaultValue": "vnet01",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Compute/virtualMachines/atos4mtxcscsr02a'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_atos4mtxcscsr02a_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "southcentralus",
+            "plan": {
+                "name": "csr-azure-byol",
+                "product": "cisco-csr-1000v",
+                "publisher": "cisco"
+            },
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D3_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "cisco",
+                        "offer": "cisco-csr-1000v",
+                        "sku": "csr-azure-byol",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "[concat(parameters('virtualMachines_atos4mtxcscsr02a_name'),'-osDisk')]",
+                        "createOption": "FromImage",
+                        "vhd": {
+                            "uri": "[concat('http://vdcmacmanagednet01.blob.core.windows.net/vhds/', parameters('virtualMachines_atos4mtxcscsr02a_name'),'-disk-zv5xp5vjlpn3u.vhd')]"
+                        },
+                        "caching": "ReadWrite"
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_atos4mtxcscsr02a_name')]",
+                    "adminUsername": "vdcadmin",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false
+                    },
+                    "secrets": [],
+                    "adminPassword": "[parameters('virtualMachines_atos4mtxcscsr02a_adminPassword')]"
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "properties": {
+                                "primary": true
+                            },
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_atos4mtxcscsr02a_Nic0_name'))]"
+                        },
+                        {
+                            "properties": {
+                                "primary": false
+                            },
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_atos4mtxcscsr02a_Nic1_name'))]"
+                        },
+                        {
+                            "properties": {
+                                "primary": false
+                            },
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_atos4mtxcscsr02a_Nic2_name'))]"
+                        },
+                        {
+                            "properties": {
+                                "primary": false
+                            },
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_atos4mtxcscsr02a_Nic3_name'))]"
+                        }
+                    ]
+                }
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_atos4mtxcscsr02a_Nic0_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_atos4mtxcscsr02a_Nic1_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_atos4mtxcscsr02a_Nic2_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_atos4mtxcscsr02a_Nic3_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/networkInterfaces/atos4mtxcscsr02a-Nic0'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_atos4mtxcscsr02a_Nic0_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAddress": "10.0.0.4",
+                            "privateIPAllocationMethod": "Static",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_csr02_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet01_name')), '/subnets/subnet1')]"
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableIPForwarding": true,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_atos4mtxcscsr02a_SSH_SecurityGroup_name'))]"
+                }
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_csr02_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet01_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_atos4mtxcscsr02a_SSH_SecurityGroup_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/networkInterfaces/atos4mtxcscsr02a-Nic1'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_atos4mtxcscsr02a_Nic1_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAddress": "10.0.1.4",
+                            "privateIPAllocationMethod": "Static",
+                            "subnet": {
+                                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet01_name')), '/subnets/subnet2')]"
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableIPForwarding": true
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet01_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/networkInterfaces/atos4mtxcscsr02a-Nic2'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_atos4mtxcscsr02a_Nic2_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAddress": "10.0.2.4",
+                            "privateIPAllocationMethod": "Static",
+                            "subnet": {
+                                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet01_name')), '/subnets/subnet3')]"
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableIPForwarding": true
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet01_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/networkInterfaces/atos4mtxcscsr02a-Nic3'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_atos4mtxcscsr02a_Nic3_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAddress": "10.0.3.4",
+                            "privateIPAllocationMethod": "Static",
+                            "subnet": {
+                                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet01_name')), '/subnets/subnet4')]"
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableIPForwarding": true
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet01_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/networkSecurityGroups/atos4mtxcscsr02a-SSH-SecurityGroup'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_atos4mtxcscsr02a_SSH_SecurityGroup_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "SSH-Rule",
+                        "properties": {
+                            "description": "Allow SSH",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "UDP-Rule1",
+                        "properties": {
+                            "description": "Allow UDP",
+                            "protocol": "UDP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "500",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 101,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "UDP-Rule2",
+                        "properties": {
+                            "description": "Allow UDP",
+                            "protocol": "UDP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "4500",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 102,
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/publicIPAddresses/csr02'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_csr02_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "[concat('atos4mtxcs', parameters('publicIPAddresses_csr02_name'),'a')]"
+                }
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/routeTables/subnet1-CSR-RouteTable'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_subnet1_CSR_RouteTable_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "routes": [
+                    {
+                        "name": "Route-Subnet2-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.1.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.0.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet3-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.2.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.0.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet4-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.3.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.0.4"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/routeTables/subnet2-CSR-RouteTable'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_subnet2_CSR_RouteTable_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "routes": [
+                    {
+                        "name": "Route-Subnet1-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.1.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet3-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.2.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.1.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet4-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.3.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.1.4"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/routeTables/subnet3-CSR-RouteTable'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_subnet3_CSR_RouteTable_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "routes": [
+                    {
+                        "name": "Route-Subnet1-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.2.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet2-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.1.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.2.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet4-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.3.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.2.4"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/routeTables/subnet4-CSR-RouteTable'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_subnet4_CSR_RouteTable_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "routes": [
+                    {
+                        "name": "Route-Subnet1-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.3.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet2-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.1.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.3.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet3-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.0.2.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.3.4"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/atos4mtxcscsr02/providers/Microsoft.Network/virtualNetworks/vnet01'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_vnet01_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "subnet1",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24",
+                            "routeTable": {
+                                "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_subnet1_CSR_RouteTable_name'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "subnet2",
+                        "properties": {
+                            "addressPrefix": "10.0.1.0/24",
+                            "routeTable": {
+                                "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_subnet2_CSR_RouteTable_name'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "subnet3",
+                        "properties": {
+                            "addressPrefix": "10.0.2.0/24",
+                            "routeTable": {
+                                "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_subnet3_CSR_RouteTable_name'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "subnet4",
+                        "properties": {
+                            "addressPrefix": "10.0.3.0/24",
+                            "routeTable": {
+                                "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_subnet4_CSR_RouteTable_name'))]"
+                            }
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_subnet1_CSR_RouteTable_name'))]",
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_subnet2_CSR_RouteTable_name'))]",
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_subnet3_CSR_RouteTable_name'))]",
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_subnet4_CSR_RouteTable_name'))]"
+            ]
+        }
+    ]
+}
