@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "Location": { "value": "southcentralus" },
-    "ResourceGroupName": {"value": "vdc_vnet_tx"},
+    "ResourceGroupName": { "value": "vdc_vnet_tx" },
     "VNETStorageName": {
       "value": "vdcvnettx1a"
     },
@@ -30,144 +30,222 @@
     "subnet700Prefix": {
       "value": "10.190.0.0/29"
     },
+    "Subnet700NSG": { "value": "NSG_CSR_In_700_VDC_prod_TX" },
+
+    "subnet700NSG": {
+      "value": "NSG_CSR_In_700_VDC_prod_TX"
+
+    },
+    "subnet700UDR": {
+      "value": "UDR_700_CSR_In"
+    },
     "subnet701Name": {
       "value": "CSR_Out_701_VDC_prod_tx"
     },
+    "Subnet701NSG": { "value": "NSG_CSR_Out_701_VDC_prod_TX" },
+
     "subnet701Prefix": {
       "value": "10.190.0.8/29"
     },
+
+    "subnet701UDR": { "value": "UDR_701_CSR_Out" },
+
     "subnet702Name": {
       "value": "CSR_Tunnel_702_VDC_prod_tx"
     },
     "subnet702Prefix": {
       "value": "10.190.0.16/29"
     },
+    "Subnet702NSG": { "value": "NSG_CSR_Tunnel_702_VDC_prod_TX" },
+
+    "subnet702UDR": { "value": "UDR_702_CSR_Tunnel" },
+
+
     "subnet703Name": {
       "value": "CSR_HA_703_VDC_prod_tx"
     },
     "subnet703Prefix": {
       "value": "10.190.0.24/29"
     },
+    "Subnet703NSG": { "value": "NSG_CSR_HA_703_VDC_prod_TX" },
+
+    "subnet703UDR": { "value": "UDR_703_CSR_HA" },
+
+
     "subnet704Name": {
       "value": "ER_704_VDC_Srvcs_tx"
     },
     "subnet704Prefix": {
       "value": "10.190.0.32/28"
     },
-    "subnet101Name": {
-      "value": "IntASA_In_101_VDC_prod_tx"
-    },
+    "Subnet704NSG": { "value": "NSG_ER_704_VDC_Srvcs_TX" },
+
+
     "subnet101Prefix": {
       "value": "10.190.0.64/29"
     },
+    "Subnet101NSG": { "value": "NSG_IntASA_Mgnt_101_VDC_prod_TX" },
+
+    "subnet101UDR": { "value": "UDR_101_IntASA_Mgnt" },
+
     "subnet102Name": {
       "value": "IntASA_DMZ_102_VDC_prod_tx"
     },
     "subnet102Prefix": {
       "value": "10.190.0.72/29"
     },
+    "Subnet102NSG": { "value": "NSG_IntASA_In_102_VDC_prod_TX" },
+
+    "subnet102UDR": { "value": "UDR_102_IntASA_In" },
+
     "subnet103Name": {
       "value": "IntASA_Mgmt_103_VDC_prod_tx"
     },
     "subnet103Prefix": {
       "value": "10.190.0.80/29"
     },
+    "Subnet103NSG": { "value": "NSG_IntASA_Out_103_VDC_prod_TX" },
+
+    "subnet103UDR": { "value": "UDR_103_IntASA_Out" },
+
     "subnet104Name": {
       "value": "IntASA_Out_104_VDC_prod_tx"
     },
     "subnet104Prefix": {
       "value": "10.190.0.88/29"
     },
+    "Subnet104NSG": { "value": "NSG_IntASA_DMZ_104_VDC_prod_TX" },
+
+    "subnet104UDR": { "value": "UDR_104_IntASA_DMZ" },
+
     "subnet111Name": {
       "value": "IntLB_111_VDC_prod_tx"
     },
     "subnet111Prefix": {
       "value": "10.190.0.96/29"
     },
+    "Subnet111NSG": { "value": "NSG_IntLB_111_VDC_prod_TX" },
+
+    "subnet111UDR": { "value": "UDR_111_IntLB" },
+
     "subnet106Name": {
       "value": "ExtASA_In_106_VDC_prod_tx"
     },
+    "Subnet106NSG": { "value": "NSG_ExtASA_Mgnt_106_VDC_prod_TX" },
+
+    "Subnet106NSG": { "value": "NSG_ExtASA_Mgnt_106_VDC_prod_TX" },
+
     "subnet106Prefix": {
       "value": "10.190.0.112/29"
     },
+    "subnet106UDR": { "value": "UDR_106_ExtASA_Mgnt" },
+
     "subnet107Name": {
       "value": "ExtASA_DMZ_107_VDC_prod_tx"
     },
     "subnet107Prefix": {
       "value": "10.190.0.120/29"
     },
+    "Subnet107NSG": { "value": "NSG_ExtASA_In_107_VDC_prod_TX" },
+
+    "subnet107UDR": { "value": "UDR_107_ExtASA_In" },
+
     "subnet108Name": {
       "value": "ExtASA_Mgmt_108_VDC_prod_tx"
     },
     "subnet108Prefix": {
       "value": "10.190.0.128/29"
     },
+    "Subnet108NSG": { "value": "NSG_ExtASA_Out_108_VDC_prod_TX" },
+
+    "subnet108UDR": { "value": "UDR_108_ExtASA_Out" },
+
+
     "subnet109Name": {
       "value": "ExtASA_Out_109_VDC_prod_tx"
     },
     "subnet109Prefix": {
       "value": "10.190.0.136/29"
     },
+    "Subnet109NSG": { "value": "NSG_ExtASA_DMZ_109_VDC_prod_TX" },
+
+    "subnet109UDR": { "value": "UDR_109_ExtASA_DMZ" },
+
     "subnet151Name": {
       "value": "IntLB_151_VDC_prod_tx"
     },
     "subnet151Prefix": {
       "value": "10.190.0.144/29"
     },
+    "Subnet151NSG": { "value": "NSG_ExtLB_151_VDC_prod_TX" },
+
+    "subnet151UDR": { "value": "UDR_151_ExtLB" },
+
     "subnet600Name": {
       "value": "Services_600_VDC_Srvcs_tx"
     },
     "subnet600Prefix": {
       "value": "10.190.56.0/24"
     },
+    "Subnet600NSG": { "value": "NSG_Services_600_VDC_Srvcs_TX" },
+    "subnet600UDR": { "value": "UDR_600_Services" },
+
+    "subnet601Name": {
+      "value": "LB_Services_601_VDC_Srvcs_TX"
+    },
+    "subnet601Prefix": {
+      "value": "10.190.57.0/27"
+    },
+    "Subnet601NSG": { "value": "NSG_LB_Services_601_VDC_Srvcs_TX" },
+    "subnet601UDR": { "value": "UDR_601_LB_Services" },
+
+
     "subnet650Name": {
       "value": "DMZ_650_VDC_Srvcs_tx"
     },
     "subnet650Prefix": {
       "value": "10.190.58.0/24"
     },
+    "Subnet650NSG": { "value": "NSG_DMZ_650_VDC_Srvcs_TX" },
+
+    "subnet650UDR": { "value": "UDR_650_DMZ" },
+
+    "subnet651Name": {
+      "value": "LB_DMZ_651_VDC_Srvcs_TX"
+
+    },
+    "subnet651Prefix": {
+      "value": "10.190.60.0/24"
+    },
+    "Subnet651NSG": { "value": "NSG_LB_DMZ_651_VDC_Srvcs_TX" },
+
+    "subnet651UDR": { "value": "UDR_651_LB_DMZ" },
+
     "subnet660Name": {
       "value": "User_Tier0_660_VDC_Srvcs_tx"
     },
     "subnet660Prefix": {
       "value": "10.190.59.0/25"
     },
+    "Subnet660NSG": { "value": "NSG_User_Tier0_660_VDC_Srvcs_TX" },
+
     "subnet661Name": {
       "value": "Users_Tier1_661_VDC_Srvcs_tx"
     },
     "subnet661Prefix": {
       "value": "10.190.59.128/25"
     },
+    "Subnet661NSG": { "value": "NSG_Users_Tier1_661_VDC_Srvcs_TX" },
+
     "subnet799Name": {
       "value": "GW_799_VDC_gateway_tx"
     },
     "subnet799Prefix": {
       "value": "10.190.0.248/28"
     },
-    "NSG101Name": { "value": "NSG_IntASA_Mgnt_101_VDC_prod_va" },
-    "NSG102Name": { "value": "NSG_IntASA_In_102_VDC_prod_va" },
-    "NSG103Name": { "value": "NSG_IntASA_Out_103_VDC_prod_va" },
-    "NSG104Name": { "value": "NSG_IntASA_DMZ_104_VDC_prod_va" },
-    "NSG106Name": { "value": "NSG_ExtASA_Mgnt_106_VDC_prod_va" },
-    "NSG107Name": { "value": "NSG_ExtASA_In_107_VDC_prod_va" },
-    "NSG108Name": { "value": "NSG_ExtASA_Out_108_VDC_prod_va" },
-    "NSG109Name": { "value": "NSG_ExtASA_DMZ_109_VDC_prod_va" },
-    "NSG111Name": { "value": "NSG_IntLB_111_VDC_prod_va" },
-    "NSG151Name": { "value": "NSG_ExtLB_151_VDC_prod_va" },
-    "NSG600Name": { "value": "NSG_Services_600_VDC_Srvcs_va" },
-    "NSG611Name": { "value": "NSG_LB_Services_611_VDC_Srvcs_va" },
-    "NSG650Name": { "value": "NSG_DMZ_650_VDC_Srvcs_va" },
-    "NSG651Name": { "value": "NSG_LB_DMZ_651_VDC_Srvcs_va" },
-    "NSG660Name": { "value": "NSG_User_Tier0_660_VDC_Srvcs_va" },
-    "NSG661Name": { "value": "NSG_Users_Tier1_661_VDC_Srvcs_va" },
-    "NSG670Name": { "value": "NSG_Future_670_VDC_Srvcs_va" },
-    "NSG699Name": { "value": "NSG_Gateway_699_VDC_Srvcs_va" },
-    "NSG700Name": { "value": "NSG_CSR_In_700_VDC_prod_va" },
-    "NSG701Name": { "value": "NSG_CSR_Out_701_VDC_prod_va" },
-    "NSG702Name": { "value": "NSG_CSR_Tunnel_702_VDC_prod_va" },
-    "NSG703Name": { "value": "NSG_CSR_HA_703_VDC_prod_va" },
-    "NSG704Name": { "value": "NSG_ER_704_VDC_Srvcs_va" },
-    "NSG799Name": { "value": "NSG_GW_799_VDC_gateway_va" },
+    "Subnet799NSG": { "value": "NSG_GW_799_VDC_gateway_TX" },
+
+
 
 
     "CSRIpAddress": {
