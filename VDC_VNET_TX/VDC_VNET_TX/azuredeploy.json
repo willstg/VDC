@@ -1631,7 +1631,7 @@
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
             }
-          }
+          },
           {
             "name": "RouteFrom104To102_IntASA_In",
             "properties": {
