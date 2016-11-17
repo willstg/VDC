@@ -975,7 +975,7 @@
         ]
       }
     },
-      {
+    {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet101NSG')]",
@@ -1453,7 +1453,7 @@
             "properties": {
               "description": "RDP.Inbound.Allow",
               "protocol": "Tcp",
-              "sourcePortRange": "TBD",
+              "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
               "destinationAddressPrefix": "*",
@@ -1504,29 +1504,32 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 101 To 102_IntASA_In",
+            "name": "RouteFrom101To102_IntASA_In",
             "properties": {
               "addressPrefix": "parameters('subnet102Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet101VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 101 To 103_IntASA_Out",
+            "name": "RouteFrom101To103_IntASA_Out",
             "properties": {
               "addressPrefix": "parameters('subnet103Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet101VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 101 To 104_IntASA_DMZ",
+            "name": "RouteFrom101To104_IntASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet104Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet101VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1541,29 +1544,32 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 102 To 101_IntASA_Mgnt",
+            "name": "RouteFrom102To101_IntASA_Mgnt",
             "properties": {
               "addressPrefix": "parameters('subnet101Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet102VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 102 To 103_IntASA_Out",
+            "name": "RouteFrom102To103_IntASA_Out",
             "properties": {
               "addressPrefix": "parameters('subnet103Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet102VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 102 To 104_IntASA_DMZ",
+            "name": "RouteFrom102To104_IntASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet104Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet102VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1579,29 +1585,32 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 103 To 101_IntASA_Mgnt",
+            "name": "RouteFrom103To101_IntASA_Mgnt",
             "properties": {
               "addressPrefix": "parameters('subnet101Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet103VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 103 To 102_IntASA_In",
+            "name": "RouteFrom103To102_IntASA_In",
             "properties": {
               "addressPrefix": "parameters('subnet102Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet103VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 103 To 104_IntASA_DMZ",
+            "name": "RouteFrom103To104_IntASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet104Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet103VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1616,47 +1625,49 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 104 To 101_IntASA_Mgnt",
+            "name": "RouteFrom104To101_IntASA_Mgnt",
             "properties": {
               "addressPrefix": "parameters('subnet101Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
             }
-          },
+          }
           {
-            "name": "RouteFrom 104 To 102_IntASA_In",
+            "name": "RouteFrom104To102_IntASA_In",
             "properties": {
               "addressPrefix": "parameters('subnet102Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 104 To 103_IntASA_Out",
+            "name": "RouteFrom104To103_IntASA_Out",
             "properties": {
               "addressPrefix": "parameters('subnet103Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 104 To 109_ExtASA_DMZ",
+            "name": "RouteFrom104To109_ExtASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet109Prefix')]",
               "nextHopType": "VirtualAppliance",
-              "comments": "The next hop is the External Firewall",
-              "nextHopIpAddress": "[parameters('subnet109VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 104 To 700_CSR_In",
+            "name": "RouteFrom104To700_CSR_In",
             "properties": {
               "addressPrefix": "parameters('subnet700Prefix')]",
               "nextHopType": "VirtualAppliance",
-              "comments": "The next hop is the CSR",
-              "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1671,29 +1682,32 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 106 To 107_ExtASA_In",
+            "name": "RouteFrom106To107_ExtASA_In",
             "properties": {
               "addressPrefix": "parameters('subnet107Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet106VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 106 To 108_ExtASA_Out",
+            "name": "RouteFrom106To108_ExtASA_Out",
             "properties": {
               "addressPrefix": "parameters('subnet108Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet106VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom 106 To 109_ExtASA_DMZ",
+            "name": "RouteFrom106To109_ExtASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet109Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet106VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1709,7 +1723,7 @@
         "routes": [
 
           {
-            "name": "RouteFrom 107 To 106_ExtASA_Mgnt",
+            "name": "RouteFrom107To106_ExtASA_Mgnt",
             "properties": {
               "addressPrefix": "parameters('subnet106Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -1717,7 +1731,7 @@
             }
           },
           {
-            "name": "RouteFrom 107 To 108_ExtASA_Out",
+            "name": "RouteFrom107To108_ExtASA_Out",
             "properties": {
               "addressPrefix": "parameters('subnet108Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -1725,13 +1739,14 @@
             }
           },
           {
-            "name": "RouteFrom 107 To 109_ExtASA_DMZ",
+            "name": "RouteFrom107To109_ExtASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet109Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet107VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1746,7 +1761,7 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 108 To 106_ExtASA_Mgnt",
+            "name": "RouteFrom108To106_ExtASA_Mgnt",
             "properties": {
               "addressPrefix": "parameters('subnet106Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -1754,7 +1769,7 @@
             }
           },
           {
-            "name": "RouteFrom 108 To 107_ExtASA_In",
+            "name": "RouteFrom108To107_ExtASA_In",
             "properties": {
               "addressPrefix": "parameters('subnet107Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -1762,13 +1777,14 @@
             }
           },
           {
-            "name": "RouteFrom 108 To 109_ExtASA_DMZ",
+            "name": "RouteFrom108To109_ExtASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet109Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet108VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1784,7 +1800,7 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 109 To 106_ExtASA_Mgnt",
+            "name": "RouteFrom109To106_ExtASA_Mgnt",
             "properties": {
               "addressPrefix": "parameters('subnet106Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -1792,7 +1808,7 @@
             }
           },
           {
-            "name": "RouteFrom 109 To 107_ExtASA_In",
+            "name": "RouteFrom109To107_ExtASA_In",
             "properties": {
               "addressPrefix": "parameters('subnet107Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -1800,13 +1816,14 @@
             }
           },
           {
-            "name": "RouteFrom 109 To 108_ExtASA_Out",
+            "name": "RouteFrom109To108_ExtASA_Out",
             "properties": {
               "addressPrefix": "parameters('subnet108Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet109VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1821,14 +1838,14 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 111 To 102_IntASA_In",
+            "name": "RouteFrom111To102_IntASA_In",
             "properties": {
               "addressPrefix": "parameters('subnet102Prefix')]",
               "nextHopType": "VirtualAppliance",
-              "comments": "The next hop is the Firewall",
-              "nextHopIpAddress": "[parameters('subnet102VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet111VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1844,14 +1861,14 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 151 To 109_ExtASA_DMZ",
+            "name": "RouteFrom151To109_ExtASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet109Prefix')]",
               "nextHopType": "VirtualAppliance",
-              "comments": "The next hop is the Firewall",
-              "nextHopIpAddress": "[parameters('subnet109VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet151VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1866,14 +1883,14 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 600 To 102_IntASA_In",
+            "name": "RouteFrom600To102_IntASA_In",
             "properties": {
               "addressPrefix": "parameters('subnet102Prefix')]",
               "nextHopType": "VirtualAppliance",
-              "comments": "The next hop is the Firewall",
-              "nextHopIpAddress": "[parameters('subnet102VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet600VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1889,13 +1906,14 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 601 To 111_IntLB",
+            "name": "RouteFrom601To111_IntLB",
             "properties": {
               "addressPrefix": "parameters('subnet111Prefix')]",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet111VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet601VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1910,13 +1928,14 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 650 To 109_ExtASA_DMZ",
+            "name": "RouteFrom650To109_ExtASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet109Prefix')]",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet109VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet650VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1931,13 +1950,14 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 651 To 109_ExtASA_109DMZ",
+            "name": "RouteFrom651To109_ExtASA_DMZ",
             "properties": {
               "addressPrefix": "parameters('subnet109Prefix')]",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet109VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet651VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1952,7 +1972,7 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 700 To 701_CSR_Out",
+            "name": "RouteFrom700To701_CSR_Out",
             "properties": {
               "addressPrefix": "parameters('subnet701Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -1960,7 +1980,7 @@
             }
           },
           {
-            "name": "RouteFrom 700 To 702_CSR_Tunnel",
+            "name": "RouteFrom700To702_CSR_Tunnel",
             "properties": {
               "addressPrefix": "parameters('subnet702Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -1968,13 +1988,14 @@
             }
           },
           {
-            "name": "RouteFrom 700 To 703_CSR_HA",
+            "name": "RouteFrom700To703_CSR_HA",
             "properties": {
               "addressPrefix": "parameters('subnet703Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -1989,7 +2010,7 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 701 To 700_CSR_In",
+            "name": "RouteFrom701To700_CSR_In",
             "properties": {
               "addressPrefix": "parameters('subnet700Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -1997,7 +2018,7 @@
             }
           },
           {
-            "name": "RouteFrom 701 To 702_CSR_Tunnel",
+            "name": "RouteFrom701To702_CSR_Tunnel",
             "properties": {
               "addressPrefix": "parameters('subnet702Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -2005,13 +2026,14 @@
             }
           },
           {
-            "name": "RouteFrom 701 To 703_CSR_HA",
+            "name": "RouteFrom701To703_CSR_HA",
             "properties": {
               "addressPrefix": "parameters('subnet703Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet701VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -2026,7 +2048,7 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 702 To 700_CSR_In",
+            "name": "RouteFrom702To700_CSR_In",
             "properties": {
               "addressPrefix": "parameters('subnet700Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -2034,7 +2056,7 @@
             }
           },
           {
-            "name": "RouteFrom 702 To 701_CSR_Out",
+            "name": "RouteFrom702To701_CSR_Out",
             "properties": {
               "addressPrefix": "parameters('subnet701Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -2042,13 +2064,14 @@
             }
           },
           {
-            "name": "RouteFrom 702 To 703_CSR_HA",
+            "name": "RouteFrom702To703_CSR_HA",
             "properties": {
               "addressPrefix": "parameters('subnet703Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet702VNAIP')]"
             }
           }
+
         ]
       }
     },
@@ -2063,7 +2086,7 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom 703 To 700_CSR_In",
+            "name": "RouteFrom703To700_CSR_In",
             "properties": {
               "addressPrefix": "parameters('subnet700Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -2071,7 +2094,7 @@
             }
           },
           {
-            "name": "RouteFrom 703 To 701_CSR_Out",
+            "name": "RouteFrom703To701_CSR_Out",
             "properties": {
               "addressPrefix": "parameters('subnet701Prefix')]",
               "nextHopType": "VirtualAppliance",
@@ -2079,13 +2102,14 @@
             }
           },
           {
-            "name": "RouteFrom 703 To 702_CSR_Tunnel",
+            "name": "RouteFrom703To702_CSR_Tunnel",
             "properties": {
               "addressPrefix": "parameters('subnet702Prefix')]",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet703VNAIP')]"
             }
           }
+
         ]
       }
     },
