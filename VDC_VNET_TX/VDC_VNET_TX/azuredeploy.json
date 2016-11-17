@@ -2161,8 +2161,6 @@
         "[concat('Microsoft.Network/routeTables/', parameters('subnet601UDR'))]",
         "[concat('Microsoft.Network/routeTables/', parameters('subnet650UDR'))]",
         "[concat('Microsoft.Network/routeTables/', parameters('subnet651UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet660UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet661UDR'))]",
         "[concat('Microsoft.Network/routeTables/', parameters('subnet700UDR'))]",
         "[concat('Microsoft.Network/routeTables/', parameters('subnet701UDR'))]",
         "[concat('Microsoft.Network/routeTables/', parameters('subnet702UDR'))]",
