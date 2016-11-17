@@ -842,7 +842,7 @@
               "sourcePortRange": "22",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet700Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 100,
               "direction": "Inbound"
@@ -856,7 +856,7 @@
               "sourcePortRange": "500",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet700Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 101,
               "direction": "Inbound"
@@ -870,7 +870,7 @@
               "sourcePortRange": "4500",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet700Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 102,
               "direction": "Inbound"
@@ -884,7 +884,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet700Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -911,7 +911,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet701Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -938,7 +938,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet702Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -966,7 +966,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet703Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -975,34 +975,7 @@
         ]
       }
     },
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet704NSG')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "Subnet 704 NSG"
-      },
-      "properties": {
-        "securityRules": [
-          {
-            "name": "All_Internet.Inbound.Deny",
-            "properties": {
-              "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet704Prefix')",
-              "access": "Deny",
-              "priority": 150,
-              "direction": "Inbound"
-            }
-          }
-        ]
-      }
-    },
-    {
+      {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet101NSG')]",
@@ -1020,7 +993,7 @@
               "sourcePortRange": "22",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet101Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 100,
               "direction": "Inbound"
@@ -1034,7 +1007,7 @@
               "sourcePortRange": "500",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet101Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 101,
               "direction": "Inbound"
@@ -1048,7 +1021,7 @@
               "sourcePortRange": "4500",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet101Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 102,
               "direction": "Inbound"
@@ -1062,7 +1035,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet101Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1090,7 +1063,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet102Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1117,7 +1090,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet103Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1144,7 +1117,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet104Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1171,7 +1144,7 @@
               "sourcePortRange": "22",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet106Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 100,
               "direction": "Inbound"
@@ -1185,7 +1158,7 @@
               "sourcePortRange": "500",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet106Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 101,
               "direction": "Inbound"
@@ -1199,7 +1172,7 @@
               "sourcePortRange": "4500",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet106Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 102,
               "direction": "Inbound"
@@ -1213,7 +1186,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet106Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1240,7 +1213,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet107Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1267,7 +1240,7 @@
               "sourcePortRange": "Internet",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet108Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 150,
               "direction": "Inbound"
@@ -1294,7 +1267,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet109Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1321,7 +1294,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet111Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1348,7 +1321,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet151Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1375,7 +1348,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet600Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1402,7 +1375,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet601Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1429,7 +1402,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet650Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1456,7 +1429,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet651Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
@@ -1483,7 +1456,7 @@
               "sourcePortRange": "TBD",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet660Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 100,
               "direction": "Inbound"
@@ -1510,7 +1483,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "[parameters('subnet661Prefix')",
+              "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
