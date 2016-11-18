@@ -2307,18 +2307,8 @@
               }
             }
           },
-          {
-            "name": "[parameters('subnet755Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet755Prefix')]",
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet755NSG'))]"
-              },
-              "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet755UDR'))]"
-              }
-            }
-          },
+         
+
           {
             "name": "[parameters('subnet600Name')]",
             "properties": {
