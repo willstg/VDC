@@ -2369,11 +2369,8 @@
           {
             "name": "[parameters('subnet661Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet661Prefix')]",
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet661NSG'))]"
-              }
-            }
+              "addressPrefix": "[parameters('subnet661Prefix')]"
+                      }
           },
           {
             "name": "[parameters('subnet700Name')]",
