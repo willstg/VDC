@@ -151,10 +151,10 @@
     "OSDiskName": "[concat(parameters('csr1aName'), '-disk')]",
     "vmStorageAccountContainerName": "vhds",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
-    "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet700Name'))]",
-    "subnet2Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet701Name'))]",
-    "subnet3Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet702Name'))]",
-    "subnet4Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet703Name'))]",
+    "subnet700Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet700Name'))]",
+    "subnet701Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet701Name'))]",
+    "subnet702Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet702Name'))]",
+    "subnet703Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet703Name'))]",
     "csr1aPIP": "[parameters('csr1aPIPName')]",
     "apiVer": "2015-06-15",
     "osProfilepassword": {
@@ -178,7 +178,7 @@
               "privateIPAllocationMethod": "Static",
               "privateIPAddress": "[parameters('subnet700csr1aIP')]",
               "subnet": {
-                "id": "[variables('vnetID')]"
+                "id": "[variables('subnet700Ref')]"
               },
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('csr1aPIP').pipName)]"
@@ -202,7 +202,7 @@
               "privateIPAllocationMethod": "Static",
               "privateIPAddress": "[parameters('subnet701csr1aIP')]",
               "subnet": {
-                "id": "[variables('vnetID')]"
+                "id": "[variables('subnet701Ref')]"
               }
 
             }
@@ -224,7 +224,7 @@
               "privateIPAllocationMethod": "Static",
               "privateIPAddress": "[parameters('subnet702csr1aIP')]",
               "subnet": {
-                "id": "[variables('vnetID')]"
+                "id": "[variables('subnet702ref')]"
               }
 
             }
@@ -246,7 +246,7 @@
               "privateIPAllocationMethod": "Static",
               "privateIPAddress": "[parameters('subnet703csr1aIP')]",
               "subnet": {
-                "id": "[variables('vnetID')]"
+                "id": "[variables('subnet703Ref')]"
               }
             }
           }
