@@ -2174,103 +2174,7 @@
           ]
         },
         "subnets": [
-          {
-            "name": "[parameters('subnet710Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet710Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet711Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet711Prefix')]"
-            }
-          },
-          {
-            "name": "[parameters('subnet712Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet712Prefix')]"
-            }
-          },
-
-          {
-            "name": "[parameters('subnet750Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet750Prefix')]"
-            }
-          },
-          {
-            "name": "[parameters('subnet751Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet751Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet752Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet752Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet753Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet753Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet715Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet715Prefix')]"
-
-            }
-          },
-
-
-          {
-            "name": "[parameters('subnet600Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet600Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet601Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet601Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet650Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet650Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet651Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet651Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet660Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet660Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet661Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet661Prefix')]"
-            }
-          },
+       
           {
             "name": "[parameters('subnet700Name')]",
             "properties": {
@@ -2307,19 +2211,6 @@
             "properties": {
               "addressPrefix": "[parameters('subnet703Prefix')]"
 
-            }
-          },
-          {
-            "name": "[parameters('subnet713Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet713Prefix')]"
-
-            }
-          },
-          {
-            "name": "[parameters('subnet755Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet755Prefix')]"
             }
           }
         ]

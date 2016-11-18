@@ -24,6 +24,16 @@
     "vnetAddressPrefix": {
       "value": "10.190.0.0/18"
     },
+    "csr1aName": { "value": "vdcpccsr1a" },
+    "csr1aPIPName": { "value": "700_CSR1a" },
+    "csr1aPIPType": { "value": "Microsoft.Network/publicIPAddresses" },
+    "csr1aPIPdnsPrefix": { "value": "vdcpccsr1" },
+
+    "csr1bName": { "value": "vdcpccsr1b" },
+    "csr1bPIPName": { "value": "700_CSR1b" },
+    "csr1bPIPType": { "value": "Microsoft.Network/publicIPAddresses" },
+    "csr1bPIPdnsPrefix": { "value": "vdcpccsr1" },
+
     "subnet700Name": {
       "value": "CSR_In_700_VDC_prod_tx"
     },
@@ -32,13 +42,11 @@
     },
     "Subnet700NSG": { "value": "NSG_CSR_In_700_VDC_prod_TX" },
 
-    "subnet700NSG": {
-      "value": "NSG_CSR_In_700_VDC_prod_TX"
-
-    },
     "subnet700UDR": {
       "value": "UDR_700_CSR_In"
     },
+
+
     "subnet701Name": {
       "value": "CSR_Out_701_VDC_prod_tx"
     },
