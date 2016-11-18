@@ -2249,7 +2249,7 @@
           {
             "name": "[parameters('subnet713Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet713Prefix')]",
+              "addressPrefix": "10.190.0.80/29",
               "networkSecurityGroup": {
                 "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet713NSG'))]"
               },
