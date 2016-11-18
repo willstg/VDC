@@ -2162,43 +2162,7 @@
       "location": "[resourceGroup().location]",
 
       "dependsOn": [
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet710NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet711NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet712NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet713NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet750NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet751NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet752NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet753NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet715NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet755NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet600NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet601NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet650NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet651NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet700NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet701NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet702NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet703NSG'))]",
-
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet710UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet711UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet712UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet713UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet750UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet751UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet752UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet753UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet715UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet755UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet600UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet601UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet650UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet651UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet700UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet701UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet702UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet703UDR'))]"
+       
       ],
       "tags": {
         "displayName": "VDC VNet TX"
@@ -2307,7 +2271,7 @@
               }
             }
           },
-         
+
 
           {
             "name": "[parameters('subnet600Name')]",
@@ -2370,7 +2334,7 @@
             "name": "[parameters('subnet661Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet661Prefix')]"
-                      }
+            }
           },
           {
             "name": "[parameters('subnet700Name')]",
@@ -2417,6 +2381,30 @@
               },
               "routeTable": {
                 "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet703UDR'))]"
+              }
+            }
+          },
+          {
+            "name": "[parameters('subnet713Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet713Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet713NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet713UDR'))]"
+              }
+            }
+          },
+          {
+            "name": "[parameters('subnet755Name')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnet755Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet755NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet755UDR'))]"
               }
             }
           }
