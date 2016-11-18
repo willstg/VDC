@@ -61,6 +61,51 @@
         "description": "Premium Storage account type"
       }
     },
+    "csr1aName": {
+      "type": "string",
+      "defaultValue": "vdcpccsr1a",
+      "metadata": { "description": "The name of the primary Router" }
+    },
+
+    "csr1aPIPName": {
+      "type": "string",
+      "defaultvalue": "700_CSR1a",
+      "metadata": { "description": "PublicIP Address Name" }
+    },
+
+    "csr1aPIPType": {
+      "type": "string",
+      "defaultvalue": "Static",
+      "metaadata": { "description": "The Static or Dynamic public IP" }
+    },
+    "csr1aPIPdnsPrefix": {
+      "type": "string",
+      "defaultvalue": "vdcpccsr1a",
+      "metadata": { "Description": "The DNS Prefix" }
+    },
+    "csr1bName": {
+      "type": "string",
+      "defaultValue": "vdcpccsr1b",
+      "metadata": { "description": "The name of the primary Router" }
+    },
+
+    "csr1bPIPName": {
+      "type": "string",
+      "defaultvalue": "700_CSR1b",
+      "metadata": { "description": "PublicIP Address Name" }
+    },
+
+    "csr1bPIPType": {
+      "type": "string",
+      "defaultvalue": "Static",
+      "metaadata": { "description": "The Static or Dynamic public IP" }
+    },
+    "csr1bPIPdnsPrefix": {
+      "type": "string",
+      "defaultvalue": "vdcpccsr1b",
+      "metadata": { "Description": "The DNS Prefix" }
+    },
+
     "vnetName": {
       "type": "string",
       "defaultValue": "vnet_vdc_tx",
@@ -860,7 +905,30 @@
       }
 
     },
-
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[parameters('csr1aPIPName')]",
+      "apiVersion": "2015-06-15",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publicIPAllocationMethod": "[parameters('csr1aPIPType')]",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('csr1aPIPdnsPrefix')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[parameters('csr1bPIPName')]",
+      "apiVersion": "2015-06-15",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publicIPAllocationMethod": "[parameters('csr1bPIPType')]",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('csr1bPIPdnsPrefix')]"
+        }
+      }
+    },
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
@@ -2174,7 +2242,7 @@
           ]
         },
         "subnets": [
-       
+
           {
             "name": "[parameters('subnet700Name')]",
             "properties": {
