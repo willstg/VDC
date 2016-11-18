@@ -322,8 +322,7 @@
         }
       },
       "dependsOn": [
-        "[concat('Microsoft.Resources/deployments/', 'SettingUpStorageAccount')]",
-        "[concat('Microsoft.Network/networkInterfaces/',parameters('csr1aName'),'-Nic0')]",
+           "[concat('Microsoft.Network/networkInterfaces/',parameters('csr1aName'),'-Nic0')]",
         "[concat('Microsoft.Network/networkInterfaces/',parameters('csr1aName'),'-Nic1')]",
         "[concat('Microsoft.Network/networkInterfaces/',parameters('csr1aName'),'-Nic2')]",
         "[concat('Microsoft.Network/networkInterfaces/',parameters('csr1aName'),'-Nic3')]"
