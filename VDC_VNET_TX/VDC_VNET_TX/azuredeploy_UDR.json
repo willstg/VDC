@@ -791,7 +791,7 @@
           {
             "name": "RouteFrom101To102_IntASA_In",
             "properties": {
-              "addressPrefix": "parameters('subnet102Prefix')]",
+              "addressPrefix": "10.190.0.72/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet101VNAIP')]"
             }
@@ -800,7 +800,7 @@
           {
             "name": "RouteFrom101To103_IntASA_Out",
             "properties": {
-              "addressPrefix": "parameters('subnet103Prefix')]",
+              "addressPrefix": "10.190.0.80/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet101VNAIP')]"
             }
@@ -809,52 +809,12 @@
           {
             "name": "RouteFrom101To104_IntASA_DMZ",
             "properties": {
-              "addressPrefix": "parameters('subnet104Prefix')]",
+              "addressPrefix": "10.190.0.88/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet101VNAIP')]"
             }
           }
 
-        ]
-      }
-    },
-    {
-
-      "apiVersion": "2015-06-15",
-
-      "type": "Microsoft.Network/virtualNetworks",
-
-      "name": "[parameters('vnetName')]",
-
-      "location": "[resourceGroup().location]",
-
-      "dependsOn": [
- 
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet101UDR'))]"
-       
-      ],
-      "tags": {
-        "displayName": "VDC VNet TX"
-      },
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[parameters('vnetAddressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[parameters('subnet101Name')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnet101Prefix')]",
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet101NSG'))]"
-              },
-              "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet101UDR'))]"
-              }
-            }
-          }      
         ]
       }
     }
