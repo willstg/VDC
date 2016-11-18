@@ -829,11 +829,8 @@
       "location": "[resourceGroup().location]",
 
       "dependsOn": [
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet101NSG'))]",
-     
-
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet101UDR'))]",
-       
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet101NSG'))]"
+      
       ],
       "tags": {
         "displayName": "VDC VNet TX"
@@ -856,8 +853,7 @@
                 "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet101UDR'))]"
               }
             }
-          },
-      
+          }      
         ]
       }
     }
