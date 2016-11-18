@@ -240,7 +240,7 @@
       "type": "string",
       "defaultValue": "10.190.0.64/29",
       "metadata": {
-        "description": "ASA "
+        "description": "ASA Management Interface"
       }
     },
     "subnet101Name": {
@@ -388,21 +388,21 @@
       "type": "string",
       "defaultValue": "ExtASA_Mgnt_106_VDC_prod_TX",
       "metadata": {
-        "description": "ExtASA management interface"
+        "description": "ASA management interface"
       }
     },
     "subnet106NSG": {
       "type": "string",
       "defaultValue": "NSG_ExtASA_Mgnt_106_VDC_prod_TX",
       "metadata": {
-        "description": "106: ExtASA_Mgnt, Tier (0) ASA management interfac"
+        "description": "\"106: ExtASA_Mgnt, Tier (0) ASA management interfac"
       }
     },
     "subnet106VNAIP": {
       "type": "string",
       "defaultValue": "10.190.0.116",
       "metadata": {
-        "description": "ExtASA_Mgnt subnet 106 VNA IP"
+        "description": "IntASA_Mgnt subnet 106 VNA IP"
       }
     },
     "subnet106UDR": {
@@ -416,14 +416,14 @@
       "type": "string",
       "defaultValue": "10.190.0.120/29",
       "metadata": {
-        "description": "ExtASA Inside Interface"
+        "description": "ASA Inside Interface"
       }
     },
     "subnet107Name": {
       "type": "string",
       "defaultValue": "ExtASA_In_107_VDC_prod_TX",
       "metadata": {
-        "description": "ExtASA Inside Interface"
+        "description": "ASA Inside Interface"
       }
     },
     "subnet107NSG": {
@@ -437,7 +437,7 @@
       "type": "string",
       "defaultValue": "10.190.0.124",
       "metadata": {
-        "description": "ExtASA_In subnet 107 VNA IP"
+        "description": "IntASA_In subnet 107 VNA IP"
       }
     },
     "subnet107UDR": {
@@ -451,14 +451,14 @@
       "type": "string",
       "defaultValue": "10.190.0.128/29",
       "metadata": {
-        "description": "ExtASA Outside Interface"
+        "description": "ASA Outside Interface"
       }
     },
     "subnet108Name": {
       "type": "string",
       "defaultValue": "ExtASA_Out_108_VDC_prod_TX",
       "metadata": {
-        "description": "ExtASA Outside Interface"
+        "description": "ASA Outside Interface"
       }
     },
     "subnet108NSG": {
@@ -472,7 +472,7 @@
       "type": "string",
       "defaultValue": "10.190.0.132",
       "metadata": {
-        "description": "ExtASA_Out subnet 108 VNA IP"
+        "description": "IntASA_Out subnet 108 VNA IP"
       }
     },
     "subnet108UDR": {
@@ -486,14 +486,14 @@
       "type": "string",
       "defaultValue": "10.190.0.136/29",
       "metadata": {
-        "description": "ExtASA DMZ interface"
+        "description": "ASA DMZ interface"
       }
     },
     "subnet109Name": {
       "type": "string",
       "defaultValue": "ExtASA_DMZ_109_VDC_prod_TX",
       "metadata": {
-        "description": "ExtASA DMZ interface"
+        "description": "ASA DMZ interface"
       }
     },
     "subnet109NSG": {
@@ -507,7 +507,7 @@
       "type": "string",
       "defaultValue": "10.190.0.140",
       "metadata": {
-        "description": "ExtSA_DMZ subnet 109 VNA IP"
+        "description": "IntASA_DMZ subnet 109 VNA IP"
       }
     },
     "subnet109UDR": {
@@ -521,7 +521,7 @@
       "type": "string",
       "defaultValue": "10.190.0.96/29",
       "metadata": {
-        "description": "Internal Loadbalancer"
+        "description": "Loadbalancer"
       }
     },
     "subnet111Name": {
@@ -556,7 +556,7 @@
       "type": "string",
       "defaultValue": "ExtLB_151_VDC_prod_TX",
       "metadata": {
-        "description": "Ext Loadbalancer virtual appliance"
+        "description": "Internal Loadbalancer virtual appliance"
       }
     },
     "subnet151Prefix": {
@@ -608,13 +608,6 @@
         "description": "600: Services, Tier (0) Used to host highly sensit"
       }
     },
-    "subnet600VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.0.76",
-      "metadata": {
-        "description": "IntASA_In subnet 102 VNA IP"
-      }
-    },
     "subnet600UDR": {
       "type": "string",
       "defaultValue": "UDR_600_Services",
@@ -643,14 +636,6 @@
         "description": "601: LB_Services, Tier (0) Loadbalanced Services ("
       }
     },
-    "subnet601VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.0.100",
-      "metadata": {
-        "description": "IntLB subnet 111 VNA IP"
-      }
-    },
-
     "subnet601UDR": {
       "type": "string",
       "defaultValue": "UDR_601_LB_Services",
@@ -677,13 +662,6 @@
       "defaultValue": "NSG_DMZ_650_VDC_Srvcs_tx",
       "metadata": {
         "description": "650: DMZ, Tier (0) Used to host public facing high"
-      }
-    },
-    "subnet650VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.0.124",
-      "metadata": {
-        "description": "ExtASA_In subnet 107 VNA IP"
       }
     },
     "subnet650UDR": {
@@ -714,13 +692,6 @@
         "description": "651: LB_DMZ, Data Tier (0) Loadbalanced Services D"
       }
     },
-    "subnet651VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.0.148",
-      "metadata": {
-        "description": "ExtLB subnet 151 VNA IP"
-      }
-    },
     "subnet651UDR": {
       "type": "string",
       "defaultValue": "UDR_651_Services_LB_DMZ",
@@ -747,13 +718,6 @@
       "defaultValue": "NSG_User_Tier0_660_VDC_Srvcs_tx",
       "metadata": {
         "description": "660: User_Tier0, Tier (0) Tier 0 - Direct Control"
-      }
-    },
-    "subnet660VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.0.124",
-      "metadata": {
-        "description": "ExtASA_In subnet 107 VNA IP"
       }
     },
     "subnet660UDR": {

@@ -26,7 +26,7 @@
   <!-- vertag<:>end -->
   <ItemGroup>
     <Content Include="azuredeploy.parameters.json" />
-    <Content Include="azuredeploy.json" />
+    <Content Include="azuredeploy_VNET.json" />
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
