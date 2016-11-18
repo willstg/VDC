@@ -830,7 +830,7 @@
 
       "dependsOn": [
  
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet101UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet101UDR'))]"
        
       ],
       "tags": {
