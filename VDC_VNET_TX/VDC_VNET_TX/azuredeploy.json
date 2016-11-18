@@ -236,77 +236,77 @@
         "description": "704: ER, Tier (0) ExpressRoute Termination"
       }
     },
-    "subnet101Prefix": {
+    "subnet710Prefix": {
       "type": "string",
       "defaultValue": "10.190.0.64/29",
       "metadata": {
         "description": "IntASA Management Interface "
       }
     },
-    "subnet101Name": {
+    "subnet710Name": {
       "type": "string",
-      "defaultValue": "IntASA_Mgnt_101_VDC_prod_TX",
+      "defaultValue": "IntASA_Mgnt_710_VDC_prod_TX",
       "metadata": {
         "description": "ASA management interface"
       }
     },
-    "subnet101NSG": {
+    "subnet710NSG": {
       "type": "string",
-      "defaultValue": "NSG_IntASA_Mgnt_101_VDC_prod_TX",
+      "defaultValue": "NSG_IntASA_Mgnt_710_VDC_prod_TX",
       "metadata": {
-        "description": "101: IntASA_Mgnt, Tier (0) ASA management interfac"
+        "description": "710: IntASA_Mgnt, Tier (0) ASA management interfac"
       }
     },
-    "subnet101VNAIP": {
+    "subnet710VNAIP": {
       "type": "string",
       "defaultValue": "10.190.0.68",
       "metadata": {
-        "description": "IntASA_Mgnt subnet 101 VNA IP"
+        "description": "IntASA_Mgnt subnet 710 VNA IP"
       }
     },
-    "subnet101UDR": {
+    "subnet710UDR": {
       "type": "string",
-      "defaultValue": "UDR_101_ASA_Mgnt",
+      "defaultValue": "UDR_710_ASA_Mgnt",
       "metadata": {
-        "description": "UDR 101: ASA_Mgnt"
+        "description": "UDR 710: ASA_Mgnt"
       }
     },
-    "subnet102Prefix": {
+    "subnet711Prefix": {
       "type": "string",
       "defaultValue": "10.190.0.72/29",
       "metadata": {
         "description": "ASA Inside Interface"
       }
     },
-    "subnet102Name": {
+    "subnet711Name": {
       "type": "string",
-      "defaultValue": "IntASA_In_102_VDC_prod_TX",
+      "defaultValue": "IntASA_In_711_VDC_prod_TX",
       "metadata": {
         "description": "ASA Inside Interface"
       }
     },
-    "subnet102NSG": {
+    "subnet711NSG": {
       "type": "string",
-      "defaultValue": "NSG_IntASA_In_102_VDC_prod_TX",
+      "defaultValue": "NSG_IntASA_In_711_VDC_prod_TX",
       "metadata": {
-        "description": "102: IntASA_In, Tier (0) ASA Inside Interface"
+        "description": "711: IntASA_In, Tier (0) ASA Inside Interface"
       }
     },
-    "subnet102VNAIP": {
+    "subnet711VNAIP": {
       "type": "string",
       "defaultValue": "10.190.0.76",
       "metadata": {
-        "description": "IntASA_In subnet 102 VNA IP"
+        "description": "IntASA_In subnet 711 VNA IP"
       }
     },
-    "subnet102UDR": {
+    "subnet711UDR": {
       "type": "string",
-      "defaultValue": "UDR_102_ASA_In",
+      "defaultValue": "UDR_711_ASA_In",
       "metadata": {
-        "description": "UDR 102: ASA_In"
+        "description": "UDR 711: ASA_In"
       }
     },
-    "subnet103Prefix": {
+    "subnet712Prefix": {
       "type": "string",
       "defaultValue": "10.190.0.80/29",
       "metadata": {
@@ -314,277 +314,278 @@
 
       }
     },
-    "subnet103Name": {
+    "subnet712Name": {
       "type": "string",
-      "defaultValue": "IntASA_Out_103_VDC_prod_TX",
+      "defaultValue": "IntASA_Out_712_VDC_prod_TX",
       "metadata": {
         "description": "ASA Outside Interface"
       }
     },
-    "subnet103NSG": {
+    "subnet712NSG": {
       "type": "string",
-      "defaultValue": "NSG_IntASA_Out_103_VDC_prod_TX",
+      "defaultValue": "NSG_IntASA_Out_712_VDC_prod_TX",
       "metadata": {
-        "description": "103: IntASA_Out, Tier (0) ASA Outside Interface"
+        "description": "712: IntASA_Out, Tier (0) ASA Outside Interface"
       }
     },
-    "subnet103VNAIP": {
+    "subnet712VNAIP": {
       "type": "string",
       "defaultValue": "10.190.0.84",
       "metadata": {
-        "description": "IntASA_Out subnet 103 VNA IP"
+        "description": "IntASA_Out subnet 712 VNA IP"
       }
     },
-    "subnet103UDR": {
+    "subnet712UDR": {
       "type": "string",
-      "defaultValue": "UDR_103_ASA_Out",
+      "defaultValue": "UDR_712_ASA_Out",
       "metadata": {
-        "description": "UDR 103: ASA_Out"
+        "description": "UDR 712: ASA_Out"
       }
     },
-    "subnet104Prefix": {
+    "subnet713Prefix": {
       "type": "string",
       "defaultValue": "10.190.0.80/29",
       "metadata": {
         "description": "ASA DMZ interface"
       }
     },
-    "subnet104Name": {
+    "subnet713Name": {
       "type": "string",
-      "defaultValue": "IntASA_DMZ_104_VDC_prod_TX",
+      "defaultValue": "IntASA_DMZ_713_VDC_prod_TX",
       "metadata": {
         "description": "ASA DMZ interface"
       }
     },
-    "subnet104NSG": {
+    "subnet713NSG": {
       "type": "string",
-      "defaultValue": "NSG_IntASA_DMZ_104_VDC_prod_TX",
+      "defaultValue": "NSG_IntASA_DMZ_713_VDC_prod_TX",
       "metadata": {
-        "description": "104: IntASA_Out, Tier (0) ASA Internet interface"
+        "description": "713: IntASA_Out, Tier (0) ASA Internet interface"
       }
     },
-    "subnet104VNAIP": {
+    "subnet713VNAIP": {
       "type": "string",
       "defaultValue": "10.190.0.92",
       "metadata": {
-        "description": "IntASA_DMZ subnet 104 VNA IP"
+        "description": "IntASA_DMZ subnet 713 VNA IP"
       }
     },
-    "subnet104UDR": {
+    "subnet713UDR": {
       "type": "string",
-      "defaultValue": "UDR_104_ASA_DMZ",
+      "defaultValue": "UDR_713_ASA_DMZ",
       "metadata": {
-        "description": "UDR 104: ASA_DMZ"
+        "description": "UDR 713: ASA_DMZ"
       }
     },
-    "subnet106Prefix": {
-      "type": "string",
-      "defaultValue": "10.190.0.112/29",
-      "metadata": {
-        "description": "ASA management interface"
-      }
-    },
-    "subnet106Name": {
-      "type": "string",
-      "defaultValue": "ExtASA_Mgnt_106_VDC_prod_TX",
-      "metadata": {
-        "description": "ExtASA management interface"
-      }
-    },
-    "subnet106NSG": {
-      "type": "string",
-      "defaultValue": "NSG_ExtASA_Mgnt_106_VDC_prod_TX",
-      "metadata": {
-        "description": "106: ExtASA_Mgnt, Tier (0) ASA management interfac"
-      }
-    },
-    "subnet106VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.0.116",
-      "metadata": {
-        "description": "ExtASA_Mgnt subnet 106 VNA IP"
-      }
-    },
-    "subnet106UDR": {
-      "type": "string",
-      "defaultValue": "UDR_106_ExtASA_Mgnt",
-      "metadata": {
-        "description": "UDR 106: ExtASA_Mgnt"
-      }
-    },
-    "subnet107Prefix": {
-      "type": "string",
-      "defaultValue": "10.190.0.120/29",
-      "metadata": {
-        "description": "ExtASA Inside Interface"
-      }
-    },
-    "subnet107Name": {
-      "type": "string",
-      "defaultValue": "ExtASA_In_107_VDC_prod_TX",
-      "metadata": {
-        "description": "ExtASA Inside Interface"
-      }
-    },
-    "subnet107NSG": {
-      "type": "string",
-      "defaultValue": "NSG_ExtASA_In_107_VDC_prod_TX",
-      "metadata": {
-        "description": "107: ExtASA_In, Tier (0) ASA Inside Interface"
-      }
-    },
-    "subnet107VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.0.124",
-      "metadata": {
-        "description": "ExtASA_In subnet 107 VNA IP"
-      }
-    },
-    "subnet107UDR": {
-      "type": "string",
-      "defaultValue": "UDR_107_ExtASA_In",
-      "metadata": {
-        "description": "UDR 107: ExtASA_In"
-      }
-    },
-    "subnet108Prefix": {
-      "type": "string",
-      "defaultValue": "10.190.0.128/29",
-      "metadata": {
-        "description": "ExtASA Outside Interface"
-      }
-    },
-    "subnet108Name": {
-      "type": "string",
-      "defaultValue": "ExtASA_Out_108_VDC_prod_TX",
-      "metadata": {
-        "description": "ExtASA Outside Interface"
-      }
-    },
-    "subnet108NSG": {
-      "type": "string",
-      "defaultValue": "NSG_ExtASA_Out_108_VDC_prod_TX",
-      "metadata": {
-        "description": "108: ExtASA_Out, Tier (0) ASA Outside Interface"
-      }
-    },
-    "subnet108VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.0.132",
-      "metadata": {
-        "description": "ExtASA_Out subnet 108 VNA IP"
-      }
-    },
-    "subnet108UDR": {
-      "type": "string",
-      "defaultValue": "UDR_108_ExtASA_Out",
-      "metadata": {
-        "description": "UDR 108: ExtASA_Out"
-      }
-    },
-    "subnet109Prefix": {
-      "type": "string",
-      "defaultValue": "10.190.0.136/29",
-      "metadata": {
-        "description": "ExtASA DMZ interface"
-      }
-    },
-    "subnet109Name": {
-      "type": "string",
-      "defaultValue": "ExtASA_DMZ_109_VDC_prod_TX",
-      "metadata": {
-        "description": "ExtASA DMZ interface"
-      }
-    },
-    "subnet109NSG": {
-      "type": "string",
-      "defaultValue": "NSG_ExtASA_DMZ_109_VDC_prod_TX",
-      "metadata": {
-        "description": "109: ExtASA_Out, Tier (0) ASA Internet interface"
-      }
-    },
-    "subnet109VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.0.140",
-      "metadata": {
-        "description": "ExtSA_DMZ subnet 109 VNA IP"
-      }
-    },
-    "subnet109UDR": {
-      "type": "string",
-      "defaultValue": "UDR_109_ExtASA_DMZ",
-      "metadata": {
-        "description": "UDR 109: ExtASA_DMZ"
-      }
-    },
-    "subnet111Prefix": {
+    "subnet715Prefix": {
       "type": "string",
       "defaultValue": "10.190.0.96/29",
       "metadata": {
         "description": "Internal Loadbalancer"
       }
     },
-    "subnet111Name": {
+    "subnet715Name": {
       "type": "string",
-      "defaultValue": "IntLB_111_VDC_prod_TX",
+      "defaultValue": "IntLB_715_VDC_prod_TX",
       "metadata": {
         "description": "Internal Loadbalancer Virtual Network Appliance"
       }
     },
-    "subnet111NSG": {
+    "subnet715NSG": {
       "type": "string",
-      "defaultValue": "NSG_IntLB_111_VDC_prod_tx",
+      "defaultValue": "NSG_IntLB_715_VDC_prod_tx",
       "metadata": {
-        "description": "111: IntLB, Tier (0) Loadbalancer"
+        "description": "715: IntLB, Tier (0) Loadbalancer"
       }
     },
-    "subnet111VNAIP": {
+    "subnet715VNAIP": {
       "type": "string",
       "defaultValue": "10.190.0.100",
       "metadata": {
-        "description": "IntLB subnet 111 VNA IP"
+        "description": "IntLB subnet 715 VNA IP"
       }
     },
-    "subnet111UDR": {
+    "subnet715UDR": {
       "type": "string",
-      "defaultValue": "UDR_111_Int_LB",
+      "defaultValue": "UDR_715_Int_LB",
       "metadata": {
-        "description": "UDR 111: Int_LB"
+        "description": "UDR 715: Int_LB"
       }
     },
-    "subnet151Name": {
+    "subnet750Prefix": {
       "type": "string",
-      "defaultValue": "ExtLB_151_VDC_prod_TX",
+      "defaultValue": "10.190.0.112/29",
+      "metadata": {
+        "description": "ASA management interface"
+      }
+    },
+    "subnet750Name": {
+      "type": "string",
+      "defaultValue": "ExtASA_Mgnt_750_VDC_prod_TX",
+      "metadata": {
+        "description": "ExtASA management interface"
+      }
+    },
+    "subnet750NSG": {
+      "type": "string",
+      "defaultValue": "NSG_ExtASA_Mgnt_750_VDC_prod_TX",
+      "metadata": {
+        "description": "750: ExtASA_Mgnt, Tier (0) ASA management interfac"
+      }
+    },
+    "subnet750VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.116",
+      "metadata": {
+        "description": "ExtASA_Mgnt subnet 750 VNA IP"
+      }
+    },
+    "subnet750UDR": {
+      "type": "string",
+      "defaultValue": "UDR_750_ExtASA_Mgnt",
+      "metadata": {
+        "description": "UDR 750: ExtASA_Mgnt"
+      }
+    },
+    "subnet751Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.120/29",
+      "metadata": {
+        "description": "ExtASA Inside Interface"
+      }
+    },
+    "subnet751Name": {
+      "type": "string",
+      "defaultValue": "ExtASA_In_751_VDC_prod_TX",
+      "metadata": {
+        "description": "ExtASA Inside Interface"
+      }
+    },
+    "subnet751NSG": {
+      "type": "string",
+      "defaultValue": "NSG_ExtASA_In_751_VDC_prod_TX",
+      "metadata": {
+        "description": "751: ExtASA_In, Tier (0) ASA Inside Interface"
+      }
+    },
+    "subnet751VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.124",
+      "metadata": {
+        "description": "ExtASA_In subnet 751 VNA IP"
+      }
+    },
+    "subnet751UDR": {
+      "type": "string",
+      "defaultValue": "UDR_751_ExtASA_In",
+      "metadata": {
+        "description": "UDR 751: ExtASA_In"
+      }
+    },
+    "subnet752Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.128/29",
+      "metadata": {
+        "description": "ExtASA Outside Interface"
+      }
+    },
+    "subnet752Name": {
+      "type": "string",
+      "defaultValue": "ExtASA_Out_752_VDC_prod_TX",
+      "metadata": {
+        "description": "ExtASA Outside Interface"
+      }
+    },
+    "subnet752NSG": {
+      "type": "string",
+      "defaultValue": "NSG_ExtASA_Out_752_VDC_prod_TX",
+      "metadata": {
+        "description": "752: ExtASA_Out, Tier (0) ASA Outside Interface"
+      }
+    },
+    "subnet752VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.132",
+      "metadata": {
+        "description": "ExtASA_Out subnet 752 VNA IP"
+      }
+    },
+    "subnet752UDR": {
+      "type": "string",
+      "defaultValue": "UDR_752_ExtASA_Out",
+      "metadata": {
+        "description": "UDR 752: ExtASA_Out"
+      }
+    },
+    "subnet753Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.0.136/29",
+      "metadata": {
+        "description": "ExtASA DMZ interface"
+      }
+    },
+    "subnet753Name": {
+      "type": "string",
+      "defaultValue": "ExtASA_DMZ_753_VDC_prod_TX",
+      "metadata": {
+        "description": "ExtASA DMZ interface"
+      }
+    },
+    "subnet753NSG": {
+      "type": "string",
+      "defaultValue": "NSG_ExtASA_DMZ_753_VDC_prod_TX",
+      "metadata": {
+        "description": "753: ExtASA_Out, Tier (0) ASA Internet interface"
+      }
+    },
+    "subnet753VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.0.140",
+      "metadata": {
+        "description": "ExtSA_DMZ subnet 753 VNA IP"
+      }
+    },
+    "subnet753UDR": {
+      "type": "string",
+      "defaultValue": "UDR_753_ExtASA_DMZ",
+      "metadata": {
+        "description": "UDR 753: ExtASA_DMZ"
+      }
+    },
+
+    "subnet755Name": {
+      "type": "string",
+      "defaultValue": "ExtLB_755_VDC_prod_TX",
       "metadata": {
         "description": "Ext Loadbalancer virtual appliance"
       }
     },
-    "subnet151Prefix": {
+    "subnet755Prefix": {
       "type": "string",
       "defaultValue": "10.190.0.96/29",
       "metadata": {
         "description": "External Loadbalancer Virtual Network Appliance"
       }
     },
-    "subnet151NSG": {
+    "subnet755NSG": {
       "type": "string",
-      "defaultValue": "NSG_ExtLB_151_VDC_prod_tx",
+      "defaultValue": "NSG_ExtLB_755_VDC_prod_tx",
       "metadata": {
-        "description": "151: ExtLB, Tier (0) Loadbalancer"
+        "description": "755: ExtLB, Tier (0) Loadbalancer"
       }
     },
-    "subnet151VNAIP": {
+    "subnet755VNAIP": {
       "type": "string",
       "defaultValue": "10.190.0.148",
       "metadata": {
-        "description": "ExtLB subnet 151 VNA IP"
+        "description": "ExtLB subnet 755 VNA IP"
       }
     },
-    "subnet151UDR": {
+    "subnet755UDR": {
       "type": "string",
-      "defaultValue": "UDR_151_Ext_LB",
+      "defaultValue": "UDR_755_Ext_LB",
       "metadata": {
-        "description": "UDR 151: Ext_LB"
+        "description": "UDR 755: Ext_LB"
       }
     },
     "subnet600Prefix": {
@@ -612,7 +613,7 @@
       "type": "string",
       "defaultValue": "10.190.0.76",
       "metadata": {
-        "description": "IntASA_In subnet 102 VNA IP"
+        "description": "IntASA_In subnet 711 VNA IP"
       }
     },
     "subnet600UDR": {
@@ -647,7 +648,7 @@
       "type": "string",
       "defaultValue": "10.190.0.100",
       "metadata": {
-        "description": "IntLB subnet 111 VNA IP"
+        "description": "IntLB subnet 715 VNA IP"
       }
     },
 
@@ -683,7 +684,7 @@
       "type": "string",
       "defaultValue": "10.190.0.124",
       "metadata": {
-        "description": "ExtASA_In subnet 107 VNA IP"
+        "description": "ExtASA_In subnet 751 VNA IP"
       }
     },
     "subnet650UDR": {
@@ -718,7 +719,7 @@
       "type": "string",
       "defaultValue": "10.190.0.148",
       "metadata": {
-        "description": "ExtLB subnet 151 VNA IP"
+        "description": "ExtLB subnet 755 VNA IP"
       }
     },
     "subnet651UDR": {
@@ -753,7 +754,7 @@
       "type": "string",
       "defaultValue": "10.190.0.124",
       "metadata": {
-        "description": "ExtASA_In subnet 107 VNA IP"
+        "description": "ExtASA_In subnet 751 VNA IP"
       }
     },
     "subnet660UDR": {
@@ -908,7 +909,7 @@
               "sourceAddressPrefix": "INTERNET",
               "destinationAddressPrefix": "*",
               "access": "Allow",
-              "priority": 102,
+              "priority": 711,
               "direction": "Inbound"
             }
           },
@@ -1014,10 +1015,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet101NSG')]",
+      "name": "[parameters('subnet710NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 101 NSG"
+        "displayName": "Subnet 710 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1084,10 +1085,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet102NSG')]",
+      "name": "[parameters('subnet711NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 102 NSG"
+        "displayName": "Subnet 711 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1111,10 +1112,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet103NSG')]",
+      "name": "[parameters('subnet712NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 103 NSG"
+        "displayName": "Subnet 712 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1138,10 +1139,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet104NSG')]",
+      "name": "[parameters('subnet713NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 104 NSG"
+        "displayName": "Subnet 713 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1165,10 +1166,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet106NSG')]",
+      "name": "[parameters('subnet750NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 106 NSG"
+        "displayName": "Subnet 750 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1234,10 +1235,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet107NSG')]",
+      "name": "[parameters('subnet751NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 107 NSG"
+        "displayName": "Subnet 751 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1261,10 +1262,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet108NSG')]",
+      "name": "[parameters('subnet752NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 108 NSG"
+        "displayName": "Subnet 752 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1288,10 +1289,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet109NSG')]",
+      "name": "[parameters('subnet753NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 109 NSG"
+        "displayName": "Subnet 753 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1315,10 +1316,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet111NSG')]",
+      "name": "[parameters('subnet715NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 111 NSG"
+        "displayName": "Subnet 715 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1342,10 +1343,10 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet151NSG')]",
+      "name": "[parameters('subnet755NSG')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 151 NSG"
+        "displayName": "Subnet 755 NSG"
       },
       "properties": {
         "securityRules": [
@@ -1532,37 +1533,37 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet101UDR')]",
+      "name": "[parameters('subnet710UDR')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 101 UDR"
+        "displayName": "Subnet 710 UDR"
       },
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom101To102_IntASA_In",
+            "name": "RouteFrom710To711_IntASA_In",
             "properties": {
-              "addressPrefix": "parameters('subnet102Prefix')]",
+              "addressPrefix":"10.190.0.72/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet101VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet710VNAIP')]"
             }
           },
 
           {
-            "name": "RouteFrom101To103_IntASA_Out",
+            "name": "RouteFrom710To712_IntASA_Out",
             "properties": {
-              "addressPrefix": "parameters('subnet103Prefix')]",
+              "addressPrefix":"10.190.0.80/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet101VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet710VNAIP')]"
             }
           },
 
           {
-            "name": "RouteFrom101To104_IntASA_DMZ",
+            "name": "RouteFrom710To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix": "parameters('subnet104Prefix')]",
+              "addressPrefix":"10.190.0.88/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet101VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet710VNAIP')]"
             }
           }
 
@@ -1572,252 +1573,37 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet102UDR')]",
+      "name": "[parameters('subnet711UDR')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 102 UDR"
+        "displayName": "Subnet 711 UDR"
       },
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom102To101_IntASA_Mgnt",
+            "name": "RouteFrom711To710_IntASA_Mgnt",
             "properties": {
-              "addressPrefix": "parameters('subnet101Prefix')]",
+              "addressPrefix": "10.190.0.64/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet102VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet711VNAIP')]"
             }
           },
 
           {
-            "name": "RouteFrom102To103_IntASA_Out",
+            "name": "RouteFrom711To712_IntASA_Out",
             "properties": {
-              "addressPrefix": "parameters('subnet103Prefix')]",
+              "addressPrefix":"10.190.0.80/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet102VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet711VNAIP')]"
             }
           },
 
           {
-            "name": "RouteFrom102To104_IntASA_DMZ",
+            "name": "RouteFrom711To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix": "parameters('subnet104Prefix')]",
+              "addressPrefix":"10.190.0.88/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet102VNAIP')]"
-            }
-          }
-
-        ]
-      }
-    },
-
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet103UDR')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "Subnet 103 UDR"
-      },
-      "properties": {
-        "routes": [
-          {
-            "name": "RouteFrom103To101_IntASA_Mgnt",
-            "properties": {
-              "addressPrefix": "parameters('subnet101Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet103VNAIP')]"
-            }
-          },
-
-          {
-            "name": "RouteFrom103To102_IntASA_In",
-            "properties": {
-              "addressPrefix": "parameters('subnet102Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet103VNAIP')]"
-            }
-          },
-
-          {
-            "name": "RouteFrom103To104_IntASA_DMZ",
-            "properties": {
-              "addressPrefix": "parameters('subnet104Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet103VNAIP')]"
-            }
-          }
-
-        ]
-      }
-    },
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet104UDR')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "Subnet 104 UDR"
-      },
-      "properties": {
-        "routes": [
-          {
-            "name": "RouteFrom104To101_IntASA_Mgnt",
-            "properties": {
-              "addressPrefix": "parameters('subnet101Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
-            }
-          },
-          {
-            "name": "RouteFrom104To102_IntASA_In",
-            "properties": {
-              "addressPrefix": "parameters('subnet102Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
-            }
-          },
-
-          {
-            "name": "RouteFrom104To103_IntASA_Out",
-            "properties": {
-              "addressPrefix": "parameters('subnet103Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
-            }
-          },
-
-          {
-            "name": "RouteFrom104To109_ExtASA_DMZ",
-            "properties": {
-              "addressPrefix": "parameters('subnet109Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
-            }
-          },
-
-          {
-            "name": "RouteFrom104To700_CSR_In",
-            "properties": {
-              "addressPrefix": "parameters('subnet700Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet104VNAIP')]"
-            }
-          }
-
-        ]
-      }
-    },
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet106UDR')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "Subnet 106 UDR"
-      },
-      "properties": {
-        "routes": [
-          {
-            "name": "RouteFrom106To107_ExtASA_In",
-            "properties": {
-              "addressPrefix": "parameters('subnet107Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet106VNAIP')]"
-            }
-          },
-
-          {
-            "name": "RouteFrom106To108_ExtASA_Out",
-            "properties": {
-              "addressPrefix": "parameters('subnet108Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet106VNAIP')]"
-            }
-          },
-
-          {
-            "name": "RouteFrom106To109_ExtASA_DMZ",
-            "properties": {
-              "addressPrefix": "parameters('subnet109Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet106VNAIP')]"
-            }
-          }
-
-        ]
-      }
-    },
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet107UDR')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "Subnet 107 UDR"
-      },
-      "properties": {
-        "routes": [
-
-          {
-            "name": "RouteFrom107To106_ExtASA_Mgnt",
-            "properties": {
-              "addressPrefix": "parameters('subnet106Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet107VNAIP')]"
-            }
-          },
-          {
-            "name": "RouteFrom107To108_ExtASA_Out",
-            "properties": {
-              "addressPrefix": "parameters('subnet108Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet107VNAIP')]"
-            }
-          },
-          {
-            "name": "RouteFrom107To109_ExtASA_DMZ",
-            "properties": {
-              "addressPrefix": "parameters('subnet109Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet107VNAIP')]"
-            }
-          }
-
-        ]
-      }
-    },
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet108UDR')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "Subnet 108 UDR"
-      },
-      "properties": {
-        "routes": [
-          {
-            "name": "RouteFrom108To106_ExtASA_Mgnt",
-            "properties": {
-              "addressPrefix": "parameters('subnet106Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet108VNAIP')]"
-            }
-          },
-          {
-            "name": "RouteFrom108To107_ExtASA_In",
-            "properties": {
-              "addressPrefix": "parameters('subnet107Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet108VNAIP')]"
-            }
-          },
-          {
-            "name": "RouteFrom108To109_ExtASA_DMZ",
-            "properties": {
-              "addressPrefix": "parameters('subnet109Prefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet108VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet711VNAIP')]"
             }
           }
 
@@ -1828,35 +1614,37 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet109UDR')]",
+      "name": "[parameters('subnet712UDR')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 109 UDR"
+        "displayName": "Subnet 712 UDR"
       },
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom109To106_ExtASA_Mgnt",
+            "name": "RouteFrom712To710_IntASA_Mgnt",
             "properties": {
-              "addressPrefix": "parameters('subnet106Prefix')]",
+              "addressPrefix": "10.190.0.64/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet109VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet712VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom109To107_ExtASA_In",
+            "name": "RouteFrom712To711_IntASA_In",
             "properties": {
-              "addressPrefix": "parameters('subnet107Prefix')]",
+              "addressPrefix":"10.190.0.72/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet109VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet712VNAIP')]"
             }
           },
+
           {
-            "name": "RouteFrom109To108_ExtASA_Out",
+            "name": "RouteFrom712To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix": "parameters('subnet108Prefix')]",
+              "addressPrefix":"10.190.0.88/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet109VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet712VNAIP')]"
             }
           }
 
@@ -1866,19 +1654,171 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet111UDR')]",
+      "name": "[parameters('subnet713UDR')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 111 UDR"
+        "displayName": "Subnet 713 UDR"
       },
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom111To102_IntASA_In",
+            "name": "RouteFrom713To710_IntASA_Mgnt",
             "properties": {
-              "addressPrefix": "parameters('subnet102Prefix')]",
+              "addressPrefix": "10.190.0.64/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet111VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom713To711_IntASA_In",
+            "properties": {
+              "addressPrefix":"10.190.0.72/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
+            }
+          },
+
+          {
+            "name": "RouteFrom713To712_IntASA_Out",
+            "properties": {
+              "addressPrefix":"10.190.0.80/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
+            }
+          },
+
+          {
+            "name": "RouteFrom713To753_ExtASA_DMZ",
+            "properties": {
+              "addressPrefix":"10.190.0.136/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
+            }
+          },
+
+          {
+            "name": "RouteFrom713To700_CSR_In",
+            "properties": {
+              "addressPrefix": "10.190.0.0/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
+            }
+          }
+
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/routeTables",
+      "name": "[parameters('subnet750UDR')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "Subnet 750 UDR"
+      },
+      "properties": {
+        "routes": [
+          {
+            "name": "RouteFrom750To751_ExtASA_In",
+            "properties": {
+              "addressPrefix":"10.190.0.120/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet750VNAIP')]"
+            }
+          },
+
+          {
+            "name": "RouteFrom750To752_ExtASA_Out",
+            "properties": {
+              "addressPrefix":"10.190.0.128/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet750VNAIP')]"
+            }
+          },
+
+          {
+            "name": "RouteFrom750To753_ExtASA_DMZ",
+            "properties": {
+              "addressPrefix":"10.190.0.136/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet750VNAIP')]"
+            }
+          }
+
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/routeTables",
+      "name": "[parameters('subnet751UDR')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "Subnet 751 UDR"
+      },
+      "properties": {
+        "routes": [
+
+          {
+            "name": "RouteFrom751To750_ExtASA_Mgnt",
+            "properties": {
+              "addressPrefix":"10.190.0.112/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet751VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom751To752_ExtASA_Out",
+            "properties": {
+              "addressPrefix":"10.190.0.128/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet751VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom751To753_ExtASA_DMZ",
+            "properties": {
+              "addressPrefix":"10.190.0.136/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet751VNAIP')]"
+            }
+          }
+
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/routeTables",
+      "name": "[parameters('subnet752UDR')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "Subnet 752 UDR"
+      },
+      "properties": {
+        "routes": [
+          {
+            "name": "RouteFrom752To750_ExtASA_Mgnt",
+            "properties": {
+              "addressPrefix":"10.190.0.112/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet752VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom752To751_ExtASA_In",
+            "properties": {
+              "addressPrefix":"10.190.0.120/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet752VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom752To753_ExtASA_DMZ",
+            "properties": {
+              "addressPrefix":"10.190.0.136/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet752VNAIP')]"
             }
           }
 
@@ -1889,19 +1829,80 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/routeTables",
-      "name": "[parameters('subnet151UDR')]",
+      "name": "[parameters('subnet753UDR')]",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "Subnet 151 UDR"
+        "displayName": "Subnet 753 UDR"
       },
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom151To109_ExtASA_DMZ",
+            "name": "RouteFrom753To750_ExtASA_Mgnt",
             "properties": {
-              "addressPrefix": "parameters('subnet109Prefix')]",
+              "addressPrefix":"10.190.0.112/29",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('subnet151VNAIP')]"
+              "nextHopIpAddress": "[parameters('subnet753VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom753To751_ExtASA_In",
+            "properties": {
+              "addressPrefix":"10.190.0.120/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet753VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom753To752_ExtASA_Out",
+            "properties": {
+              "addressPrefix":"10.190.0.128/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet753VNAIP')]"
+            }
+          }
+
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/routeTables",
+      "name": "[parameters('subnet715UDR')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "Subnet 715 UDR"
+      },
+      "properties": {
+        "routes": [
+          {
+            "name": "RouteFrom715To711_IntASA_In",
+            "properties": {
+              "addressPrefix":"10.190.0.72/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet715VNAIP')]"
+            }
+          }
+
+        ]
+      }
+    },
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/routeTables",
+      "name": "[parameters('subnet755UDR')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "Subnet 755 UDR"
+      },
+      "properties": {
+        "routes": [
+          {
+            "name": "RouteFrom755To753_ExtASA_DMZ",
+            "properties": {
+              "addressPrefix":"10.190.0.136/29",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet755VNAIP')]"
             }
           }
 
@@ -1919,9 +1920,9 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom600To102_IntASA_In",
+            "name": "RouteFrom600To711_IntASA_In",
             "properties": {
-              "addressPrefix": "parameters('subnet102Prefix')]",
+              "addressPrefix":"10.190.0.72/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet600VNAIP')]"
             }
@@ -1942,9 +1943,9 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom601To111_IntLB",
+            "name": "RouteFrom601To715_IntLB",
             "properties": {
-              "addressPrefix": "parameters('subnet111Prefix')]",
+              "addressPrefix":"10.190.0.96/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet601VNAIP')]"
             }
@@ -1964,9 +1965,9 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom650To109_ExtASA_DMZ",
+            "name": "RouteFrom650To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix": "parameters('subnet109Prefix')]",
+              "addressPrefix":"10.190.0.136/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet650VNAIP')]"
             }
@@ -1986,9 +1987,9 @@
       "properties": {
         "routes": [
           {
-            "name": "RouteFrom651To109_ExtASA_DMZ",
+            "name": "RouteFrom651To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix": "parameters('subnet109Prefix')]",
+              "addressPrefix":"10.190.0.136/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet651VNAIP')]"
             }
@@ -2010,7 +2011,7 @@
           {
             "name": "RouteFrom700To701_CSR_Out",
             "properties": {
-              "addressPrefix": "parameters('subnet701Prefix')]",
+              "addressPrefix": "10.190.0.8/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
             }
@@ -2018,7 +2019,7 @@
           {
             "name": "RouteFrom700To702_CSR_Tunnel",
             "properties": {
-              "addressPrefix": "parameters('subnet702Prefix')]",
+              "addressPrefix": "10.190.0.16/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
             }
@@ -2026,7 +2027,7 @@
           {
             "name": "RouteFrom700To703_CSR_HA",
             "properties": {
-              "addressPrefix": "parameters('subnet703Prefix')]",
+              "addressPrefix": "10.190.0.24/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
             }
@@ -2048,7 +2049,7 @@
           {
             "name": "RouteFrom701To700_CSR_In",
             "properties": {
-              "addressPrefix": "parameters('subnet700Prefix')]",
+              "addressPrefix": "10.190.0.0/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet701VNAIP')]"
             }
@@ -2056,7 +2057,7 @@
           {
             "name": "RouteFrom701To702_CSR_Tunnel",
             "properties": {
-              "addressPrefix": "parameters('subnet702Prefix')]",
+              "addressPrefix": "10.190.0.16/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet701VNAIP')]"
             }
@@ -2064,7 +2065,7 @@
           {
             "name": "RouteFrom701To703_CSR_HA",
             "properties": {
-              "addressPrefix": "parameters('subnet703Prefix')]",
+              "addressPrefix": "10.190.0.24/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet701VNAIP')]"
             }
@@ -2086,7 +2087,7 @@
           {
             "name": "RouteFrom702To700_CSR_In",
             "properties": {
-              "addressPrefix": "parameters('subnet700Prefix')]",
+              "addressPrefix": "10.190.0.0/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet702VNAIP')]"
             }
@@ -2094,7 +2095,7 @@
           {
             "name": "RouteFrom702To701_CSR_Out",
             "properties": {
-              "addressPrefix": "parameters('subnet701Prefix')]",
+              "addressPrefix": "10.190.0.8/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet702VNAIP')]"
             }
@@ -2102,7 +2103,7 @@
           {
             "name": "RouteFrom702To703_CSR_HA",
             "properties": {
-              "addressPrefix": "parameters('subnet703Prefix')]",
+              "addressPrefix":"10.190.0.24/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet702VNAIP')]"
             }
@@ -2124,7 +2125,7 @@
           {
             "name": "RouteFrom703To700_CSR_In",
             "properties": {
-              "addressPrefix": "parameters('subnet700Prefix')]",
+              "addressPrefix": "10.190.0.0/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet703VNAIP')]"
             }
@@ -2132,7 +2133,7 @@
           {
             "name": "RouteFrom703To701_CSR_Out",
             "properties": {
-              "addressPrefix": "parameters('subnet701Prefix')]",
+              "addressPrefix": "10.190.0.8/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet703VNAIP')]"
             }
@@ -2140,7 +2141,7 @@
           {
             "name": "RouteFrom703To702_CSR_Tunnel",
             "properties": {
-              "addressPrefix": "parameters('subnet702Prefix')]",
+              "addressPrefix": "10.190.0.16/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet703VNAIP')]"
             }
@@ -2161,16 +2162,16 @@
       "location": "[resourceGroup().location]",
 
       "dependsOn": [
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet101NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet102NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet103NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet104NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet106NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet107NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet108NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet109NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet111NSG'))]",
-        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet151NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet710NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet711NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet712NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet713NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet750NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet751NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet752NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet753NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet715NSG'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet755NSG'))]",
         "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet600NSG'))]",
         "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet601NSG'))]",
         "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet650NSG'))]",
@@ -2180,16 +2181,16 @@
         "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet702NSG'))]",
         "[concat('Microsoft.Network/networkSecurityGroups/', parameters('subnet703NSG'))]",
 
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet101UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet102UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet103UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet104UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet106UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet107UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet108UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet109UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet111UDR'))]",
-        "[concat('Microsoft.Network/routeTables/', parameters('subnet151UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet710UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet711UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet712UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet713UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet750UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet751UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet752UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet753UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet715UDR'))]",
+        "[concat('Microsoft.Network/routeTables/', parameters('subnet755UDR'))]",
         "[concat('Microsoft.Network/routeTables/', parameters('subnet600UDR'))]",
         "[concat('Microsoft.Network/routeTables/', parameters('subnet601UDR'))]",
         "[concat('Microsoft.Network/routeTables/', parameters('subnet650UDR'))]",
@@ -2210,122 +2211,122 @@
         },
         "subnets": [
           {
-            "name": "[parameters('subnet101Name')]",
+            "name": "[parameters('subnet710Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet101Prefix')]",
+              "addressPrefix": "[parameters('subnet710Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet101NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet710NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet101UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet710UDR'))]"
               }
             }
           },
           {
-            "name": "[parameters('subnet102Name')]",
+            "name": "[parameters('subnet711Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet102Prefix')]",
+              "addressPrefix": "[parameters('subnet711Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet102NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet711NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet102UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet711UDR'))]"
               }
             }
           },
           {
-            "name": "[parameters('subnet103Name')]",
+            "name": "[parameters('subnet712Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet103Prefix')]",
+              "addressPrefix": "[parameters('subnet712Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet103NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet712NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet103UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet712UDR'))]"
               }
             }
           },
           {
-            "name": "[parameters('subnet104Name')]",
+            "name": "[parameters('subnet713Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet104Prefix')]",
+              "addressPrefix": "[parameters('subnet713Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet104NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet713NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet104UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet713UDR'))]"
               }
             }
           },
           {
-            "name": "[parameters('subnet106Name')]",
+            "name": "[parameters('subnet750Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet106Prefix')]",
+              "addressPrefix": "[parameters('subnet750Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet106NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet750NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet106UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet750UDR'))]"
               }
             }
           },
           {
-            "name": "[parameters('subnet107Name')]",
+            "name": "[parameters('subnet751Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet107Prefix')]",
+              "addressPrefix": "[parameters('subnet751Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet107NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet751NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet107UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet751UDR'))]"
               }
             }
           },
           {
-            "name": "[parameters('subnet108Name')]",
+            "name": "[parameters('subnet752Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet108Prefix')]",
+              "addressPrefix": "[parameters('subnet752Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet108NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet752NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet108UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet752UDR'))]"
               }
             }
           },
           {
-            "name": "[parameters('subnet109Name')]",
+            "name": "[parameters('subnet753Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet109Prefix')]",
+              "addressPrefix": "[parameters('subnet753Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet109NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet753NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet109UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet753UDR'))]"
               }
             }
           },
           {
-            "name": "[parameters('subnet111Name')]",
+            "name": "[parameters('subnet715Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet111Prefix')]",
+              "addressPrefix": "[parameters('subnet715Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet111NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet715NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet111UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet715UDR'))]"
               }
             }
           },
           {
-            "name": "[parameters('subnet151Name')]",
+            "name": "[parameters('subnet755Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet151Prefix')]",
+              "addressPrefix": "[parameters('subnet755Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet151NSG'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet755NSG'))]"
               },
               "routeTable": {
-                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet151UDR'))]"
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet755UDR'))]"
               }
             }
           },
