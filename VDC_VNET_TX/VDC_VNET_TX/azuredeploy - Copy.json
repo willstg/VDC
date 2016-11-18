@@ -2177,55 +2177,98 @@
           {
             "name": "[parameters('subnet710Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet710Prefix')]"
-           
+              "addressPrefix": "[parameters('subnet710Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet710NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet710UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet711Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet711Prefix')]"
-                          }
+              "addressPrefix": "[parameters('subnet711Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet711NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet711UDR'))]"
+              }
+            }
           },
           {
             "name": "[parameters('subnet712Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet712Prefix')]"           
+              "addressPrefix": "[parameters('subnet712Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet712NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet712UDR'))]"
+              }
             }
           },
 
           {
             "name": "[parameters('subnet750Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet750Prefix')]"           
+              "addressPrefix": "[parameters('subnet750Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet750NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet750UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet751Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet751Prefix')]"
-            
+              "addressPrefix": "[parameters('subnet751Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet751NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet751UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet752Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet752Prefix')]"
-             
+              "addressPrefix": "[parameters('subnet752Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet752NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet752UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet753Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet753Prefix')]"
-             
+              "addressPrefix": "[parameters('subnet753Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet753NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet753UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet715Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet715Prefix')]"
-             
+              "addressPrefix": "[parameters('subnet715Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet715NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet715UDR'))]"
+              }
             }
           },
 
@@ -2233,36 +2276,58 @@
           {
             "name": "[parameters('subnet600Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet600Prefix')]"
-              
+              "addressPrefix": "[parameters('subnet600Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet600NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet600UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet601Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet601Prefix')]"
-              
+              "addressPrefix": "[parameters('subnet601Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet601NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet601UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet650Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet650Prefix')]"
-             
+              "addressPrefix": "[parameters('subnet650Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet650NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet650UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet651Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet651Prefix')]"
-             
+              "addressPrefix": "[parameters('subnet651Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet651NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet651UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet660Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet660Prefix')]"
-             
+              "addressPrefix": "[parameters('subnet660Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet660NSG'))]"
+              }
             }
           },
           {
@@ -2298,29 +2363,50 @@
           {
             "name": "[parameters('subnet702Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet702Prefix')]"
-             
+              "addressPrefix": "[parameters('subnet702Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet702NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet702UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet703Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet703Prefix')]"
-              
+              "addressPrefix": "[parameters('subnet703Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet703NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet703UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet713Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet713Prefix')]"
-           
+              "addressPrefix": "[parameters('subnet713Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet713NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet713UDR'))]"
+              }
             }
           },
           {
             "name": "[parameters('subnet755Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet755Prefix')]"
-            
+              "addressPrefix": "[parameters('subnet755Prefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnet755NSG'))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', parameters('subnet755UDR'))]"
+              }
+            }
           }
         ]
       }
