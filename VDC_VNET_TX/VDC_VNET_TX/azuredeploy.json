@@ -240,7 +240,7 @@
       "type": "string",
       "defaultValue": "10.190.0.64/29",
       "metadata": {
-        "description": "ASA "
+        "description": "IntASA Management Interface "
       }
     },
     "subnet101Name": {
