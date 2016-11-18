@@ -1543,7 +1543,7 @@
           {
             "name": "RouteFrom710To711_IntASA_In",
             "properties": {
-              "addressPrefix":"10.190.0.72/29",
+              "addressPrefix": "10.190.0.72/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet710VNAIP')]"
             }
@@ -1552,7 +1552,7 @@
           {
             "name": "RouteFrom710To712_IntASA_Out",
             "properties": {
-              "addressPrefix":"10.190.0.80/29",
+              "addressPrefix": "10.190.0.80/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet710VNAIP')]"
             }
@@ -1561,7 +1561,7 @@
           {
             "name": "RouteFrom710To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.88/29",
+              "addressPrefix": "10.190.0.88/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet710VNAIP')]"
             }
@@ -1592,7 +1592,7 @@
           {
             "name": "RouteFrom711To712_IntASA_Out",
             "properties": {
-              "addressPrefix":"10.190.0.80/29",
+              "addressPrefix": "10.190.0.80/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet711VNAIP')]"
             }
@@ -1601,7 +1601,7 @@
           {
             "name": "RouteFrom711To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.88/29",
+              "addressPrefix": "10.190.0.88/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet711VNAIP')]"
             }
@@ -1633,7 +1633,7 @@
           {
             "name": "RouteFrom712To711_IntASA_In",
             "properties": {
-              "addressPrefix":"10.190.0.72/29",
+              "addressPrefix": "10.190.0.72/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet712VNAIP')]"
             }
@@ -1642,7 +1642,7 @@
           {
             "name": "RouteFrom712To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.88/29",
+              "addressPrefix": "10.190.0.88/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet712VNAIP')]"
             }
@@ -1672,7 +1672,7 @@
           {
             "name": "RouteFrom713To711_IntASA_In",
             "properties": {
-              "addressPrefix":"10.190.0.72/29",
+              "addressPrefix": "10.190.0.72/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
             }
@@ -1681,7 +1681,7 @@
           {
             "name": "RouteFrom713To712_IntASA_Out",
             "properties": {
-              "addressPrefix":"10.190.0.80/29",
+              "addressPrefix": "10.190.0.80/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
             }
@@ -1690,7 +1690,7 @@
           {
             "name": "RouteFrom713To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.136/29",
+              "addressPrefix": "10.190.0.136/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
             }
@@ -1721,7 +1721,7 @@
           {
             "name": "RouteFrom750To751_ExtASA_In",
             "properties": {
-              "addressPrefix":"10.190.0.120/29",
+              "addressPrefix": "10.190.0.120/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet750VNAIP')]"
             }
@@ -1730,7 +1730,7 @@
           {
             "name": "RouteFrom750To752_ExtASA_Out",
             "properties": {
-              "addressPrefix":"10.190.0.128/29",
+              "addressPrefix": "10.190.0.128/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet750VNAIP')]"
             }
@@ -1739,7 +1739,7 @@
           {
             "name": "RouteFrom750To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.136/29",
+              "addressPrefix": "10.190.0.136/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet750VNAIP')]"
             }
@@ -1762,7 +1762,7 @@
           {
             "name": "RouteFrom751To750_ExtASA_Mgnt",
             "properties": {
-              "addressPrefix":"10.190.0.112/29",
+              "addressPrefix": "10.190.0.112/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet751VNAIP')]"
             }
@@ -1770,7 +1770,7 @@
           {
             "name": "RouteFrom751To752_ExtASA_Out",
             "properties": {
-              "addressPrefix":"10.190.0.128/29",
+              "addressPrefix": "10.190.0.128/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet751VNAIP')]"
             }
@@ -1778,7 +1778,7 @@
           {
             "name": "RouteFrom751To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.136/29",
+              "addressPrefix": "10.190.0.136/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet751VNAIP')]"
             }
@@ -1800,7 +1800,7 @@
           {
             "name": "RouteFrom752To750_ExtASA_Mgnt",
             "properties": {
-              "addressPrefix":"10.190.0.112/29",
+              "addressPrefix": "10.190.0.112/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet752VNAIP')]"
             }
@@ -1808,7 +1808,7 @@
           {
             "name": "RouteFrom752To751_ExtASA_In",
             "properties": {
-              "addressPrefix":"10.190.0.120/29",
+              "addressPrefix": "10.190.0.120/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet752VNAIP')]"
             }
@@ -1816,7 +1816,7 @@
           {
             "name": "RouteFrom752To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.136/29",
+              "addressPrefix": "10.190.0.136/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet752VNAIP')]"
             }
@@ -1839,7 +1839,7 @@
           {
             "name": "RouteFrom753To750_ExtASA_Mgnt",
             "properties": {
-              "addressPrefix":"10.190.0.112/29",
+              "addressPrefix": "10.190.0.112/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet753VNAIP')]"
             }
@@ -1847,7 +1847,7 @@
           {
             "name": "RouteFrom753To751_ExtASA_In",
             "properties": {
-              "addressPrefix":"10.190.0.120/29",
+              "addressPrefix": "10.190.0.120/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet753VNAIP')]"
             }
@@ -1855,7 +1855,7 @@
           {
             "name": "RouteFrom753To752_ExtASA_Out",
             "properties": {
-              "addressPrefix":"10.190.0.128/29",
+              "addressPrefix": "10.190.0.128/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet753VNAIP')]"
             }
@@ -1877,7 +1877,7 @@
           {
             "name": "RouteFrom715To711_IntASA_In",
             "properties": {
-              "addressPrefix":"10.190.0.72/29",
+              "addressPrefix": "10.190.0.72/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet715VNAIP')]"
             }
@@ -1900,7 +1900,7 @@
           {
             "name": "RouteFrom755To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.136/29",
+              "addressPrefix": "10.190.0.136/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet755VNAIP')]"
             }
@@ -1922,7 +1922,7 @@
           {
             "name": "RouteFrom600To711_IntASA_In",
             "properties": {
-              "addressPrefix":"10.190.0.72/29",
+              "addressPrefix": "10.190.0.72/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet600VNAIP')]"
             }
@@ -1945,7 +1945,7 @@
           {
             "name": "RouteFrom601To715_IntLB",
             "properties": {
-              "addressPrefix":"10.190.0.96/29",
+              "addressPrefix": "10.190.0.96/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet601VNAIP')]"
             }
@@ -1967,7 +1967,7 @@
           {
             "name": "RouteFrom650To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.136/29",
+              "addressPrefix": "10.190.0.136/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet650VNAIP')]"
             }
@@ -1989,7 +1989,7 @@
           {
             "name": "RouteFrom651To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix":"10.190.0.136/29",
+              "addressPrefix": "10.190.0.136/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet651VNAIP')]"
             }
@@ -2103,7 +2103,7 @@
           {
             "name": "RouteFrom702To703_CSR_HA",
             "properties": {
-              "addressPrefix":"10.190.0.24/29",
+              "addressPrefix": "10.190.0.24/29",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet702VNAIP')]"
             }
@@ -2162,7 +2162,7 @@
       "location": "[resourceGroup().location]",
 
       "dependsOn": [
-       
+
       ],
       "tags": {
         "displayName": "VDC VNet TX"
@@ -2178,54 +2178,54 @@
             "name": "[parameters('subnet710Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet710Prefix')]"
-           
+
             }
           },
           {
             "name": "[parameters('subnet711Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet711Prefix')]"
-                          }
+            }
           },
           {
             "name": "[parameters('subnet712Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet712Prefix')]"           
+              "addressPrefix": "[parameters('subnet712Prefix')]"
             }
           },
 
           {
             "name": "[parameters('subnet750Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet750Prefix')]"           
+              "addressPrefix": "[parameters('subnet750Prefix')]"
             }
           },
           {
             "name": "[parameters('subnet751Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet751Prefix')]"
-            
+
             }
           },
           {
             "name": "[parameters('subnet752Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet752Prefix')]"
-             
+
             }
           },
           {
             "name": "[parameters('subnet753Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet753Prefix')]"
-             
+
             }
           },
           {
             "name": "[parameters('subnet715Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet715Prefix')]"
-             
+
             }
           },
 
@@ -2234,35 +2234,35 @@
             "name": "[parameters('subnet600Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet600Prefix')]"
-              
+
             }
           },
           {
             "name": "[parameters('subnet601Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet601Prefix')]"
-              
+
             }
           },
           {
             "name": "[parameters('subnet650Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet650Prefix')]"
-             
+
             }
           },
           {
             "name": "[parameters('subnet651Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet651Prefix')]"
-             
+
             }
           },
           {
             "name": "[parameters('subnet660Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet660Prefix')]"
-             
+
             }
           },
           {
@@ -2299,28 +2299,28 @@
             "name": "[parameters('subnet702Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet702Prefix')]"
-             
+
             }
           },
           {
             "name": "[parameters('subnet703Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet703Prefix')]"
-              
+
             }
           },
           {
             "name": "[parameters('subnet713Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet713Prefix')]"
-           
+
             }
           },
           {
             "name": "[parameters('subnet755Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet755Prefix')]"
-            
+            }
           }
         ]
       }
