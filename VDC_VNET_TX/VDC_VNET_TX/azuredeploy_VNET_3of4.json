@@ -23,6 +23,7 @@
       "type": "string",
       "defaultValue": "vdc_vnet_va"
     },
+
     "VNETStorageName": {
       "type": "string",
       "defaultvalue": "vdcvnetva1a",
@@ -69,12 +70,13 @@
 
     "csr1aPIPName": {
       "type": "string",
-      "defaultvalue": "700_CSR4a",
+      "defaultValue": "700_CSR4a",
       "metadata": { "description": "PublicIP Address Name" }
     },
 
     "csr1aPIPType": {
-      "type": "string"
+      "type": "string", 
+      "defaultValue": "Static"
     },
 
     "csr1aPIPdnsPrefix": {
