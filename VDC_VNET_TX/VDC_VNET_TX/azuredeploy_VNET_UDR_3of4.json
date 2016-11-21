@@ -721,63 +721,7 @@
   "variables": {
     "apiVersion": "2015-06-15",
     "templateBaseUrl": "https://raw.githubusercontent.com/willstg/azurefoundation/master/ARM/VNET",
-    "All_Internet.Inbound.Deny": {
-      "description": "All_Internet.Inbound.Deny",
-      "protocol": "Tcp",
-      "sourcePortRange": "*",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Deny",
-      "priority": 150,
-      "direction": "Inbound"
     },
-    "All_Internet.Inbound.Allow": {
-      "description": "All_Internet.Inbound.Allow",
-      "protocol": "Tcp",
-      "sourcePortRange": "*",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Allow",
-      "priority": 150,
-      "direction": "Inbound"
-    },
-    "SSH.Inbound.Allow": {
-      "description": "SSH.Inbound.Allow",
-      "protocol": "Tcp",
-      "sourcePortRange": "22",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Allow",
-      "priority": 100,
-      "direction": "Inbound"
-    },
-    "UDP500.Inbound.Allow": {
-      "description": "UDP500.Inbound.Allow",
-      "protocol": "Udp",
-      "sourcePortRange": "500",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Allow",
-      "priority": 101,
-      "direction": "Inbound"
-    },
-    "UDP4500.Inbound.Allow": {
-      "description": "UDP4500.Inbound.Allow",
-      "protocol": "Udp",
-      "sourcePortRange": "4500",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Allow",
-      "priority": 102,
-      "direction": "Inbound"
-    },
-
-  },
 
   "resources": [
 
