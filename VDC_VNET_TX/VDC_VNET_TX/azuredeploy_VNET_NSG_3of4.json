@@ -1,0 +1,2456 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+
+    "baseUrl": {
+      "defaultValue": "https://github.com/willstg/VDC/tree/master/VDC_VNET_TX/VDC_VNET_TX",
+      "type": "string",
+      "metadata": {
+        "artifactsBaseUrl": "",
+        "description": "URL to acquire other templates"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "USGov Virginia",
+      "metadata": {
+        "description": "Deployment location. (example: USGov Virginia)"
+      }
+
+    },
+
+    "ResourceGroupName": {
+      "type": "string",
+      "defaultValue": "vdc_vnet_va"
+    },
+
+
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "vnet_vdc_va",
+      "metadata": {
+        "description": "AzureFoundation VNET for Virtual Data Center"
+      }
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.190.128.0/18",
+      "metadata": {
+        "description": "CIDR prefix for the VNet address space."
+      }
+    },
+    "subnet700NSG": {
+      "type": "string",
+      "defaultValue": "700_NSG_CSR_In",
+      "metadata": { "description": "NSG: Subnet for CSR for Inside interface" }
+    },
+    "subnet701NSG": {
+      "type": "string",
+      "defaultValue": "701_NSG_CSR_Out",
+      "metadata": { "description": "NSG: Subnet for CSR for Outside" }
+    },
+    "subnet702NSG": {
+      "type": "string",
+      "defaultValue": "702_NSG_CSR_Tunnel",
+      "metadata": { "description": "NSG: Subnet for the CSR Tunnel" }
+    },
+    "subnet703NSG": {
+      "type": "string",
+      "defaultValue": "703_NSG_CSR_HA",
+      "metadata": { "description": "NSG: Failover subnet" }
+    },
+    "subnet710NSG": {
+      "type": "string",
+      "defaultValue": "710_NSG_IntASA_Mgnt",
+      "metadata": { "description": "NSG: ASA management interface" }
+    },
+    "subnet711NSG": {
+      "type": "string",
+      "defaultValue": "711_NSG_IntASA_In",
+      "metadata": { "description": "NSG: ASA Inside Interface" }
+    },
+    "subnet712NSG": {
+      "type": "string",
+      "defaultValue": "712_NSG_IntASA_Out",
+      "metadata": { "description": "NSG: ASA Outside Interface" }
+    },
+    "subnet713NSG": {
+      "type": "string",
+      "defaultValue": "713_NSG_IntASA_DMZ",
+      "metadata": { "description": "NSG: ASA DMZ Interface" }
+    },
+    "subnet715NSG": {
+      "type": "string",
+      "defaultValue": "715_NSG_IntLB",
+      "metadata": { "description": "NSG: Internal Loadbalancer virtual appliance" }
+    },
+    "subnet750NSG": {
+      "type": "string",
+      "defaultValue": "750_NSG_ExtASA_Mgnt",
+      "metadata": { "description": "NSG: ASA Management interface" }
+    },
+    "subnet751NSG": {
+      "type": "string",
+      "defaultValue": "751_NSG_ExtASA_In",
+      "metadata": { "description": "NSG: ASA Inside Interface" }
+    },
+    "subnet752NSG": {
+      "type": "string",
+      "defaultValue": "752_NSG_ExtASA_Out",
+      "metadata": { "description": "NSG: ASA Outside Interface" }
+    },
+    "subnet753NSG": {
+      "type": "string",
+      "defaultValue": "753_NSG_ExtASA_DMZ",
+      "metadata": { "description": "NSG: ASA DMZ Interface" }
+    },
+    "subnet755NSG": {
+      "type": "string",
+      "defaultValue": "755_NSG_ExtLB",
+      "metadata": { "description": "NSG: External Loadbalancer Virtual Network Appliance " }
+    },
+    "subnet798NSG": {
+      "type": "string",
+      "defaultValue": "798_NSG_ER",
+      "metadata": { "description": "NSG: ExpressRoute Termination" }
+    },
+    "subnet110NSG": {
+      "type": "string",
+      "defaultValue": "110_NSG_Web",
+      "metadata": { "description": "NSG: HTTP and HTTPS services" }
+    },
+    "subnet115NSG": {
+      "type": "string",
+      "defaultValue": "115_NSG_LB_Web",
+      "metadata": { "description": "NSG: Loadbalanced HTTP and HTTPS Services" }
+    },
+    "subnet120NSG": {
+      "type": "string",
+      "defaultValue": "120_NSG_App",
+      "metadata": { "description": "NSG: Web Services, OEM applications" }
+    },
+    "subnet125NSG": {
+      "type": "string",
+      "defaultValue": "125_NSG_LB_App",
+      "metadata": { "description": "NSG: Loadbalaned Web Services, OEM applications" }
+    },
+    "subnet130NSG": {
+      "type": "string",
+      "defaultValue": "130_NSG_DB",
+      "metadata": { "description": "NSG: Data for Applications" }
+    },
+    "subnet135NSG": {
+      "type": "string",
+      "defaultValue": "135_NSG_LB_DB",
+      "metadata": { "description": "NSG: Loadbalanced Databases" }
+    },
+    "subnet150NSG": {
+      "type": "string",
+      "defaultValue": "150_NSG_DMZ",
+      "metadata": { "description": "NSG: Internet EndPoint Machines" }
+    },
+    "subnet155NSG": {
+      "type": "string",
+      "defaultValue": "155_NSG_LB_DMZ",
+      "metadata": { "description": "NSG: Loadbalaned Internet Endpoint systems" }
+    },
+    "subnet160NSG": {
+      "type": "string",
+      "defaultValue": "160_NSG_User_Tier0",
+      "metadata": { "description": "NSG: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet161NSG": {
+      "type": "string",
+      "defaultValue": "161_NSG_User_Tier1",
+      "metadata": { "description": "NSG: Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet162NSG": {
+      "type": "string",
+      "defaultValue": "162_NSG_User_Tier2",
+      "metadata": { "description": "NSG: Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
+    },
+    "subnet210NSG": {
+      "type": "string",
+      "defaultValue": "210_NSG_Web",
+      "metadata": { "description": "NSG: HTTP and HTTPS services" }
+    },
+    "subnet215NSG": {
+      "type": "string",
+      "defaultValue": "215_NSG_LB_Web",
+      "metadata": { "description": "NSG: Loadbalanced HTTP and HTTPS Services" }
+    },
+    "subnet220NSG": {
+      "type": "string",
+      "defaultValue": "220_NSG_App",
+      "metadata": { "description": "NSG: Web Services, OEM applications" }
+    },
+    "subnet225NSG": {
+      "type": "string",
+      "defaultValue": "225_NSG_LB_App",
+      "metadata": { "description": "NSG: Loadbalaned Web Services, OEM applications" }
+    },
+    "subnet230NSG": {
+      "type": "string",
+      "defaultValue": "230_NSG_DB",
+      "metadata": { "description": "NSG: Data for Applications" }
+    },
+    "subnet235NSG": {
+      "type": "string",
+      "defaultValue": "235_NSG_LB_DB",
+      "metadata": { "description": "NSG: Loadbalanced Databases" }
+    },
+    "subnet250NSG": {
+      "type": "string",
+      "defaultValue": "250_NSG_DMZ",
+      "metadata": { "description": "NSG: Internet EndPoint Machines" }
+    },
+    "subnet255NSG": {
+      "type": "string",
+      "defaultValue": "255_NSG_LB_DMZ",
+      "metadata": { "description": "NSG: Loadbalaned Internet Endpoint systems" }
+    },
+    "subnet260NSG": {
+      "type": "string",
+      "defaultValue": "260_NSG_User_Tier0",
+      "metadata": { "description": "NSG: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet261NSG": {
+      "type": "string",
+      "defaultValue": "261_NSG_User_Tier1",
+      "metadata": { "description": "NSG: Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet310NSG": {
+      "type": "string",
+      "defaultValue": "310_NSG_Web",
+      "metadata": { "description": "NSG: HTTP and HTTPS services" }
+    },
+    "subnet315NSG": {
+      "type": "string",
+      "defaultValue": "315_NSG_LB_Web",
+      "metadata": { "description": "NSG: Loadbalanced HTTP and HTTPS Services" }
+    },
+    "subnet320NSG": {
+      "type": "string",
+      "defaultValue": "320_NSG_App",
+      "metadata": { "description": "NSG: Web Services, OEM applications" }
+    },
+    "subnet325NSG": {
+      "type": "string",
+      "defaultValue": "325_NSG_LB_App",
+      "metadata": { "description": "NSG: Loadbalaned Web Services, OEM applications" }
+    },
+    "subnet330NSG": {
+      "type": "string",
+      "defaultValue": "330_NSG_DB",
+      "metadata": { "description": "NSG: Data for Applications" }
+    },
+    "subnet335NSG": {
+      "type": "string",
+      "defaultValue": "335_NSG_LB_DB",
+      "metadata": { "description": "NSG: Loadbalanced Databases" }
+    },
+    "subnet350NSG": {
+      "type": "string",
+      "defaultValue": "350_NSG_DMZ",
+      "metadata": { "description": "NSG: Internet EndPoint Machines" }
+    },
+    "subnet355NSG": {
+      "type": "string",
+      "defaultValue": "355_NSG_LB_DMZ",
+      "metadata": { "description": "NSG: Loadbalaned Internet Endpoint systems" }
+    },
+    "subnet360NSG": {
+      "type": "string",
+      "defaultValue": "360_NSG_User_Tier0",
+      "metadata": { "description": "NSG: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet361NSG": {
+      "type": "string",
+      "defaultValue": "361_NSG_User_Tier1",
+      "metadata": { "description": "NSG: Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet362NSG": {
+      "type": "string",
+      "defaultValue": "362_NSG_User_Tier2",
+      "metadata": { "description": "NSG: Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
+    },
+    "subnet460NSG": {
+      "type": "string",
+      "defaultValue": "460_NSG_User_Tier0",
+      "metadata": { "description": "NSG: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet461NSG": {
+      "type": "string",
+      "defaultValue": "461_NSG_User_Tier1",
+      "metadata": { "description": "NSG: Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet462NSG": {
+      "type": "string",
+      "defaultValue": "462_NSG_User_Tier2",
+      "metadata": { "description": "NSG: Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
+    },
+    "subnet410NSG": {
+      "type": "string",
+      "defaultValue": "410_NSG_Web",
+      "metadata": { "description": "NSG: HTTP and HTTPS services" }
+    },
+    "subnet415NSG": {
+      "type": "string",
+      "defaultValue": "415_NSG_LB_Web",
+      "metadata": { "description": "NSG: Loadbalanced HTTP and HTTPS Services" }
+    },
+    "subnet420NSG": {
+      "type": "string",
+      "defaultValue": "420_NSG_App",
+      "metadata": { "description": "NSG: Web Services, OEM applications" }
+    },
+    "subnet425NSG": {
+      "type": "string",
+      "defaultValue": "425_NSG_LB_App",
+      "metadata": { "description": "NSG: Loadbalaned Web Services, OEM applications" }
+    },
+    "subnet430NSG": {
+      "type": "string",
+      "defaultValue": "430_NSG_DB",
+      "metadata": { "description": "NSG: Data for Applications" }
+    },
+    "subnet435NSG": {
+      "type": "string",
+      "defaultValue": "435_NSG_LB_DB",
+      "metadata": { "description": "NSG: Loadbalanced Databases" }
+    },
+    "subnet450NSG": {
+      "type": "string",
+      "defaultValue": "450_NSG_DMZ",
+      "metadata": { "description": "NSG: Internet EndPoint Machines" }
+    },
+    "subnet455NSG": {
+      "type": "string",
+      "defaultValue": "455_NSG_LB_DMZ",
+      "metadata": { "description": "NSG: Loadbalaned Internet Endpoint systems" }
+    },
+    "subnet500NSG": {
+      "type": "string",
+      "defaultValue": "500_NSG_Storage",
+      "metadata": { "description": "NSG: Storage appliances" }
+    },
+    "subnet505NSG": {
+      "type": "string",
+      "defaultValue": "505_NSG_LB_Storage",
+      "metadata": { "description": "NSG: Loadbalanced Storage appliances" }
+    },
+    "subnet560NSG": {
+      "type": "string",
+      "defaultValue": "560_NSG_User_Tier0",
+      "metadata": { "description": "NSG: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet561NSG": {
+      "type": "string",
+      "defaultValue": "561_NSG_User_Tier1",
+      "metadata": { "description": "NSG: Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet600NSG": {
+      "type": "string",
+      "defaultValue": "600_NSG_Services",
+      "metadata": { "description": "NSG: Used to host highly sensitive data that is also highly accessed." }
+    },
+    "subnet605NSG": {
+      "type": "string",
+      "defaultValue": "605_NSG_LB_Services",
+      "metadata": { "description": "NSG: Loadbalanced Services (internal) systems" }
+    },
+    "subnet650NSG": {
+      "type": "string",
+      "defaultValue": "650_NSG_DMZ",
+      "metadata": { "description": "NSG: Internet EndPoint Machines" }
+    },
+    "subnet660NSG": {
+      "type": "string",
+      "defaultValue": "660_NSG_User_Tier0",
+      "metadata": { "description": "NSG: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet661NSG": {
+      "type": "string",
+      "defaultValue": "661_NSG_User_Tier1",
+      "metadata": { "description": "NSG: Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet655NSG": {
+      "type": "string",
+      "defaultValue": "655_NSG_LB_DMZ",
+      "metadata": { "description": "NSG: Loadbalanced Services DMZ systems" }
+    }
+
+  },
+
+  "variables": {
+    "apiVersion": "2015-06-15",
+    "templateBaseUrl": "https://raw.githubusercontent.com/willstg/azurefoundation/master/ARM/VNET",
+    "All_Internet.Inbound.Deny": {
+      "description": "All_Internet.Inbound.Deny",
+      "protocol": "Tcp",
+      "sourcePortRange": "*",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Deny",
+      "priority": 150,
+      "direction": "Inbound"
+    },
+    "All_Internet.Inbound.Allow": {
+      "description": "All_Internet.Inbound.Allow",
+      "protocol": "Tcp",
+      "sourcePortRange": "*",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Allow",
+      "priority": 150,
+      "direction": "Inbound"
+    },
+    "SSH.Inbound.Allow": {
+      "description": "SSH.Inbound.Allow",
+      "protocol": "Tcp",
+      "sourcePortRange": "22",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Allow",
+      "priority": 100,
+      "direction": "Inbound"
+    },
+    "UDP500.Inbound.Allow": {
+      "description": "UDP500.Inbound.Allow",
+      "protocol": "Udp",
+      "sourcePortRange": "500",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Allow",
+      "priority": 101,
+      "direction": "Inbound"
+    },
+    "UDP4500.Inbound.Allow": {
+      "description": "UDP4500.Inbound.Allow",
+      "protocol": "Udp",
+      "sourcePortRange": "4500",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Allow",
+      "priority": 102,
+      "direction": "Inbound"
+    },
+
+  },
+
+  "resources": [
+
+
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet700NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "700_NSG_CSR_InVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          },
+          {
+            "name": "[variables('SSH.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('SSH.Inbound.Allow').description]",
+              "protocol": "[variables('SSH.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('SSH.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('SSH.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('SSH.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('SSH.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('SSH.Inbound.Allow').access]",
+              "priority": "[variables('SSH.Inbound.Allow').priority]",
+              "direction": "[variables('SSH.Inbound.Allow').direction]"
+            }
+          },
+          {
+            "name": "[variables('UDP500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP500.Inbound.Allow').access]",
+              "priority": "[variables('UDP500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP500.Inbound.Allow').direction]"
+            }
+          },
+          {
+            "name": "[variables('UDP4500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP4500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP4500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP4500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP4500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP4500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP4500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP4500.Inbound.Allow').access]",
+              "priority": "[variables('UDP4500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP4500.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet701NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "701_NSG_CSR_OutVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet702NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "702_NSG_CSR_TunnelVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet703NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "703_NSG_CSR_HAVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet710NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "710_NSG_IntASA_MgntVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          },
+          {
+            "name": "[variables('SSH.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('SSH.Inbound.Allow').description]",
+              "protocol": "[variables('SSH.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('SSH.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('SSH.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('SSH.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('SSH.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('SSH.Inbound.Allow').access]",
+              "priority": "[variables('SSH.Inbound.Allow').priority]",
+              "direction": "[variables('SSH.Inbound.Allow').direction]"
+            }
+          },
+          {
+            "name": "[variables('UDP500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP500.Inbound.Allow').access]",
+              "priority": "[variables('UDP500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP500.Inbound.Allow').direction]"
+            }
+          },
+          {
+            "name": "[variables('UDP4500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP4500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP4500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP4500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP4500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP4500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP4500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP4500.Inbound.Allow').access]",
+              "priority": "[variables('UDP4500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP4500.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet711NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "711_NSG_IntASA_InVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet712NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "712_NSG_IntASA_OutVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet713NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "713_NSG_IntASA_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet715NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "715_NSG_IntLBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet750NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "750_NSG_ExtASA_MgntVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          },
+          {
+            "name": "[variables('SSH.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('SSH.Inbound.Allow').description]",
+              "protocol": "[variables('SSH.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('SSH.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('SSH.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('SSH.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('SSH.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('SSH.Inbound.Allow').access]",
+              "priority": "[variables('SSH.Inbound.Allow').priority]",
+              "direction": "[variables('SSH.Inbound.Allow').direction]"
+            }
+          },
+          {
+            "name": "[variables('UDP500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP500.Inbound.Allow').access]",
+              "priority": "[variables('UDP500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP500.Inbound.Allow').direction]"
+            }
+          },
+          {
+            "name": "[variables('UDP4500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP4500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP4500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP4500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP4500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP4500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP4500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP4500.Inbound.Allow').access]",
+              "priority": "[variables('UDP4500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP4500.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet751NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "751_NSG_ExtASA_InVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet752NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "752_NSG_ExtASA_OutVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet753NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "753_NSG_ExtASA_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Allow').description]",
+              "protocol": "[variables('All_Internet.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Allow').access]",
+              "priority": "[variables('All_Internet.Inbound.Allow').priority]",
+              "direction": "[variables('All_Internet.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet755NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "755_NSG_ExtLBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet110NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "110_NSG_WebVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet115NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "115_NSG_LB_WebVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet120NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "120_NSG_AppVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet125NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "125_NSG_LB_AppVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet130NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "130_NSG_DBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet135NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "135_NSG_LB_DBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet150NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "150_NSG_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet155NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "155_NSG_LB_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet160NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "160_NSG_User_Tier0VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet161NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "161_NSG_User_Tier1VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet162NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "162_NSG_User_Tier2VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet210NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "210_NSG_WebVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet215NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "215_NSG_LB_WebVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet220NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "220_NSG_AppVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet225NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "225_NSG_LB_AppVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet230NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "230_NSG_DBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet235NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "235_NSG_LB_DBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet250NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "250_NSG_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet255NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "255_NSG_LB_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet260NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "260_NSG_User_Tier0VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet261NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "261_NSG_User_Tier1VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet310NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "310_NSG_WebVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet315NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "315_NSG_LB_WebVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet320NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "320_NSG_AppVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet325NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "325_NSG_LB_AppVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet330NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "330_NSG_DBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet335NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "335_NSG_LB_DBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet350NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "350_NSG_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet355NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "355_NSG_LB_DMZTX" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet360NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "360_NSG_User_Tier0VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet361NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "361_NSG_User_Tier1VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet362NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "362_NSG_User_Tier2VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet410NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "410_NSG_WebVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet415NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "415_NSG_LB_WebVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet420NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "420_NSG_AppVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet425NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "425_NSG_LB_AppVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet430NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "430_NSG_DBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet435NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "435_NSG_LB_DBVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet450NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "450_NSG_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet455NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "455_NSG_LB_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet460NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "460_NSG_User_Tier0TX" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "All_Internet.Inbound.Deny",
+      "properties": {
+        "description": "All_Internet.Inbound.Deny",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "*",
+        "sourceAddressPrefix": "INTERNET",
+        "destinationAddressPrefix": "*",
+        "access": "Deny",
+        "priority": 150,
+        "direction": "Inbound"
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet461NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "461_NSG_User_Tier1TX" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "All_Internet.Inbound.Deny",
+      "properties": {
+        "description": "All_Internet.Inbound.Deny",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "*",
+        "sourceAddressPrefix": "INTERNET",
+        "destinationAddressPrefix": "*",
+        "access": "Deny",
+        "priority": 150,
+        "direction": "Inbound"
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet462NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "462_NSG_User_Tier2TX" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "All_Internet.Inbound.Deny",
+      "properties": {
+        "description": "All_Internet.Inbound.Deny",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "*",
+        "sourceAddressPrefix": "INTERNET",
+        "destinationAddressPrefix": "*",
+        "access": "Deny",
+        "priority": 150,
+        "direction": "Inbound"
+      }
+    },
+
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet500NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "500_NSG_StorageVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet505NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "505_NSG_LB_StorageVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet560NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "560_NSG_User_Tier0VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet561NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "561_NSG_User_Tier1VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet600NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "600_NSG_ServicesVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet605NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "605_NSG_LB_ServicesVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet650NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "650_NSG_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet660NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "660_NSG_User_Tier0VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet661NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "661_NSG_User_Tier1VA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet655NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "655_NSG_LB_DMZVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('All_Internet.Inbound.Deny').description]",
+            "properties": {
+              "description": "[variables('All_Internet.Inbound.Deny').description]",
+              "protocol": "[variables('All_Internet.Inbound.Deny').protocol]",
+              "sourcePortRange": "[variables('All_Internet.Inbound.Deny').sourcePortRange]",
+              "destinationPortRange": "[variables('All_Internet.Inbound.Deny').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('All_Internet.Inbound.Deny').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('All_Internet.Inbound.Deny').destinationAddressPrefix]",
+              "access": "[variables('All_Internet.Inbound.Deny').access]",
+              "priority": "[variables('All_Internet.Inbound.Deny').priority]",
+              "direction": "[variables('All_Internet.Inbound.Deny').direction]"
+            }
+          }
+        ]
+      }
+    },
+
+
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet710NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "710_NSG_IntASA_MgntVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('SSH.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('SSH.Inbound.Allow').description]",
+              "protocol": "[variables('SSH.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('SSH.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('SSH.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('SSH.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('SSH.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('SSH.Inbound.Allow').access]",
+              "priority": "[variables('SSH.Inbound.Allow').priority]",
+              "direction": "[variables('SSH.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet710NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "710_NSG_IntASA_MgntVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('UDP500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP500.Inbound.Allow').access]",
+              "priority": "[variables('UDP500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP500.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet710NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "710_NSG_IntASA_MgntVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('UDP4500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP4500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP4500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP4500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP4500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP4500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP4500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP4500.Inbound.Allow').access]",
+              "priority": "[variables('UDP4500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP4500.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet750NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "750_NSG_ExtASA_MgntVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('SSH.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('SSH.Inbound.Allow').description]",
+              "protocol": "[variables('SSH.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('SSH.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('SSH.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('SSH.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('SSH.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('SSH.Inbound.Allow').access]",
+              "priority": "[variables('SSH.Inbound.Allow').priority]",
+              "direction": "[variables('SSH.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet750NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "750_NSG_ExtASA_MgntVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('UDP500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP500.Inbound.Allow').access]",
+              "priority": "[variables('UDP500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP500.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet750NSG')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "750_NSG_ExtASA_MgntVA" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "[variables('UDP4500.Inbound.Allow').description]",
+            "properties": {
+              "description": "[variables('UDP4500.Inbound.Allow').description]",
+              "protocol": "[variables('UDP4500.Inbound.Allow').protocol]",
+              "sourcePortRange": "[variables('UDP4500.Inbound.Allow').sourcePortRange]",
+              "destinationPortRange": "[variables('UDP4500.Inbound.Allow').destinationPortRange]",
+              "sourceAddressPrefix": "[variables('UDP4500.Inbound.Allow').sourceAddressPrefix]",
+              "destinationAddressPrefix": "[variables('UDP4500.Inbound.Allow').destinationAddressPrefix]",
+              "access": "[variables('UDP4500.Inbound.Allow').access]",
+              "priority": "[variables('UDP4500.Inbound.Allow').priority]",
+              "direction": "[variables('UDP4500.Inbound.Allow').direction]"
+            }
+          }
+        ]
+      }
+    }
+
+}
