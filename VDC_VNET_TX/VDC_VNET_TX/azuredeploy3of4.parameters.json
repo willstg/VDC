@@ -26,7 +26,7 @@
     },
     "csr1aName": { "value": "vdcpccsr3a" },
     "csr1aPIPName": { "value": "700_CSR3a" },
-    "csr1aPIPType": { "value": "Microsoft.Network/publicIPAddresses" },
+    "csr1aPIPType": { "value": "Static" },
     "csr1aPIPdnsPrefix": { "value": "vdcpccsr3" },
 
     "csr1aIpAddress": { "value": "10.190.128.4" },

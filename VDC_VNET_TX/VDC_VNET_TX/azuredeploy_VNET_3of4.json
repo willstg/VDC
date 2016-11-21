@@ -74,8 +74,7 @@
     },
 
     "csr1aPIPType": {
-      "type": "string",
-      "metaadata": { "description": "The Static or Dynamic public IP" }
+      "type": "string"
     },
 
     "csr1aPIPdnsPrefix": {
