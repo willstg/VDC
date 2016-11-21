@@ -96,8 +96,7 @@
 
     "csr1bPIPType": {
       "type": "string",
-      "defaultvalue": "Static",
-      "metaadata": { "description": "The Static or Dynamic public IP" }
+      "defaultvalue": "Static"
     },
     "csr1bPIPdnsPrefix": {
       "type": "string",
