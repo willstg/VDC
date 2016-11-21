@@ -714,8 +714,6 @@
       "defaultValue": "655_UDR_LB_DMZ",
       "metadata": { "description": "NSG: Loadbalanced Services DMZ systems" }
     }
-
-
   },
 
   "variables": {
