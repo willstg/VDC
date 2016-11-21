@@ -2,7 +2,7 @@
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "Location": { "value": "southcentralus" },
+    "Location": { "value": "USGov Virginia" },
     "ResourceGroupName": { "value": "vdc_vnet_tx" },
     "VNETStorageName": {
       "value": "vdcvnettx1a"
