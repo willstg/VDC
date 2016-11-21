@@ -24,87 +24,6 @@
       "defaultValue": "vdc_vnet_va"
     },
 
-    "VNETStorageName": {
-      "type": "string",
-      "defaultvalue": "vdcvnetva1a",
-      "metadata": {
-        "description": "Storage account name"
-      }
-    },
-    "stdStorageType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS"
-      ],
-      "metadata": {
-        "description": "Storage account type"
-      }
-    },
-    "VNETPremiumStorageName": {
-      "type": "string",
-      "defaultValue": "vdcvnetva2a",
-      "metadata": {
-        "description": "Premium Storage account name"
-      }
-    },
-    "prmStorageType": {
-      "type": "string",
-      "defaultValue": "Premium_LRS",
-      "allowedValues": [
-        "Premium_LRS",
-        "Premium_GRS",
-        "Premium_ZRS"
-      ],
-      "metadata": {
-        "description": "Premium Storage account type"
-      }
-    },
-    "csr1aName": {
-      "type": "string",
-      "defaultValue": "vdcpccsr4a",
-      "metadata": { "description": "The name of the primary Router" }
-    },
-
-    "csr1aPIPName": {
-      "type": "string",
-      "defaultValue": "700_CSR4a",
-      "metadata": { "description": "PublicIP Address Name" }
-    },
-
-    "csr1aPIPType": {
-      "type": "string", 
-      "defaultValue": "Static"
-    },
-
-    "csr1aPIPdnsPrefix": {
-      "type": "string",
-      "defaultvalue": "vdcpccsr1a",
-      "metadata": { "Description": "The DNS Prefix" }
-    },
-    "csr1bName": {
-      "type": "string",
-      "defaultValue": "vdcpccsr1b",
-      "metadata": { "description": "The name of the primary Router" }
-    },
-
-    "csr1bPIPName": {
-      "type": "string",
-      "defaultvalue": "700_CSR1b",
-      "metadata": { "description": "PublicIP Address Name" }
-    },
-
-    "csr1bPIPType": {
-      "type": "string",
-      "defaultvalue": "Static"
-    },
-    "csr1bPIPdnsPrefix": {
-      "type": "string",
-      "defaultvalue": "vdcpccsr1b",
-      "metadata": { "Description": "The DNS Prefix" }
-    },
 
     "vnetName": {
       "type": "string",
@@ -120,6 +39,8 @@
         "description": "CIDR prefix for the VNet address space."
       }
     },
+
+
     "subnet700Prefix": {
       "type": "string",
       "defaultValue": "10.190.128.0/29",
