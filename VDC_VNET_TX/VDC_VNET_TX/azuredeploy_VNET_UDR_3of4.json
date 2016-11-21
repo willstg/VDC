@@ -2,8 +2,7 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-
-    "baseUrl": {
+        "baseUrl": {
       "defaultValue": "https://raw.githubusercontent.com/willstg/VDC/master/VDC_VNET_TX/VDC_VNET_TX/",
       "type": "string",
       "metadata": {
@@ -13,7 +12,7 @@
     },
     "location": {
       "type": "string",
-      "defaultValue": "USGov Virginia",
+      "defaultValue": "usgovvirginia",
       "metadata": {
         "description": "Deployment location. (example: USGov Virginia)"
       }
