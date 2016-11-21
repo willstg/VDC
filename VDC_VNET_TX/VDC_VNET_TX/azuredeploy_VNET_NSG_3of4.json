@@ -1954,20 +1954,7 @@
         ]
       }
     },
-    {
-      "name": "All_Internet.Inbound.Deny",
-      "properties": {
-        "description": "All_Internet.Inbound.Deny",
-        "protocol": "Tcp",
-        "sourcePortRange": "*",
-        "destinationPortRange": "*",
-        "sourceAddressPrefix": "INTERNET",
-        "destinationAddressPrefix": "*",
-        "access": "Deny",
-        "priority": 150,
-        "direction": "Inbound"
-      }
-    },
+  
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
@@ -1993,20 +1980,7 @@
         ]
       }
     },
-    {
-      "name": "All_Internet.Inbound.Deny",
-      "properties": {
-        "description": "All_Internet.Inbound.Deny",
-        "protocol": "Tcp",
-        "sourcePortRange": "*",
-        "destinationPortRange": "*",
-        "sourceAddressPrefix": "INTERNET",
-        "destinationAddressPrefix": "*",
-        "access": "Deny",
-        "priority": 150,
-        "direction": "Inbound"
-      }
-    },
+  
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
@@ -2031,20 +2005,7 @@
           }
         ]
       }
-    },
-    {
-      "name": "All_Internet.Inbound.Deny",
-      "properties": {
-        "description": "All_Internet.Inbound.Deny",
-        "protocol": "Tcp",
-        "sourcePortRange": "*",
-        "destinationPortRange": "*",
-        "sourceAddressPrefix": "INTERNET",
-        "destinationAddressPrefix": "*",
-        "access": "Deny",
-        "priority": 150,
-        "direction": "Inbound"
-      }
+   
     },
 
 
