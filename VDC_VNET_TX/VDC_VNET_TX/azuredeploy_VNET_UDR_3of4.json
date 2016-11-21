@@ -4,7 +4,7 @@
   "parameters": {
 
     "baseUrl": {
-      "defaultValue": "https://github.com/willstg/VDC/tree/master/VDC_VNET_TX/VDC_VNET_TX",
+      "defaultValue": "https://raw.githubusercontent.com/willstg/VDC/master/VDC_VNET_TX/VDC_VNET_TX/",
       "type": "string",
       "metadata": {
         "artifactsBaseUrl": "",

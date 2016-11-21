@@ -140,6 +140,5 @@
     "subnet661UDR": { "value": "661_UDR_User_Tier1" },
     "subnet655Prefix": { "value": "10.190.188.0/24" },
     "subnet655UDR": { "value": "655_UDR_LB_DMZ" }
- 
   }
 }
