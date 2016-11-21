@@ -75,9 +75,9 @@
 
     "csr1aPIPType": {
       "type": "string",
-      "defaultvalue": "Static",
       "metaadata": { "description": "The Static or Dynamic public IP" }
     },
+
     "csr1aPIPdnsPrefix": {
       "type": "string",
       "defaultvalue": "vdcpccsr1a",
