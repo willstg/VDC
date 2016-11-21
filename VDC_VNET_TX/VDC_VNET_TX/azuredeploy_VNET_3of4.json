@@ -1320,31 +1320,7 @@
       "defaultValue": "364_UDR_User_Tier1",
       "metadata": { "description": "NSG: Tier 1 administrator - manage enterprise servers, services, and applications" }
     },
-    "subnet364Prefix": {
-      "type": "string",
-      "defaultValue": "10.190.166.128/25",
-      "metadata": { "description": "Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
-    },
-    "subnet364Name": {
-      "type": "string",
-      "defaultValue": "364_User_Tier2_Dev_VDCMac_VA",
-      "metadata": { "description": "Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
-    },
-    "subnet364VNAIP": {
-      "type": "string",
-      "defaultValue": "10.190.128.76",
-      "metadata": { "description": "UDR: Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
-    },
-    "subnet364NSG": {
-      "type": "string",
-      "defaultValue": "364_NSG_User_Tier2",
-      "metadata": { "description": "NSG: Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
-    },
-    "subnet364UDR": {
-      "type": "string",
-      "defaultValue": "364_UDR_User_Tier2",
-      "metadata": { "description": "NSG: Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
-    },
+  
     "subnet410Prefix": {
       "type": "string",
       "defaultValue": "10.190.168.0/25",
@@ -1545,6 +1521,82 @@
       "defaultValue": "455_UDR_LB_DMZ",
       "metadata": { "description": "NSG: Loadbalaned Internet Endpoint systems" }
     },
+    "subnet460Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.172.0/25",
+      "metadata": { "description": "Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet460Name": {
+      "type": "string",
+      "defaultValue": "460_User_Tier0_Dev_VDCMac_VA",
+      "metadata": { "description": "Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet460VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.128.76",
+      "metadata": { "description": "UDR: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet460NSG": {
+      "type": "string",
+      "defaultValue": "460_NSG_User_Tier0",
+      "metadata": { "description": "NSG: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet460UDR": {
+      "type": "string",
+      "defaultValue": "460_UDR_User_Tier0",
+      "metadata": { "description": "NSG: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
+    },
+    "subnet461Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.172.128/25",
+      "metadata": { "description": "Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet461Name": {
+      "type": "string",
+      "defaultValue": "461_User_Tier1_Dev_VDCMac_VA",
+      "metadata": { "description": "Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet461VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.128.76",
+      "metadata": { "description": "UDR: Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet461NSG": {
+      "type": "string",
+      "defaultValue": "461_NSG_User_Tier1",
+      "metadata": { "description": "NSG: Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet461UDR": {
+      "type": "string",
+      "defaultValue": "461_UDR_User_Tier1",
+      "metadata": { "description": "NSG: Tier 1 administrator - manage enterprise servers, services, and applications" }
+    },
+    "subnet462Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.173.0/25",
+      "metadata": { "description": "Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
+    },
+    "subnet462Name": {
+      "type": "string",
+      "defaultValue": "462_User_Tier2_Dev_VDCMac_VA",
+      "metadata": { "description": "Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
+    },
+    "subnet462VNAIP": {
+      "type": "string",
+      "defaultValue": "10.190.128.76",
+      "metadata": { "description": "UDR: Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
+    },
+    "subnet462NSG": {
+      "type": "string",
+      "defaultValue": "462_NSG_User_Tier2",
+      "metadata": { "description": "NSG: Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
+    },
+    "subnet462UDR": {
+      "type": "string",
+      "defaultValue": "462_UDR_User_Tier2",
+      "metadata": { "description": "NSG: Tier 2 - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices" }
+    },
+
     "subnet500Prefix": {
       "type": "string",
       "defaultValue": "10.190.176.0/24",
