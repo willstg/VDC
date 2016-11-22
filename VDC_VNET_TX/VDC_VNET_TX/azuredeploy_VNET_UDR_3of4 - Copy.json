@@ -182,7 +182,12 @@
       "defaultValue": "755_UDR_ExtLB",
       "metadata": { "description": "NSG: External Loadbalancer Virtual Network Appliance " }
     },
-   
+    "#N/A": null,
+    "subnet798UDR": {
+      "type": "string",
+      "defaultValue": "798_UDR_ER",
+      "metadata": { "description": "NSG: ExpressRoute Termination" }
+    },
     "subnet110VNAIP": {
       "type": "string",
       "defaultValue": "10.190.128.76",
