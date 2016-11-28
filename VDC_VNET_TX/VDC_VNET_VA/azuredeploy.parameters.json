@@ -4,27 +4,8 @@
   "parameters": {
     "Location": { "value": "usgovvirginia" },
     "ResourceGroupName": { "value": "vdc_vnet_tx" },
-    "VNETStorageName": {
-      "value": "vdcvnettx1a"
-    },
-    "stdStorageType": {
-      "value": "Standard_LRS"
-    },
-    "VNETPremiumStorageName": {
-
-      "value": "vdcvnettx2a"
-    },
-    "prmStorageType": {
-      "value": "Premium_LRS"
-
-    },
-    "vnetName": {
-      "value": "vnet_vdc_tx"
-    },
-    "vnetAddressPrefix": {
-      "value": "10.190.128.0/18"
-    },
-
+    "vnetName": { "value": "vnet_vdc_tx" },
+    "vnetAddressPrefix": { "value": "10.190.128.0/18" },
     "subnet700Name": { "value": "700_CSR_In_Srvcs_VDCMac_VA" },
     "subnet700Prefix": { "value": "10.190.128.0/29" },
     "subnet700NSG": { "value": "700_NSG_CSR_In" },
@@ -85,6 +66,26 @@
     "subnet798Prefix": { "value": "10.190.128.224/28" },
     "subnet798NSG": { "value": "798_NSG_ER" },
     "subnet798UDR": { "value": "798_UDR_ER" },
-    "subnet799Name": { "value": "GatewaySubnet" }
+    "subnet799Name": { "value": "GatewaySubnet" },
+    "gatewayName": { "value": "AzureS2SADC" },
+    "gatewayVPNType": { "value": "RouteBased" },
+    "gatewayLocalIPPrefix": { "value": "10.0.0.0/15" },
+    "gatewayLocalName": { "value": "ADC" },
+    "gatewayConnectionName": { "value": "AzureS2SVPN" },
+    "gatewayLocalIPAddress": { "value": "1.1.1.1" },
+    "gatewayPublicIPName": { "value": "AzureGatewayPublicIP" },
+    "gatewaySku": { "value": "Basic" },
+    "gatewaySharedKey": {"value": ""},
+    "vmCSRAdminUsername":{"value": "vdcAdmin"},
+       "vmAuthNType": {"value": "password"},
+    "vmCSR1aName": {"value": "vdcpccsr1a"},
+    "vmCSR1aPIPName": { "value": "700_CSR1a"},
+    "vmCSRPremiumStorageName": {"value": "vdcvnettx2a"},
+    "vmCSRStndStorageName": {"value": "vdcvnettx1a"},
+    "vmCSRSize": {"value": "Standard_D3_v2"},
+    "vmCSR1aSubnet700IP": {"value":"10.190.128.4"},
+        "vmCSR1aSubnet701IP": {"value" : "10.190.128.12"},
+    "vmCSR1aSubnet702IP": {"value": "10.190.128.20"},
+    "vmCSR1aSubnet703IP": {"value": "10.190.128.28"}
+    }
   }
-}
