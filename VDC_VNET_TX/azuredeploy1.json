@@ -10,6 +10,7 @@
         "description": "URL to acquire other templates"
       }
     },
+
     "location": {
       "type": "string",
       "defaultValue": "South Central US",
@@ -20,37 +21,37 @@
 
     "ResourceGroupName": {
       "type": "string",
-      "defaultValue": "vdc_vnet_tx_temp"
+      "defaultValue": "vdc_vnet_tx_v01"
     },
 
 
     "vnetName": {
       "type": "string",
-      "defaultValue": "vnet_vdc_tx_temp",
+      "defaultValue": "vnet_vdc_tx",
       "metadata": {
         "description": "AzureFoundation VNET for Virtual Data Center"
       }
     },
     "vnetAddressPrefix": {
       "type": "string",
-      "defaultValue": "159.65.128.0/18",
+      "defaultValue": "159.65.184.0/21",
       "metadata": {
         "description": "CIDR prefix for the VNet address space."
       }
     },
     "subnet600Prefix": {
       "type": "string",
-      "defaultValue": "159.65.120.0/24",
+      "defaultValue": "159.65.184.0/24",
       "metadata": { "description": "Used to host highly sensitive data that is also highly accessed." }
     },
     "subnet600Name": {
       "type": "string",
-      "defaultValue": "600_Services_Srvcs_VDC_IL",
+      "defaultValue": "600_Services_Srvcs_VDCMac_TX",
       "metadata": { "description": "Used to host highly sensitive data that is also highly accessed." }
     },
     "subnet600VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.85",
+      "defaultValue": "159.65.191.84",
       "metadata": { "description": "UDR: Used to host highly sensitive data that is also highly accessed." }
     },
     "subnet600NSG": {
@@ -65,17 +66,17 @@
     },
     "subnet605Prefix": {
       "type": "string",
-      "defaultValue": "159.65.121.0/24",
+      "defaultValue": "159.65.185.0/24",
       "metadata": { "description": "Loadbalanced Services (internal) systems" }
     },
     "subnet605Name": {
       "type": "string",
-      "defaultValue": "605_LB_Services_Srvcs_VDC_IL",
+      "defaultValue": "605_LB_Services_Srvcs_VDCMac_TX",
       "metadata": { "description": "Loadbalanced Services (internal) systems" }
     },
     "subnet605VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.133",
+      "defaultValue": "159.65.191.132",
       "metadata": { "description": "UDR: Loadbalanced Services (internal) systems" }
     },
     "subnet605NSG": {
@@ -90,17 +91,17 @@
     },
     "subnet650Prefix": {
       "type": "string",
-      "defaultValue": "159.65.122.0/24",
+      "defaultValue": "159.65.186.0/24",
       "metadata": { "description": "Internet EndPoint Machines" }
     },
     "subnet650Name": {
       "type": "string",
-      "defaultValue": "650_DMZ_Srvcs_VDC_IL",
+      "defaultValue": "650_DMZ_Srvcs_VDCMac_TX",
       "metadata": { "description": "Internet EndPoint Machines" }
     },
     "subnet650VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.165",
+      "defaultValue": "159.65.191.164",
       "metadata": { "description": "UDR: Internet EndPoint Machines" }
     },
     "subnet650NSG": {
@@ -115,17 +116,17 @@
     },
     "subnet660Prefix": {
       "type": "string",
-      "defaultValue": "159.65.123.0/25",
+      "defaultValue": "159.65.187.0/25",
       "metadata": { "description": "Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
     },
     "subnet660Name": {
       "type": "string",
-      "defaultValue": "660_User_Tier0_Srvcs_VDC_IL",
+      "defaultValue": "660_User_Tier0_Srvcs_VDCMac_TX",
       "metadata": { "description": "Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
     },
     "subnet660VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.85",
+      "defaultValue": "159.65.191.84",
       "metadata": { "description": "UDR: Tier 0 - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other" }
     },
     "subnet660NSG": {
@@ -140,17 +141,17 @@
     },
     "subnet661Prefix": {
       "type": "string",
-      "defaultValue": "159.65.123.128/25",
+      "defaultValue": "159.65.187.128/25",
       "metadata": { "description": "Tier 1 administrator - manage enterprise servers, services, and applications" }
     },
     "subnet661Name": {
       "type": "string",
-      "defaultValue": "661_User_Tier1_Srvcs_VDC_IL",
+      "defaultValue": "661_User_Tier1_Srvcs_VDCMac_TX",
       "metadata": { "description": "Tier 1 administrator - manage enterprise servers, services, and applications" }
     },
     "subnet661VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.85",
+      "defaultValue": "159.65.191.84",
       "metadata": { "description": "UDR: Tier 1 administrator - manage enterprise servers, services, and applications" }
     },
     "subnet661NSG": {
@@ -165,17 +166,17 @@
     },
     "subnet655Prefix": {
       "type": "string",
-      "defaultValue": "159.65.124.0/24",
+      "defaultValue": "159.65.188.0/24",
       "metadata": { "description": "Loadbalanced Services DMZ systems" }
     },
     "subnet655Name": {
       "type": "string",
-      "defaultValue": "655_LB_DMZ_Srvcs_VDC_IL",
+      "defaultValue": "655_LB_DMZ_Srvcs_VDCMac_TX",
       "metadata": { "description": "Loadbalanced Services DMZ systems" }
     },
     "subnet655VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.213",
+      "defaultValue": "159.65.191.212",
       "metadata": { "description": "UDR: Loadbalanced Services DMZ systems" }
     },
     "subnet655NSG": {
@@ -190,17 +191,17 @@
     },
     "subnet680Prefix": {
       "type": "string",
-      "defaultValue": "159.65.125.0/28",
+      "defaultValue": "159.65.189.0/28",
       "metadata": { "description": "Used to Test the routing to the inside interface of the CSR" }
     },
     "subnet680Name": {
       "type": "string",
-      "defaultValue": "680_CSR_InsideTest_Srvcs_VDC_IL",
+      "defaultValue": "680_CSR_InsideTest_Srvcs_VDCMac_TX",
       "metadata": { "description": "Used to Test the routing to the inside interface of the CSR" }
     },
     "subnet680VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.5",
+      "defaultValue": "159.65.191.4",
       "metadata": { "description": "UDR: Used to Test the routing to the inside interface of the CSR" }
     },
     "subnet680NSG": {
@@ -215,17 +216,17 @@
     },
     "subnet681Prefix": {
       "type": "string",
-      "defaultValue": "159.65.125.16/28",
+      "defaultValue": "159.65.189.16/28",
       "metadata": { "description": "Used to Test the routing to the inside interface of the CSR" }
     },
     "subnet681Name": {
       "type": "string",
-      "defaultValue": "681_CSR_OutsideTest_Srvcs_VDC_IL",
+      "defaultValue": "681_CSR_OutsideTest_Srvcs_VDCMac_TX",
       "metadata": { "description": "Used to Test the routing to the inside interface of the CSR" }
     },
     "subnet681VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.21",
+      "defaultValue": "159.65.191.20",
       "metadata": { "description": "UDR: Used to Test the routing to the inside interface of the CSR" }
     },
     "subnet681NSG": {
@@ -240,17 +241,17 @@
     },
     "subnet700Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.0/28",
+      "defaultValue": "159.65.191.0/28",
       "metadata": { "description": "Subnet for CSR for Inside interface" }
     },
     "subnet700Name": {
       "type": "string",
-      "defaultValue": "700_CSR_In_Srvcs_VDC_IL",
+      "defaultValue": "700_CSR_In_Srvcs_VDCMac_TX",
       "metadata": { "description": "Subnet for CSR for Inside interface" }
     },
     "subnet700VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.5",
+      "defaultValue": "159.65.191.4",
       "metadata": { "description": "UDR: Subnet for CSR for Inside interface" }
     },
     "subnet700NSG": {
@@ -265,17 +266,17 @@
     },
     "subnet701Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.16/28",
+      "defaultValue": "159.65.191.16/28",
       "metadata": { "description": "Subnet for CSR for Outside" }
     },
     "subnet701Name": {
       "type": "string",
-      "defaultValue": "701_CSR_Out_Srvcs_VDC_IL",
+      "defaultValue": "701_CSR_Out_Srvcs_VDCMac_TX",
       "metadata": { "description": "Subnet for CSR for Outside" }
     },
     "subnet701VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.21",
+      "defaultValue": "159.65.191.20",
       "metadata": { "description": "UDR: Subnet for CSR for Outside" }
     },
     "subnet701NSG": {
@@ -290,17 +291,17 @@
     },
     "subnet702Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.32/28",
+      "defaultValue": "159.65.191.32/28",
       "metadata": { "description": "Subnet for the CSR Tunnel" }
     },
     "subnet702Name": {
       "type": "string",
-      "defaultValue": "702_CSR_Tunnel_Srvcs_VDC_IL",
+      "defaultValue": "702_CSR_Tunnel_Srvcs_VDCMac_TX",
       "metadata": { "description": "Subnet for the CSR Tunnel" }
     },
     "subnet702VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.37",
+      "defaultValue": "159.65.191.36",
       "metadata": { "description": "UDR: Subnet for the CSR Tunnel" }
     },
     "subnet702NSG": {
@@ -315,17 +316,17 @@
     },
     "subnet703Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.48/28",
+      "defaultValue": "159.65.191.48/28",
       "metadata": { "description": "Failover subnet" }
     },
     "subnet703Name": {
       "type": "string",
-      "defaultValue": "703_CSR_HA_Srvcs_VDC_IL",
+      "defaultValue": "703_CSR_HA_Srvcs_VDCMac_TX",
       "metadata": { "description": "Failover subnet" }
     },
     "subnet703VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.53",
+      "defaultValue": "159.65.191.52",
       "metadata": { "description": "UDR: Failover subnet" }
     },
     "subnet703NSG": {
@@ -340,17 +341,17 @@
     },
     "subnet710Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.64/28",
+      "defaultValue": "159.65.191.64/28",
       "metadata": { "description": "ASA management interface" }
     },
     "subnet710Name": {
       "type": "string",
-      "defaultValue": "710_IntASA_Mgnt_Srvcs_VDC_IL",
+      "defaultValue": "710_IntASA_Mgnt_Srvcs_VDCMac_TX",
       "metadata": { "description": "ASA management interface" }
     },
     "subnet710VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.69",
+      "defaultValue": "159.65.191.68",
       "metadata": { "description": "UDR: ASA management interface" }
     },
     "subnet710NSG": {
@@ -365,17 +366,17 @@
     },
     "subnet711Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.80/28",
+      "defaultValue": "159.65.191.80/28",
       "metadata": { "description": "ASA Inside Interface" }
     },
     "subnet711Name": {
       "type": "string",
-      "defaultValue": "711_IntASA_In_Srvcs_VDC_IL",
+      "defaultValue": "711_IntASA_In_Srvcs_VDCMac_TX",
       "metadata": { "description": "ASA Inside Interface" }
     },
     "subnet711VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.85",
+      "defaultValue": "159.65.191.84",
       "metadata": { "description": "UDR: ASA Inside Interface" }
     },
     "subnet711NSG": {
@@ -390,17 +391,17 @@
     },
     "subnet712Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.96/28",
+      "defaultValue": "159.65.191.96/28",
       "metadata": { "description": "ASA Outside Interface" }
     },
     "subnet712Name": {
       "type": "string",
-      "defaultValue": "712_IntASA_Out_Srvcs_VDC_IL",
+      "defaultValue": "712_IntASA_Out_Srvcs_VDCMac_TX",
       "metadata": { "description": "ASA Outside Interface" }
     },
     "subnet712VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.101",
+      "defaultValue": "159.65.191.100",
       "metadata": { "description": "UDR: ASA Outside Interface" }
     },
     "subnet712NSG": {
@@ -415,17 +416,17 @@
     },
     "subnet713Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.112/28",
+      "defaultValue": "159.65.191.112/28",
       "metadata": { "description": "ASA DMZ Interface" }
     },
     "subnet713Name": {
       "type": "string",
-      "defaultValue": "713_IntASA_DMZ_Srvcs_VDC_IL",
+      "defaultValue": "713_IntASA_DMZ_Srvcs_VDCMac_TX",
       "metadata": { "description": "ASA DMZ Interface" }
     },
     "subnet713VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.117",
+      "defaultValue": "159.65.191.116",
       "metadata": { "description": "UDR: ASA DMZ Interface" }
     },
     "subnet713NSG": {
@@ -440,17 +441,17 @@
     },
     "subnet715Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.128/28",
+      "defaultValue": "159.65.191.128/28",
       "metadata": { "description": "Internal Loadbalancer virtual appliance" }
     },
     "subnet715Name": {
       "type": "string",
-      "defaultValue": "715_IntLB_Srvcs_VDC_IL",
+      "defaultValue": "715_IntLB_Srvcs_VDCMac_TX",
       "metadata": { "description": "Internal Loadbalancer virtual appliance" }
     },
     "subnet715VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.133",
+      "defaultValue": "159.65.191.132",
       "metadata": { "description": "UDR: Internal Loadbalancer virtual appliance" }
     },
     "subnet715NSG": {
@@ -465,17 +466,17 @@
     },
     "subnet750Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.144/28",
+      "defaultValue": "159.65.191.144/28",
       "metadata": { "description": "ASA Management interface" }
     },
     "subnet750Name": {
       "type": "string",
-      "defaultValue": "750_ExtASA_Mgnt_Srvcs_VDC_IL",
+      "defaultValue": "750_ExtASA_Mgnt_Srvcs_VDCMac_TX",
       "metadata": { "description": "ASA Management interface" }
     },
     "subnet750VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.149",
+      "defaultValue": "159.65.191.148",
       "metadata": { "description": "UDR: ASA Management interface" }
     },
     "subnet750NSG": {
@@ -490,17 +491,17 @@
     },
     "subnet751Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.160/28",
+      "defaultValue": "159.65.191.160/28",
       "metadata": { "description": "ASA Inside Interface" }
     },
     "subnet751Name": {
       "type": "string",
-      "defaultValue": "751_ExtASA_In_Srvcs_VDC_IL",
+      "defaultValue": "751_ExtASA_In_Srvcs_VDCMac_TX",
       "metadata": { "description": "ASA Inside Interface" }
     },
     "subnet751VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.165",
+      "defaultValue": "159.65.191.164",
       "metadata": { "description": "UDR: ASA Inside Interface" }
     },
     "subnet751NSG": {
@@ -515,17 +516,17 @@
     },
     "subnet752Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.176/28",
+      "defaultValue": "159.65.191.176/28",
       "metadata": { "description": "ASA Outside Interface" }
     },
     "subnet752Name": {
       "type": "string",
-      "defaultValue": "752_ExtASA_Out_Srvcs_VDC_IL",
+      "defaultValue": "752_ExtASA_Out_Srvcs_VDCMac_TX",
       "metadata": { "description": "ASA Outside Interface" }
     },
     "subnet752VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.181",
+      "defaultValue": "159.65.191.180",
       "metadata": { "description": "UDR: ASA Outside Interface" }
     },
     "subnet752NSG": {
@@ -540,17 +541,17 @@
     },
     "subnet753Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.192/28",
+      "defaultValue": "159.65.191.192/28",
       "metadata": { "description": "ASA DMZ Interface" }
     },
     "subnet753Name": {
       "type": "string",
-      "defaultValue": "753_ExtASA_DMZ_Srvcs_VDC_IL",
+      "defaultValue": "753_ExtASA_DMZ_Srvcs_VDCMac_TX",
       "metadata": { "description": "ASA DMZ Interface" }
     },
     "subnet753VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.197",
+      "defaultValue": "159.65.191.196",
       "metadata": { "description": "UDR: ASA DMZ Interface" }
     },
     "subnet753NSG": {
@@ -565,17 +566,17 @@
     },
     "subnet755Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.208/28",
+      "defaultValue": "159.65.191.208/28",
       "metadata": { "description": "External Loadbalancer Virtual Network Appliance " }
     },
     "subnet755Name": {
       "type": "string",
-      "defaultValue": "755_ExtLB_Srvcs_VDC_IL",
+      "defaultValue": "755_ExtLB_Srvcs_VDCMac_TX",
       "metadata": { "description": "External Loadbalancer Virtual Network Appliance " }
     },
     "subnet755VNAIP": {
       "type": "string",
-      "defaultValue": "159.65.127.213",
+      "defaultValue": "159.65.191.212",
       "metadata": { "description": "UDR: External Loadbalancer Virtual Network Appliance " }
     },
     "subnet755NSG": {
@@ -588,491 +589,339 @@
       "defaultValue": "755_UDR_ExtLB",
       "metadata": { "description": "UDR: External Loadbalancer Virtual Network Appliance " }
     },
-    "subnet798Prefix": {
-      "type": "string",
-      "defaultValue": "159.65.127.224/28",
-      "metadata": { "description": "ExpressRoute Termination" }
-    },
-    "subnet798Name": {
-      "type": "string",
-      "defaultValue": "798_ER_Srvcs_VDC_IL",
-      "metadata": { "description": "ExpressRoute Termination" }
-    },
-   
     "subnet799Prefix": {
       "type": "string",
-      "defaultValue": "159.65.127.240/28",
-      "metadata": { "description": "The Azure gateway network " }
+      "defaultValue": "159.65.191.240/28",
+      "metadata": { "description": "Gateway Services to Local Networks" }
     },
     "subnet799Name": {
       "type": "string",
       "defaultValue": "GatewaySubnet",
-      "metadata": { "description": "The Azure gateway network " }
-    },
- 
-  
-    "subnet699Prefix": {
-      "type": "string",
-      "defaultValue": "159.65.127.248/29",
       "metadata": { "description": "Gateway Services to Local Networks" }
     },
-    "subnet699Name": {
-      "type": "string",
-      "defaultValue": "699_GW_Srvcs_VDC_IL",
-      "metadata": { "description": "Gateway Services to Local Networks" }
-    },
-   
 
-    "gatewaySharedKey": {
-      "type": "securestring",
-      "metadata": {
-        "description": "Shared key (PSK) for IPSec tunnel"
-      }
-    },
-    "gatewayName": {
+    "subnet799UDR": {
       "type": "string",
-      "defaultValue": "AzureTX2ADC",
-      "metadata": {
-        "description": "Arbitrary name for the new connection between Azure VNet and other network"
-      }
-    },
-    "gatewayVPNType": {
-      "type": "string",
-      "metadata": {
-        "description": "Route based or policy based"
-      },
-      "defaultValue": "RouteBased",
-      "allowedValues": [
-        "RouteBased",
-        "PolicyBased"
-      ]
-    },
-    "gatewayLocalIPPrefix": {
-      "type": "Array",
-      "metadata": { "description": "what networks are accecible with this gagteway" }
-    },
-    "gatewayLocalName": {
-      "type": "string",
-      "defaultValue": "LocalNetwork_ADC",
-      "metadata": { "description": "what networks are accecible with thisteway" }
-    },
-    "gatewayConnectionName": {
-      "type": "string",
-      "defaultValue": "VDCGateway",
-      "metadata": {
-        "description": "Arbitrary name for gateway resource representing "
-      }
-    },
-    "gatewayLocalIpAddress": {
-      "type": "string",
-      "defaultValue": "1.1.1.1",
-      "metadata": {
-        "description": "Public IP"
-      }
-    },
-    "gatewayPublicIPName": {
-      "type": "string",
-      "defaultValue": "azureTXGatewayIP",
-      "metadata": {
-        "description": "Arbitrary name for public IP resource used for the new azure gateway"
-      }
-    },
-    "gatewaySku": {
-      "type": "string",
-      "defaultValue": "Basic",
-      "allowedValues": [
-        "Basic",
-        "Standard",
-        "HighPerformance"
-      ],
-      "metadata": {
-        "description": "The Sku of the Gateway. This must be one of Basic, Standard or HighPerformance."
-      }
+      "defaultValue": "799_UDR_GW",
+      "metadata": { "description": "UDR: Gateway Services to Local Networks" }
     },
 
-
-
-    "vmCSRAdminUsername": {
-      "defaultValue": "vdcAdmin",
-      "type": "String",
-      "metadata": {
-        "description": "Username for the Virtual Machine. If sshPublicKey is used, username need to be azureuser"
-      }
-    },
-    "vmCSRadminPassword": {
-      "type": "SecureString",
-      "metadata": {
-        "description": "Password for the Virtual Machine."
-      }
-    },
-    "vmAuthNType": {
-      "defaultValue": "password",
-      "allowedValues": [ "password" ],
-      "type": "String",
-      "metadata": {
-        "description": "Authentication Type to chose for the Virtual Machines, If sshPublicKey is used, AminUsername need to be: azureuser"
-      }
-    },
-    "vmCSR1aName": {
-      "type": "string",
-      "defaultValue": "vdcpccsr1a",
-      "metadata": { "description": "The name of the primary Router" }
-    },
-    "vmCSR1aPIPName": {
-      "type": "string",
-      "defaultvalue": "700_CSR1a",
-      "metadata": { "description": "PublicIP Address Name" }
-    },
-    "vmCSR1aPIPDNS": {
-      "type": "string",
-      "metadata": {
-        "description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
-      }
-    },
-
-    "vmCSRPremiumStorageName": {
-      "type": "string",
-      "defaultValue": "vdcvnettx2a",
-      "metadata": {
-        "description": "Premium Storage account name"
-      }
-    },
-    "vmCSRStndStorageName": {
-      "type": "string",
-      "defaultvalue": "vdcvnettx1a",
-      "metadata": {
-        "description": "Storage account name"
-      }
-    },
-    "vmCSRSize": {
-      "defaultValue": "Standard_D3_v2",
-      "allowedValues": [
-        "Standard_D3_v2"
-      ],
-      "type": "string",
-      "metadata": {
-        "description": "Size of the Virtual Machine"
-      }
-    },
-
-    "vmCSR1aSubnet700IP": {
-      "type": "string",
-      "defaultValue": "10.190.63.4",
-      "metadata": { "description": "NIC0 IP Address internal" }
-    },
-
-    "vmCSR1aSubnet701IP": {
-      "type": "string",
-      "defaultValue": "10.190.63.20",
-      "metadata": { "description": "NIC1 IP Address internal" }
-    },
-    "vmCSR1aSubnet702IP": {
-      "type": "string",
-      "defaultValue": "10.190.63.36",
-      "metadata": { "description": "NIC2 IP Address internal" }
-    },
-
-    "vmCSR1aSubnet703IP": {
-      "type": "string",
-      "defaultValue": "10.190.63.52",
-      "metadata": { "description": "NIC3 IP Address internal" }
-    }
 
 
   },
   "variables": {
     "apiVersion": "2015-06-15",
     "templateBaseUrl": "https://raw.githubusercontent.com/willstg/azurefoundation/master/ARM/VNET",
-    "All_Internet.Inbound.Deny": {
-      "description": "All_Internet.Inbound.Deny",
-      "protocol": "Tcp",
-      "sourcePortRange": "*",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Deny",
-      "priority": 150,
-      "direction": "Inbound"
-    },
-    "All_Internet.Inbound.Allow": {
-      "description": "All_Internet.Inbound.Allow",
-      "protocol": "Tcp",
-      "sourcePortRange": "*",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Allow",
-      "priority": 150,
-      "direction": "Inbound"
-    },
-    "SSH.Inbound.Allow": {
-      "description": "SSH.Inbound.Allow",
-      "protocol": "Tcp",
-      "sourcePortRange": "22",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Allow",
-      "priority": 100,
-      "direction": "Inbound"
-    },
-    "UDP500.Inbound.Allow": {
-      "description": "UDP500.Inbound.Allow",
-      "protocol": "Udp",
-      "sourcePortRange": "500",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Allow",
-      "priority": 101,
-      "direction": "Inbound"
-    },
-    "UDP4500.Inbound.Allow": {
-      "description": "UDP4500.Inbound.Allow",
-      "protocol": "Udp",
-      "sourcePortRange": "4500",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "INTERNET",
-      "destinationAddressPrefix": "*",
-      "access": "Allow",
-      "priority": 102,
-      "direction": "Inbound"
-    },
+
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
     "subnet799Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet799Name'))]",
-    "imagePublisher": "cisco",
-    "imageOffer": "cisco-csr-1000v",
-    "imageSKU": "csr-azure-byol",
-    "OSDiskName": "[concat(parameters('vmCSR1aName'), '-disk')]",
-    "vmStorageAccountContainerName": "vhds",
+
     "subnet700Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet700Name'))]",
     "subnet701Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet701Name'))]",
     "subnet702Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet702Name'))]",
-    "subnet703Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet703Name'))]",
-    "osProfilepassword": {
-      "computername": "[parameters('vmCSR1aName')]",
-      "adminUsername": "[parameters('vmCSRAdminUsername')]",
-      "adminPassword": "[parameters('vmCSRadminPassword')]"
-    }
+    "subnet703Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet703Name'))]"
+
   },
   "resources": [
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet600NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "600_NSG_ServicesVA" },
+      "tags": { "displayName": "600_NSG_ServicesTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet605NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "605_NSG_LB_ServicesVA" },
+      "tags": { "displayName": "605_NSG_LB_ServicesTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet650NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "650_NSG_DMZVA" },
+      "tags": { "displayName": "650_NSG_DMZTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet655NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "655_NSG_LB_DMZVA" },
+      "tags": { "displayName": "655_NSG_LB_DMZTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet655NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "655_NSG_LB_DMZTX" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "All_Internet.Inbound.Deny",
+            "properties": {
+              "description": "All_Internet.Inbound.Deny",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 150,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    },
+    {
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet660NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "660_NSG_User_Tier0VA" },
+      "tags": { "displayName": "660_NSG_User_Tier0TX" },
       "properties": {
         "securityRules": [
+          {
+            "name": "RDP.Inbound.Allow",
+            "properties": {
+              "description": "RDP.Inbound.Allow",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 105,
+              "direction": "Inbound"
+            }
+          },
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet661NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "661_NSG_User_Tier1VA" },
+      "tags": { "displayName": "661_NSG_User_Tier1TX" },
       "properties": {
         "securityRules": [
+          {
+            "name": "RDP.Inbound.Allow",
+            "properties": {
+              "description": "RDP.Inbound.Allow",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 105,
+              "direction": "Inbound"
+            }
+          },
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet680NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "680_NSG_CSR_InsideTestVA" },
+      "tags": { "displayName": "680_NSG_CSR_InsideTestTX" },
       "properties": {
         "securityRules": [
           {
-            "name": "All_Internet.Inbound.Allow",
+            "name": "RDP.Inbound.Allow",
             "properties": {
-              "description": "All_Internet.Inbound.Allow",
-              "protocol": "Tcp",
+              "description": "RDP.Inbound.Allow",
+              "protocol": "TCP",
               "sourcePortRange": "*",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Allow",
-              "priority": 150,
+              "priority": 105,
               "direction": "Inbound"
             }
           },
+          {
+            "name": "All_Internet.Inbound.Deny",
+            "properties": {
+              "description": "All_Internet.Inbound.Deny",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 150,
+              "direction": "Inbound"
+            }
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet681NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "681_NSG_CSR_OutsideTestVA" },
+      "tags": { "displayName": "681_NSG_CSR_OutsideTestTX" },
       "properties": {
         "securityRules": [
           {
-            "name": "All_Internet.Inbound.Allow",
+            "name": "RDP.Inbound.Allow",
             "properties": {
-              "description": "All_Internet.Inbound.Allow",
-              "protocol": "Tcp",
+              "description": "RDP.Inbound.Allow",
+              "protocol": "TCP",
               "sourcePortRange": "*",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Allow",
-              "priority": 150,
+              "priority": 105,
               "direction": "Inbound"
             }
           },
+          {
+            "name": "All_Internet.Inbound.Deny",
+            "properties": {
+              "description": "All_Internet.Inbound.Deny",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 150,
+              "direction": "Inbound"
+            }
+          }
         ]
       }
     },
+   
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet700NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "700_NSG_CSR_InVA" },
+      "tags": { "displayName": "700_NSG_CSR_InTX" },
       "properties": {
         "securityRules": [
           {
             "name": "SSH.Inbound.Allow",
             "properties": {
               "description": "SSH.Inbound.Allow",
-              "protocol": "Tcp",
-              "sourcePortRange": "22",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "159.65.191.0/28",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "22",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 100,
               "direction": "Inbound"
@@ -1082,11 +931,11 @@
             "name": "UDP500.Inbound.Allow",
             "properties": {
               "description": "UDP500.Inbound.Allow",
-              "protocol": "Udp",
-              "sourcePortRange": "500",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "159.65.191.0/28",
+              "protocol": "UDP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "500",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 101,
               "direction": "Inbound"
@@ -1096,11 +945,11 @@
             "name": "UDP4500.Inbound.Allow",
             "properties": {
               "description": "UDP4500.Inbound.Allow",
-              "protocol": "Udp",
-              "sourcePortRange": "4500",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "159.65.191.0/28",
+              "protocol": "UDP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "4500",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 102,
               "direction": "Inbound"
@@ -1110,111 +959,111 @@
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet701NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "701_NSG_CSR_OutVA" },
+      "tags": { "displayName": "701_NSG_CSR_OutTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet702NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "702_NSG_CSR_TunnelVA" },
+      "tags": { "displayName": "702_NSG_CSR_TunnelTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet703NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "703_NSG_CSR_HAVA" },
+      "tags": { "displayName": "703_NSG_CSR_HATX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet710NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "710_NSG_IntASA_MgntVA" },
+      "tags": { "displayName": "710_NSG_IntASA_MgntTX" },
       "properties": {
         "securityRules": [
           {
             "name": "SSH.Inbound.Allow",
             "properties": {
               "description": "SSH.Inbound.Allow",
-              "protocol": "Tcp",
-              "sourcePortRange": "22",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "159.65.191.64/28",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "22",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 100,
               "direction": "Inbound"
@@ -1224,11 +1073,11 @@
             "name": "UDP500.Inbound.Allow",
             "properties": {
               "description": "UDP500.Inbound.Allow",
-              "protocol": "Udp",
-              "sourcePortRange": "500",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "159.65.191.64/28",
+              "protocol": "UDP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "500",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 101,
               "direction": "Inbound"
@@ -1238,11 +1087,11 @@
             "name": "UDP4500.Inbound.Allow",
             "properties": {
               "description": "UDP4500.Inbound.Allow",
-              "protocol": "Udp",
-              "sourcePortRange": "4500",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "159.65.191.64/28",
+              "protocol": "UDP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "4500",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 102,
               "direction": "Inbound"
@@ -1252,136 +1101,136 @@
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet711NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "711_NSG_IntASA_InVA" },
+      "tags": { "displayName": "711_NSG_IntASA_InTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet712NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "712_NSG_IntASA_OutVA" },
+      "tags": { "displayName": "712_NSG_IntASA_OutTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
-              "sourcePortRange": "443",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "*",
-              "access": "Deny",
-              "priority": 150,
-              "direction": "Inbound"
-            }
-          },
-        ]
-      }
-    },
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet713NSG')]",
-      "location": "[resourceGroup().location]",
-      "tags": { "displayName": "713_NSG_IntASA_DMZVA" },
-      "properties": {
-        "securityRules": [
-          {
-            "name": "All_Internet.Inbound.Deny",
-            "properties": {
-              "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('subnet715NSG')]",
+      "name": "[parameters('subnet713NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "715_NSG_IntLBVA" },
+      "tags": { "displayName": "713_NSG_IntASA_DMZTX" },
       "properties": {
         "securityRules": [
           {
-            "name": "SSH.Inbound.Allow",
+            "name": "All_Internet.Inbound.Deny",
             "properties": {
-              "description": "SSH.Inbound.Allow",
-              "protocol": "Tcp",
-              "sourcePortRange": "22",
+              "description": "All_Internet.Inbound.Deny",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
-              "access": "Allow",
+              "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('subnet715NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
+      "location": "[resourceGroup().location]",
+      "tags": { "displayName": "715_NSG_IntLBTX" },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "All_Internet.Inbound.Deny",
+            "properties": {
+              "description": "All_Internet.Inbound.Deny",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 150,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    },
+    {
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet750NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "750_NSG_ExtASA_MgntVA" },
+      "tags": { "displayName": "750_NSG_ExtASA_MgntTX" },
       "properties": {
         "securityRules": [
           {
             "name": "SSH.Inbound.Allow",
             "properties": {
               "description": "SSH.Inbound.Allow",
-              "protocol": "Tcp",
-              "sourcePortRange": "22",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "159.65.191.144/28",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "22",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 100,
               "direction": "Inbound"
@@ -1391,11 +1240,11 @@
             "name": "UDP500.Inbound.Allow",
             "properties": {
               "description": "UDP500.Inbound.Allow",
-              "protocol": "Udp",
-              "sourcePortRange": "500",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "159.65.191.144/28",
+              "protocol": "UDP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "500",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 101,
               "direction": "Inbound"
@@ -1405,11 +1254,11 @@
             "name": "UDP4500.Inbound.Allow",
             "properties": {
               "description": "UDP4500.Inbound.Allow",
-              "protocol": "Udp",
-              "sourcePortRange": "4500",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
-              "destinationAddressPrefix": "159.65.191.144/28",
+              "protocol": "UDP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "4500",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 102,
               "direction": "Inbound"
@@ -1419,120 +1268,119 @@
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet751NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "751_NSG_ExtASA_InVA" },
+      "tags": { "displayName": "751_NSG_ExtASA_InTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet752NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "752_NSG_ExtASA_OutVA" },
+      "tags": { "displayName": "752_NSG_ExtASA_OutTX" },
       "properties": {
         "securityRules": [
           {
-            "name": "All_Internet.Inbound.Allow",
+            "name": "All_Internet.Inbound.Deny",
             "properties": {
-              "description": "All_Internet.Inbound.Allow",
-              "protocol": "Tcp",
+              "description": "All_Internet.Inbound.Deny",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
-              "access": "Allow",
+              "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet753NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "753_NSG_ExtASA_DMZVA" },
+      "tags": { "displayName": "753_NSG_ExtASA_DMZTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('subnet755NSG')]",
+      "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
-      "tags": { "displayName": "755_NSG_ExtLBVA" },
+      "tags": { "displayName": "755_NSG_ExtLBTX" },
       "properties": {
         "securityRules": [
           {
             "name": "All_Internet.Inbound.Deny",
             "properties": {
               "description": "All_Internet.Inbound.Deny",
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "INTERNET",
+              "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Deny",
               "priority": 150,
               "direction": "Inbound"
             }
-          },
+          }
         ]
       }
     },
-
 
     {
       "apiVersion": "2015-06-15",
@@ -1545,7 +1393,7 @@
           {
             "name": "RouteFrom700To701_CSR_Out",
             "properties": {
-              "addressPrefix": "159.65.191.16/28",
+              "addressPrefix": "159.65.255.16/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
             }
@@ -1553,7 +1401,7 @@
           {
             "name": "RouteFrom700To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix": "159.65.191.112/28",
+              "addressPrefix": "159.65.248.0/21",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
             }
@@ -1561,11 +1409,58 @@
           {
             "name": "RouteFrom700To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix": "159.65.191.192/28",
+              "addressPrefix": "159.65.250.0/24",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
             }
           },
+          {
+            "name": "RouteFrom700To753_ExtASA_DMZ2",
+            "properties": {
+              "addressPrefix": "159.65.252.0/24",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom700To700_CSR_In",
+            "properties": {
+              "addressPrefix": "159.65.255.0/28",
+              "nextHopType": "VNetLocal"
+            }
+          },
+          {
+            "name": "RouteFrom700To701_CSR_Out1",
+            "properties": {
+              "addressPrefix": "204.67.210.0/23",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom700To701_CSR_Out2",
+            "properties": {
+              "addressPrefix": "204.67.15.0/26",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom700To701_CSR_Out3",
+            "properties": {
+              "addressPrefix": "204.67.120.0/24",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom700To701_CSR_Out4",
+            "properties": {
+              "addressPrefix": "168.44.244.0/23",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "[parameters('subnet700VNAIP')]"
+            }
+          }
         ]
       }
     },
@@ -1580,14 +1475,50 @@
           {
             "name": "RouteFrom701To700_CSR_In",
             "properties": {
-              "addressPrefix": "159.65.191.0/28",
+              "addressPrefix": "159.65.248.0/18",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet701VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom701To701_CSR_Out",
+            "properties": {
+              "addressPrefix": "159.65.255.16/28",
+              "nextHopType": "VNetLocal"
+            }
+          },
+          {
+            "name": "RouteFrom701To701_CSR_Out2",
+            "properties": {
+              "addressPrefix": "204.67.210.0/23",
+              "nextHopType": "VirtualNetworkGateway"
+            }
+          },
+          {
+            "name": "RouteFrom701To701_CSR_Out3",
+            "properties": {
+              "addressPrefix": "204.67.15.0/26",
+              "nextHopType": "VirtualNetworkGateway"
+            }
+          },
+          {
+            "name": "RouteFrom701To701_CSR_Out4",
+            "properties": {
+              "addressPrefix": "204.67.120.0/24",
+              "nextHopType": "VirtualNetworkGateway"
+            }
+          },
+          {
+            "name": "RouteFrom701To701_CSR_Out5",
+            "properties": {
+              "addressPrefix": "168.44.244.0/23",
+              "nextHopType": "VirtualNetworkGateway"
             }
           }
         ]
       }
     },
+
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/routeTables",
@@ -1599,7 +1530,7 @@
           {
             "name": "RouteFrom702To703_CSR_HA",
             "properties": {
-              "addressPrefix": "159.65.191.48/28",
+              "addressPrefix": "159.65.255.48/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet702VNAIP')]"
             }
@@ -1618,7 +1549,7 @@
           {
             "name": "RouteFrom703To702_CSR_Tunnel",
             "properties": {
-              "addressPrefix": "159.65.191.32/28",
+              "addressPrefix": "159.65.255.32/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet703VNAIP')]"
             }
@@ -1637,7 +1568,7 @@
           {
             "name": "RouteFrom710To711_IntASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.80/28",
+              "addressPrefix": "159.65.255.80/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet710VNAIP')]"
             }
@@ -1645,7 +1576,7 @@
           {
             "name": "RouteFrom710To712_IntASA_Out",
             "properties": {
-              "addressPrefix": "159.65.191.96/28",
+              "addressPrefix": "159.65.255.96/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet710VNAIP')]"
             }
@@ -1653,11 +1584,11 @@
           {
             "name": "RouteFrom710To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix": "159.65.191.112/28",
+              "addressPrefix": "159.65.255.112/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet710VNAIP')]"
             }
-          },
+          }
         ]
       }
     },
@@ -1672,7 +1603,7 @@
           {
             "name": "RouteFrom711To710_IntASA_Mgnt",
             "properties": {
-              "addressPrefix": "159.65.191.64/28",
+              "addressPrefix": "159.65.255.64/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet711VNAIP')]"
             }
@@ -1680,7 +1611,7 @@
           {
             "name": "RouteFrom711To712_IntASA_Out",
             "properties": {
-              "addressPrefix": "159.65.191.96/28",
+              "addressPrefix": "159.65.255.96/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet711VNAIP')]"
             }
@@ -1688,11 +1619,11 @@
           {
             "name": "RouteFrom711To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix": "159.65.191.112/28",
+              "addressPrefix": "159.65.255.112/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet711VNAIP')]"
             }
-          },
+          }
         ]
       }
     },
@@ -1707,7 +1638,7 @@
           {
             "name": "RouteFrom712To710_IntASA_Mgnt",
             "properties": {
-              "addressPrefix": "159.65.191.64/28",
+              "addressPrefix": "159.65.255.64/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet712VNAIP')]"
             }
@@ -1715,7 +1646,7 @@
           {
             "name": "RouteFrom712To711_IntASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.80/28",
+              "addressPrefix": "159.65.255.80/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet712VNAIP')]"
             }
@@ -1723,11 +1654,11 @@
           {
             "name": "RouteFrom712To713_IntASA_DMZ",
             "properties": {
-              "addressPrefix": "159.65.191.112/28",
+              "addressPrefix": "159.65.255.112/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet712VNAIP')]"
             }
-          },
+          }
         ]
       }
     },
@@ -1742,7 +1673,7 @@
           {
             "name": "RouteFrom713To710_IntASA_Mgnt",
             "properties": {
-              "addressPrefix": "159.65.191.64/28",
+              "addressPrefix": "159.65.255.64/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
             }
@@ -1750,7 +1681,7 @@
           {
             "name": "RouteFrom713To711_IntASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.80/28",
+              "addressPrefix": "159.65.255.80/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
             }
@@ -1758,7 +1689,7 @@
           {
             "name": "RouteFrom713To712_IntASA_Out",
             "properties": {
-              "addressPrefix": "159.65.191.96/28",
+              "addressPrefix": "159.65.255.96/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
             }
@@ -1766,11 +1697,11 @@
           {
             "name": "RouteFrom713To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix": "159.65.191.192/28",
+              "addressPrefix": "159.65.255.192/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet713VNAIP')]"
             }
-          },
+          }
         ]
       }
     },
@@ -1785,7 +1716,7 @@
           {
             "name": "RouteFrom715To711_IntASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.80/28",
+              "addressPrefix": "159.65.255.80/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet715VNAIP')]"
             }
@@ -1804,7 +1735,7 @@
           {
             "name": "RouteFrom750To751_ExtASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.160/28",
+              "addressPrefix": "159.65.255.160/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet750VNAIP')]"
             }
@@ -1812,7 +1743,7 @@
           {
             "name": "RouteFrom750To752_ExtASA_Out",
             "properties": {
-              "addressPrefix": "159.65.191.176/28",
+              "addressPrefix": "159.65.255.176/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet750VNAIP')]"
             }
@@ -1820,11 +1751,11 @@
           {
             "name": "RouteFrom750To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix": "159.65.191.192/28",
+              "addressPrefix": "159.65.255.192/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet750VNAIP')]"
             }
-          },
+          }
         ]
       }
     },
@@ -1839,7 +1770,7 @@
           {
             "name": "RouteFrom751To750_ExtASA_Mgnt",
             "properties": {
-              "addressPrefix": "159.65.191.144/28",
+              "addressPrefix": "159.65.255.144/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet751VNAIP')]"
             }
@@ -1847,7 +1778,7 @@
           {
             "name": "RouteFrom751To752_ExtASA_Out",
             "properties": {
-              "addressPrefix": "159.65.191.176/28",
+              "addressPrefix": "159.65.255.176/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet751VNAIP')]"
             }
@@ -1855,11 +1786,11 @@
           {
             "name": "RouteFrom751To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix": "159.65.191.192/28",
+              "addressPrefix": "159.65.255.192/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet751VNAIP')]"
             }
-          },
+          }
         ]
       }
     },
@@ -1874,7 +1805,7 @@
           {
             "name": "RouteFrom752To750_ExtASA_Mgnt",
             "properties": {
-              "addressPrefix": "159.65.191.144/28",
+              "addressPrefix": "159.65.255.144/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet752VNAIP')]"
             }
@@ -1882,7 +1813,7 @@
           {
             "name": "RouteFrom752To751_ExtASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.160/28",
+              "addressPrefix": "159.65.255.160/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet752VNAIP')]"
             }
@@ -1890,11 +1821,11 @@
           {
             "name": "RouteFrom752To753_ExtASA_DMZ",
             "properties": {
-              "addressPrefix": "159.65.191.192/28",
+              "addressPrefix": "159.65.255.192/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet752VNAIP')]"
             }
-          },
+          }
         ]
       }
     },
@@ -1909,7 +1840,7 @@
           {
             "name": "RouteFrom753To750_ExtASA_Mgnt",
             "properties": {
-              "addressPrefix": "159.65.191.144/28",
+              "addressPrefix": "159.65.255.144/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet753VNAIP')]"
             }
@@ -1917,7 +1848,7 @@
           {
             "name": "RouteFrom753To751_ExtASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.160/28",
+              "addressPrefix": "159.65.255.160/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet753VNAIP')]"
             }
@@ -1925,11 +1856,11 @@
           {
             "name": "RouteFrom753To752_ExtASA_Out",
             "properties": {
-              "addressPrefix": "159.65.191.176/28",
+              "addressPrefix": "159.65.255.176/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet753VNAIP')]"
             }
-          },
+          }
         ]
       }
     },
@@ -1944,7 +1875,7 @@
           {
             "name": "RouteFrom755To751_ExtASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.160/28",
+              "addressPrefix": "159.65.255.160/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet755VNAIP')]"
             }
@@ -1963,7 +1894,7 @@
           {
             "name": "RouteFrom600To711_IntASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.80/28",
+              "addressPrefix": "159.65.255.80/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet600VNAIP')]"
             }
@@ -1982,7 +1913,7 @@
           {
             "name": "RouteFrom605To715_IntLB",
             "properties": {
-              "addressPrefix": "159.65.191.128/28",
+              "addressPrefix": "159.65.255.128/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet605VNAIP')]"
             }
@@ -2001,7 +1932,7 @@
           {
             "name": "RouteFrom650To751_ExtASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.160/28",
+              "addressPrefix": "159.65.255.160/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet650VNAIP')]"
             }
@@ -2020,7 +1951,7 @@
           {
             "name": "RouteFrom660To711_IntASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.80/28",
+              "addressPrefix": "159.65.255.80/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet660VNAIP')]"
             }
@@ -2039,7 +1970,7 @@
           {
             "name": "RouteFrom661To711_IntASA_In",
             "properties": {
-              "addressPrefix": "159.65.191.80/28",
+              "addressPrefix": "159.65.255.80/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet661VNAIP')]"
             }
@@ -2058,7 +1989,7 @@
           {
             "name": "RouteFrom655To755_ExtLB",
             "properties": {
-              "addressPrefix": "159.65.191.208/28",
+              "addressPrefix": "159.65.255.208/28",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet655VNAIP')]"
             }
@@ -2077,9 +2008,16 @@
           {
             "name": "RouteFrom680To700_CSR_In",
             "properties": {
-              "addressPrefix": "159.65.191.0/28",
+              "addressPrefix": "159.65.248.0/21",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet680VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom680To680_CSR_InsideTest",
+            "properties": {
+              "addressPrefix": "159.65.253.0/28",
+              "nextHopType": "VNetLocal"
             }
           }
         ]
@@ -2096,15 +2034,21 @@
           {
             "name": "RouteFrom681To701_CSR_Out",
             "properties": {
-              "addressPrefix": "159.65.191.16/28",
+              "addressPrefix": "159.65.248.0/21",
               "nextHopType": "VirtualAppliance",
               "nextHopIpAddress": "[parameters('subnet681VNAIP')]"
+            }
+          },
+          {
+            "name": "RouteFrom681To681_CSR_OutsideTest",
+            "properties": {
+              "addressPrefix": "159.65.253.16/28",
+              "nextHopType": "VNetLocal"
             }
           }
         ]
       }
     },
-
 
 
     {
@@ -2301,82 +2245,7 @@
 
         ]
       }
-    },
-
-
-
-    {
-      "apiVersion": "[variables('apiversion')]",
-      "type": "Microsoft.Network/localNetworkGateways",
-      "name": "[parameters('gatewayLocalName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "localNetworkAddressSpace": {
-          "addressPrefixes": "[parameters('gatewayLocalIpPrefix')]"
-        },
-        "gatewayIpAddress": "[parameters('gatewayLocalIpAddress')]"
-      }
-    },
-    {
-      "apiVersion": "[variables('apiversion')]",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[parameters('gatewayPublicIPName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "publicIPAllocationMethod": "Dynamic"
-      }
-    },
-    {
-      "apiVersion": "[variables('apiversion')]",
-      "type": "Microsoft.Network/virtualNetworkGateways",
-      "name": "[parameters('gatewayName')]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/publicIPAddresses/', parameters('gatewayPublicIPName'))]",
-        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
-      ],
-      "properties": {
-        "ipConfigurations": [
-          {
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": { "id": "[variables('subnet799Ref')]" },
-              "publicIPAddress": { "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('gatewayPublicIPName'))]" }
-            },
-            "name": "[parameters('gatewayLocalName')]"
-          }
-        ],
-        "sku": {
-          "name": "[parameters('gatewaySku')]",
-          "tier": "[parameters('gatewaySku')]"
-        },
-        "gatewayType": "Vpn",
-        "vpnType": "[parameters('gatewayVPNType')]",
-        "enableBgp": "false"
-      }
-    },
-    {
-      "apiVersion": "[variables('apiversion')]",
-      "name": "[parameters('gatewayConnectionName')]",
-      "type": "Microsoft.Network/connections",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworkGateways/', parameters('gatewayName'))]",
-        "[concat('Microsoft.Network/localNetworkGateways/', parameters('gatewayLocalName'))]"
-      ],
-      "properties": {
-        "virtualNetworkGateway1": {
-          "id": "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('gatewayName'))]"
-        },
-        "localNetworkGateway2": {
-          "id": "[resourceId('Microsoft.Network/localNetworkGateways', parameters('gatewayLocalName'))]"
-        },
-        "connectionType": "IPsec",
-        "routingWeight": 10,
-        "sharedKey": "[parameters('gatewaySharedKey')]"
-      }
     }
-
 
   ],
   "outputs": {
