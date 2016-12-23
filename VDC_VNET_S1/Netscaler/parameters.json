@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "southcentralus"
+        },
+        "virtualMachineName": {
+            "value": "txpnvpx1a"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_DS3_v2"
+        },
+        "adminUsername": {
+            "value": "vdcAdmin"
+        },
+        "storageAccountName": {
+            "value": "vdcxenappstorage1a"
+        },
+        "virtualNetworkName": {
+            "value": "vnet_vdc_tx"
+        },
+        "networkInterfaceName": {
+            "value": "txpnvpx1a674"
+        },
+        "networkSecurityGroupName": {
+            "value": "txpnvpx1a-nsg"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "vdcvnettxdiag297"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "Microsoft.Storage/storageAccounts/vdcvnettxdiag297"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "subnetName": {
+            "value": "715_IntLB_Srvcs_VDC_TX"
+        },
+        "publicIpAddressName": {
+            "value": "txpnvpx1a-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        }
+    }
+}

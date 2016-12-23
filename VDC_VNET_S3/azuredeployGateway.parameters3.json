@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "Location": { "value": "centralus" },
+    "ResourceGroupName": { "value": "vdc_vnet_VA_temp" },
+    "vnetName": { "value": "vnet_vdc_VA" },
+    "vnetAddressPrefix": { "value": "159.65.128.0/18" },
+    "gatewayName": { "value": "AzureVAS2SADC" },
+    "gatewayVPNType": { "value": "PolicyBased" },
+    "gatewayLocalIPPrefix": {
+      "value": [
+        "204.67.210.0/23",
+        "204.67.15.0/26",
+        "204.67.120.0/24",
+        "168.44.244.0/23"
+      ]
+    },
+    "gatewayLocalName": { "value": "ADC" },
+    "gatewayConnectionName": { "value": "AzureVAS2SVPN" },
+    "gatewayLocalIPAddress": { "value": "168.44.242.4" },
+    "gatewayPublicIPName": { "value": "AzureGatewayVAPublicIP" },
+    "gatewaySku": { "value": "Basic" },
+    
+  }
+}

@@ -1,0 +1,508 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_vdctxpcsr1a_adminPassword": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "virtualMachines_vdctxpcsr1a_name": {
+            "defaultValue": "vdctxpcsr1a",
+            "type": "String"
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic0_name": {
+            "defaultValue": "vdctxpcsr1a-Nic0",
+            "type": "String"
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic1_name": {
+            "defaultValue": "vdctxpcsr1a-Nic1",
+            "type": "String"
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic2_name": {
+            "defaultValue": "vdctxpcsr1a-Nic2",
+            "type": "String"
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic3_name": {
+            "defaultValue": "vdctxpcsr1a-Nic3",
+            "type": "String"
+        },
+        "networkSecurityGroups_vdctxpcsr1a_SSH_SecurityGroup_name": {
+            "defaultValue": "vdctxpcsr1a-SSH-SecurityGroup",
+            "type": "String"
+        },
+        "publicIPAddresses_txCSR1a_name": {
+            "defaultValue": "txCSR1a",
+            "type": "String"
+        },
+        "routeTables_700_CSR_In_Srvcs_VDC_TX_CSR_RouteTable_name": {
+            "defaultValue": "700_CSR_In_Srvcs_VDC_TX-CSR-RouteTable",
+            "type": "String"
+        },
+        "routeTables_701_CSR_Out_Srvcs_VDC_TX_CSR_RouteTable_name": {
+            "defaultValue": "701_CSR_Out_Srvcs_VDC_TX-CSR-RouteTable",
+            "type": "String"
+        },
+        "routeTables_702_CSR_Tunnel_Srvcs_VDC_TX_CSR_RouteTable_name": {
+            "defaultValue": "702_CSR_Tunnel_Srvcs_VDC_TX-CSR-RouteTable",
+            "type": "String"
+        },
+        "routeTables_703_CSR_HA_Srvcs_VDC_TX_CSR_RouteTable_name": {
+            "defaultValue": "703_CSR_HA_Srvcs_VDC_TX-CSR-RouteTable",
+            "type": "String"
+        },
+        "storageAccounts_vdctxvnetstnd1a_name": {
+            "defaultValue": "vdctxvnetstnd1a",
+            "type": "String"
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic0_id": {
+            "defaultValue": "/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdc_vnet_tx/providers/Microsoft.Network/virtualNetworks/vnet_vdc_tx/subnets/700_CSR_In_Srvcs_VDC_TX",
+            "type": "String"
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic1_id": {
+            "defaultValue": "/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdc_vnet_tx/providers/Microsoft.Network/virtualNetworks/vnet_vdc_tx/subnets/701_CSR_Out_Srvcs_VDC_TX",
+            "type": "String"
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic2_id": {
+            "defaultValue": "/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdc_vnet_tx/providers/Microsoft.Network/virtualNetworks/vnet_vdc_tx/subnets/702_CSR_Tunnel_Srvcs_VDC_TX",
+            "type": "String"
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic3_id": {
+            "defaultValue": "/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdc_vnet_tx/providers/Microsoft.Network/virtualNetworks/vnet_vdc_tx/subnets/703_CSR_HA_Srvcs_VDC_TX",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Compute/virtualMachines/vdctxpcsr1a'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_vdctxpcsr1a_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "southcentralus",
+            "plan": {
+                "name": "csr-azure-byol",
+                "product": "cisco-csr-1000v",
+                "publisher": "cisco"
+            },
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D3_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "cisco",
+                        "offer": "cisco-csr-1000v",
+                        "sku": "csr-azure-byol",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "[concat(parameters('virtualMachines_vdctxpcsr1a_name'),'-osDisk')]",
+                        "createOption": "FromImage",
+                        "vhd": {
+                            "uri": "[concat('http', '://', parameters('storageAccounts_vdctxvnetstnd1a_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_vdctxpcsr1a_name'),'-disk-3bbs7yzeil7wo.vhd'))]"
+                        },
+                        "caching": "ReadWrite"
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_vdctxpcsr1a_name')]",
+                    "adminUsername": "vdcAdmin",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false
+                    },
+                    "secrets": [],
+                    "adminPassword": "[parameters('virtualMachines_vdctxpcsr1a_adminPassword')]"
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vdctxpcsr1a_Nic0_name'))]",
+                            "properties": {
+                                "primary": true
+                            }
+                        },
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vdctxpcsr1a_Nic1_name'))]",
+                            "properties": {
+                                "primary": false
+                            }
+                        },
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vdctxpcsr1a_Nic2_name'))]",
+                            "properties": {
+                                "primary": false
+                            }
+                        },
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vdctxpcsr1a_Nic3_name'))]",
+                            "properties": {
+                                "primary": false
+                            }
+                        }
+                    ]
+                }
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_vdctxvnetstnd1a_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vdctxpcsr1a_Nic0_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vdctxpcsr1a_Nic1_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vdctxpcsr1a_Nic2_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vdctxpcsr1a_Nic3_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/networkInterfaces/vdctxpcsr1a-Nic0'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_vdctxpcsr1a_Nic0_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAddress": "10.190.63.4",
+                            "privateIPAllocationMethod": "Static",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_txCSR1a_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[parameters('networkInterfaces_vdctxpcsr1a_Nic0_id')]"
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableIPForwarding": true,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vdctxpcsr1a_SSH_SecurityGroup_name'))]"
+                }
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_txCSR1a_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vdctxpcsr1a_SSH_SecurityGroup_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/networkInterfaces/vdctxpcsr1a-Nic1'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_vdctxpcsr1a_Nic1_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAddress": "10.190.63.20",
+                            "privateIPAllocationMethod": "Static",
+                            "subnet": {
+                                "id": "[parameters('networkInterfaces_vdctxpcsr1a_Nic1_id')]"
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableIPForwarding": true
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/networkInterfaces/vdctxpcsr1a-Nic2'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_vdctxpcsr1a_Nic2_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAddress": "10.190.63.36",
+                            "privateIPAllocationMethod": "Static",
+                            "subnet": {
+                                "id": "[parameters('networkInterfaces_vdctxpcsr1a_Nic2_id')]"
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableIPForwarding": true
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/networkInterfaces/vdctxpcsr1a-Nic3'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_vdctxpcsr1a_Nic3_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAddress": "10.190.63.52",
+                            "privateIPAllocationMethod": "Static",
+                            "subnet": {
+                                "id": "[parameters('networkInterfaces_vdctxpcsr1a_Nic3_id')]"
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableIPForwarding": true
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/networkSecurityGroups/vdctxpcsr1a-SSH-SecurityGroup'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_vdctxpcsr1a_SSH_SecurityGroup_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "SSH-Rule",
+                        "properties": {
+                            "description": "Allow SSH",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "UDP-Rule1",
+                        "properties": {
+                            "description": "Allow UDP",
+                            "protocol": "UDP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "500",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 101,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "UDP-Rule2",
+                        "properties": {
+                            "description": "Allow UDP",
+                            "protocol": "UDP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "4500",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 102,
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/publicIPAddresses/txCSR1a'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_txCSR1a_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "vdctxcsr01a"
+                }
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/routeTables/700_CSR_In_Srvcs_VDC_TX-CSR-RouteTable'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_700_CSR_In_Srvcs_VDC_TX_CSR_RouteTable_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "routes": [
+                    {
+                        "name": "Route-Subnet2-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.16/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet3-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.32/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.4"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet4-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.48/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.4"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/routeTables/701_CSR_Out_Srvcs_VDC_TX-CSR-RouteTable'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_701_CSR_Out_Srvcs_VDC_TX_CSR_RouteTable_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "routes": [
+                    {
+                        "name": "Route-Subnet1-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.0/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.20"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet3-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.32/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.20"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet4-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.48/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.20"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/routeTables/702_CSR_Tunnel_Srvcs_VDC_TX-CSR-RouteTable'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_702_CSR_Tunnel_Srvcs_VDC_TX_CSR_RouteTable_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "routes": [
+                    {
+                        "name": "Route-Subnet1-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.0/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.36"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet2-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.16/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.36"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet4-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.48/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.36"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxCSR1/providers/Microsoft.Network/routeTables/703_CSR_HA_Srvcs_VDC_TX-CSR-RouteTable'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_703_CSR_HA_Srvcs_VDC_TX_CSR_RouteTable_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southcentralus",
+            "properties": {
+                "routes": [
+                    {
+                        "name": "Route-Subnet1-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.0/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.52"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet2-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.16/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.52"
+                        }
+                    },
+                    {
+                        "name": "Route-Subnet3-To-CSR",
+                        "properties": {
+                            "addressPrefix": "10.190.63.32/28",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.190.63.52"
+                        }
+                    }
+                ]
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/43220cc5-8010-4fef-b038-e005ded0bb8e/resourceGroups/vdctxcsr1/providers/Microsoft.Storage/storageAccounts/vdctxvnetstnd1a'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_vdctxvnetstnd1a_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "southcentralus",
+            "tags": {},
+            "properties": {},
+            "resources": [],
+            "dependsOn": []
+        }
+    ]
+}

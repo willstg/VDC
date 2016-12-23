@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": { "value": "usgoviowa" },
+    "ResourceGroupName": { "value": "vdc_vnet_ia_v01" },
+    "vnetName": { "value": "vnet_vdc_ia_v01" },
+    "vnetAddressPrefix": { "value": "159.65.248.0/21" },
+    "gatewayName": { "value": "AzureIAGateway" },
+    "gatewayVPNType": { "value": "PolicyBased" },
+    "gatewayLocalIPPrefix": {
+      "value": [
+        "204.67.210.0/23",
+        "204.67.15.0/26",
+        "204.67.120.0/24",
+        "168.44.244.0/23"
+      ]
+    },
+    "gatewayLocalName": { "value": "ADC" },
+    "gatewayConnectionName": { "value": "magIAToADC" },
+    "gatewayLocalIPAddress": { "value": "1.1.1.1" },
+    "gatewayPublicIPName": { "value": "AzureGatewayIAPublicIP" },
+    "gatewaySku": { "value": "Basic" },
+    
+  }
+}

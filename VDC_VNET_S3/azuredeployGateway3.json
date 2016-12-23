@@ -1,0 +1,281 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+
+    "baseUrl": {
+      "defaultValue": "https://github.com/willstg/VDC/tree/master/VDC_VNET_VA",
+      "type": "string",
+      "metadata": {
+        "artifactsBaseUrl": "",
+        "description": "URL to acquire other templates"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "USGov Virginia",
+      "metadata": {
+        "description": "Deployment location. (example: USGov Virginia)"
+      }
+    },
+
+    "ResourceGroupName": {
+      "type": "string",
+      "defaultValue": "vdc_vnet_va"
+    },
+
+
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "vnet_vdc_va",
+      "metadata": {
+        "description": "AzureFoundation VNET for Virtual Data Center"
+      }
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.190.128.0/18",
+      "metadata": {
+        "description": "CIDR prefix for the VNet address space."
+      }
+    },
+ 
+    "subnet799Prefix": {
+      "type": "string",
+      "defaultValue": "10.190.128.240/28",
+      "metadata": { "description": "Subnet for the gatway S2S Tunnel" }
+    },
+    "subnet799Name": {
+      "type": "string",
+      "defaultValue": "GatewaySubnet",
+      "metadata": {
+        "description": "Arbitrary name for the new gateway"
+      }
+    },
+    "gatewayName": {
+      "type": "string",
+      "defaultValue": "Azure2ADC",
+      "metadata": {
+        "description": "Arbitrary name for the new connection between Azure VNet and other network"
+      }
+    },
+    "gatewayVPNType": {
+      "type": "string",
+      "metadata": {
+        "description": "Route based or policy based"
+      },
+      "defaultValue": "RouteBased",
+      "allowedValues": [
+        "RouteBased",
+        "PolicyBased"
+      ]
+    },
+    "gatewayLocalIPPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/15",
+      "metadata": { "description": "what networks are accecible with this gagteway" }
+    },
+    "gatewayLocalName": {
+      "type": "string",
+      "defaultValue": "LocalNetwork_ADC",
+      "metadata": { "description": "what networks are accecible with this gagteway" }
+    },
+    "gatewayConnectionName": {
+      "type": "string",
+      "defaultValue": "VDCGateway",
+      "metadata": {
+        "description": "Arbitrary name for gateway resource representing "
+      }
+    },
+    "gatewayLocalIpAddress": {
+      "type": "string",
+      "defaultValue": "1.1.1.1",
+      "metadata": {
+        "description": "Public IP"
+      }
+    },
+    "gatewayPublicIPName": {
+      "type": "string",
+      "defaultValue": "azureGatewayIP",
+      "metadata": {
+        "description": "Arbitrary name for public IP resource used for the new azure gateway"
+      }
+    },
+    "gatewaySku": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "HighPerformance"
+      ],
+      "metadata": {
+        "description": "The Sku of the Gateway. This must be one of Basic, Standard or HighPerformance."
+      }
+    },
+
+    "gatewaySharedKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Shared key (PSK) for IPSec tunnel"
+      }
+    },
+
+  },
+
+  "variables": {
+    "apiVersion": "2015-06-15",
+    "templateBaseUrl": "https://raw.githubusercontent.com/willstg/azurefoundation/master/ARM/VNET",
+    "All_Internet.Inbound.Deny": {
+      "description": "All_Internet.Inbound.Deny",
+      "protocol": "Tcp",
+      "sourcePortRange": "*",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Deny",
+      "priority": 150,
+      "direction": "Inbound"
+    },
+    "All_Internet.Inbound.Allow": {
+      "description": "All_Internet.Inbound.Allow",
+      "protocol": "Tcp",
+      "sourcePortRange": "*",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Allow",
+      "priority": 150,
+      "direction": "Inbound"
+    },
+    "SSH.Inbound.Allow": {
+      "description": "SSH.Inbound.Allow",
+      "protocol": "Tcp",
+      "sourcePortRange": "22",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Allow",
+      "priority": 100,
+      "direction": "Inbound"
+    },
+    "UDP500.Inbound.Allow": {
+      "description": "UDP500.Inbound.Allow",
+      "protocol": "Udp",
+      "sourcePortRange": "500",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Allow",
+      "priority": 101,
+      "direction": "Inbound"
+    },
+    "UDP4500.Inbound.Allow": {
+      "description": "UDP4500.Inbound.Allow",
+      "protocol": "Udp",
+      "sourcePortRange": "4500",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "INTERNET",
+      "destinationAddressPrefix": "*",
+      "access": "Allow",
+      "priority": 102,
+      "direction": "Inbound"
+    },
+    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
+    "subnet799Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet799Name'))]",
+    "api-version": "2015-06-15",
+    "imagePublisher": "cisco",
+    "imageOffer": "cisco-csr-1000v",
+    "imageSKU": "csr-azure-byol",
+    "OSDiskName": "[concat(parameters('vmCSR1aName'), '-disk')]",
+    "vmStorageAccountContainerName": "vhds",
+    "subnet700Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet700Name'))]",
+    "subnet701Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet701Name'))]",
+    "subnet702Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet702Name'))]",
+    "subnet703Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet703Name'))]",
+    "osProfilepassword": {
+      "computername": "[parameters('vmCSR1aName')]",
+      "adminUsername": "[parameters('vmCSRAdminUsername')]",
+      "adminPassword": "[parameters('vmCSRadminPassword')]"
+    }
+  },
+  "resources": [
+
+
+      {
+      "apiVersion": "[variables('apiversion')]",
+      "type": "Microsoft.Network/localNetworkGateways",
+      "name": "[parameters('gatewayLocalName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "localNetworkAddressSpace": {
+          "addressPrefixes": "[parameters('gatewayLocalIpPrefix')]"
+        },
+        "gatewayIpAddress": "[parameters('gatewayLocalIpAddress')]"
+      }
+    },
+    {
+      "apiVersion": "[variables('apiversion')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[parameters('gatewayPublicIPName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic"
+      }
+    },
+    {
+      "apiVersion": "[variables('apiversion')]",
+      "type": "Microsoft.Network/virtualNetworkGateways",
+      "name": "[parameters('gatewayName')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/publicIPAddresses/', parameters('gatewayPublicIPName'))]",
+        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": { "id": "[variables('subnet799Ref')]" },
+              "publicIPAddress": { "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('gatewayPublicIPName'))]" }
+            },
+            "name": "[parameters('gatewayLocalName')]"
+          }
+        ],
+        "sku": {
+          "name": "[parameters('gatewaySku')]",
+          "tier": "[parameters('gatewaySku')]"
+        },
+        "gatewayType": "Vpn",
+        "vpnType": "[parameters('gatewayVPNType')]",
+        "enableBgp": "false"
+      }
+    },
+    {
+      "apiVersion": "[variables('apiversion')]",
+      "name": "[parameters('gatewayConnectionName')]",
+      "type": "Microsoft.Network/connections",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworkGateways/', parameters('gatewayName'))]",
+        "[concat('Microsoft.Network/localNetworkGateways/', parameters('gatewayLocalName'))]"
+      ],
+      "properties": {
+        "virtualNetworkGateway1": {
+          "id": "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('gatewayName'))]"
+        },
+        "localNetworkGateway2": {
+          "id": "[resourceId('Microsoft.Network/localNetworkGateways', parameters('gatewayLocalName'))]"
+        },
+        "connectionType": "IPsec",
+        "routingWeight": 10,
+        "sharedKey": "[parameters('gatewaySharedKey')]"
+      }
+    }
+
+  ],
+  "outputs": {
+   
+  }
+}

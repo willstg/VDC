@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_vdctxpcsr1a_adminPassword": {
+            "value": null
+        },
+        "virtualMachines_vdctxpcsr1a_name": {
+            "value": null
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic0_name": {
+            "value": null
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic1_name": {
+            "value": null
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic2_name": {
+            "value": null
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic3_name": {
+            "value": null
+        },
+        "networkSecurityGroups_vdctxpcsr1a_SSH_SecurityGroup_name": {
+            "value": null
+        },
+        "publicIPAddresses_txCSR1a_name": {
+            "value": null
+        },
+        "routeTables_700_CSR_In_Srvcs_VDC_TX_CSR_RouteTable_name": {
+            "value": null
+        },
+        "routeTables_701_CSR_Out_Srvcs_VDC_TX_CSR_RouteTable_name": {
+            "value": null
+        },
+        "routeTables_702_CSR_Tunnel_Srvcs_VDC_TX_CSR_RouteTable_name": {
+            "value": null
+        },
+        "routeTables_703_CSR_HA_Srvcs_VDC_TX_CSR_RouteTable_name": {
+            "value": null
+        },
+        "storageAccounts_vdctxvnetstnd1a_name": {
+            "value": null
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic0_id": {
+            "value": null
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic1_id": {
+            "value": null
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic2_id": {
+            "value": null
+        },
+        "networkInterfaces_vdctxpcsr1a_Nic3_id": {
+            "value": null
+        }
+    }
+}
